@@ -1,0 +1,129 @@
+name: perizinan_petugas
+description: A new Flutter project.
+
+publish_to: 'none'
+
+version: 0.0.1+1
+
+environment:
+  sdk: '>=2.14.0 <3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.3
+  # Functional programming thingies
+  fpdart: ^0.0.11
+  # Value equality
+  equatable: ^2.0.3
+  # Networking
+  dio: ^4.0.0
+  # Bloc for state management
+  flutter_bloc: ^7.3.1
+  # Service locator
+  get_it: ^7.2.0
+  injectable: ^1.5.0
+  # GetX for route, state & dependency management
+  get: ^4.3.8
+  # Like kotlin sealed class
+  freezed_annotation: ^0.15.0
+  # Responsive UI util
+  flutter_screenutil: ^5.0.0+2
+  # SVG image
+  flutter_svg: ^0.23.0+1
+  # Form builder helper
+  flutter_form_builder: ^6.1.0+1
+  # Staggered grid view
+  flutter_staggered_grid_view: ^0.4.1
+  # No SQL local storage
+  hive: ^2.0.4
+  hive_flutter: ^1.1.0
+  # Cached network image
+  cached_network_image: ^3.1.0
+  # Image picker
+  image_picker: ^0.8.4+2
+  # Permission handler
+  permission_handler: ^8.2.5
+  # Localization / date / number
+  intl: ^0.17.0
+  # Icon bundles
+  font_awesome_flutter: ^9.1.0
+  # Extension collections
+  dartx: ^0.7.1
+  # Immutable lists, sets, maps, and multimaps
+  # fast_immutable_collections: ^7.0.3
+  # Alternative of StatefulWidget to reduce boilerplate
+  flutter_hooks: ^0.18.0
+  # Pin Code Fields
+  pin_code_fields: ^7.3.0
+  # Google 
+  google_maps_flutter: ^2.0.11
+  # # QR Code Renderer
+  # qr_flutter: ^4.0.0
+  # # QR Code Scanner
+  # qr_code_scanner: ^0.5.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^1.0.4
+  # flutter pub run build_runner build --delete-conflicting-outputs
+  build_runner: ^2.1.4
+  freezed: ^0.15.0+1
+  json_serializable: ^5.0.2
+  hive_generator: ^1.1.1
+  # Service locator
+  injectable_generator: ^1.5.2
+  # Splash screen
+  flutter_native_splash: ^1.2.4
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
+
+  fonts:
+    - family: DMSans
+      fonts:
+        - asset: assets/fonts/DMSans-Regular.ttf
+        - asset: assets/fonts/DMSans-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/DMSans-Medium.ttf
+          weight: 500
+
+flutter_native_splash:
+
+  # This package generates native code to customize Flutter's default white native splash screen
+  # with background color and splash image.
+  # Customize the parameters below, and run the following command in the terminal:
+  # flutter pub run flutter_native_splash:create
+  # To restore Flutter's default white splash screen, run the following command in the terminal:
+  # flutter pub run flutter_native_splash:remove
+
+  # color or background_image is the only required parameter.  Use color to set the background
+  # of your splash screen to a solid color.  Use background_image to set the background of your
+  # splash screen to a png image.  This is useful for gradients. The image will be stretch to the
+  # size of the app. Only one parameter can be used, color and background_image cannot both be set.
+  # color: "#ffffff"
+  background_image: "assets/images/4.0x/bg_splash.png"
+
+  # The android, ios and web parameters can be used to disable generating a splash screen on a given 
+  # platform.
+  android: true
+  ios: true
+  web: false
+
+  # The position of the splash image can be set with android_gravity, ios_content_mode, and
+  # web_image_mode parameters.  All default to center.
+  #
+  # android_gravity can be one of the following Android Gravity (see 
+  # https://developer.android.com/reference/android/view/Gravity): bottom, center, 
+  # center_horizontal, center_vertical, clip_horizontal, clip_vertical, end, fill, fill_horizontal,
+  # fill_vertical, left, right, start, or top.
+  android_gravity: center
+  ios_content_mode: center
+
+  # To enable support for Android 12, set the following parameter to true.  Defaults to false.
+  android12: true
