@@ -49,7 +49,7 @@ android {
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
 
-        manifestPlaceholders = [mapsApiKey: "AIzaSyAR0FTH4IqrSaw_LX43KtxTIfVSTMqsthQ"]
+        manifestPlaceholders = [mapsApiKey: "AIzaSyB97jSWXkpNIVjUIVEkQJmJfqzAnZmPjuA"]
     }
 
     buildTypes {
