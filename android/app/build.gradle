@@ -43,7 +43,7 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId "com.example.perizinan_petugas"
+        applicationId "com.dpg.smartpermit.fieldofficer"
         minSdkVersion 21
         targetSdkVersion 31
         versionCode flutterVersionCode.toInteger()
@@ -64,7 +64,7 @@ android {
 
             applicationVariants.all { variant ->
                 variant.outputs.all {
-                    def appName = "Perizinan Petugas"
+                    def appName = "DPG Officer"
                     def newName= "${appName}-release-v${flutterVersionName}.apk"
                     outputFileName = newName
                 }
@@ -78,7 +78,7 @@ android {
             
             applicationVariants.all { variant ->
                 variant.outputs.all {
-                    def appName = "Perizinan Petugas"
+                    def appName = "DPG Officer"
                     def newName= "${appName}-profile-v${flutterVersionName}.apk"
                     outputFileName = newName
                 }
@@ -92,7 +92,7 @@ android {
             
         //     applicationVariants.all { variant ->
         //         variant.outputs.all {
-        //             def appName = "Perizinan Petugas"
+        //             def appName = "DPG Officer"
         //             def newName= "${appName}-debug-v${flutterVersionName}.apk"
         //             outputFileName = newName
         //         }
