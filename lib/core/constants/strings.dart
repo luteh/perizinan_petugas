@@ -111,4 +111,8 @@ class Strings {
   static const String descCreatePassword = 'Silahkan membuat kata sandi anda';
   static const String kataSandiBaru = 'Kata sandi baru';
   static const String konfirmasiKataSandiBaru = 'Konfirmasi kata sandi baru';
+
+  // Notification Page
+  static const String descDoMonitoring = 'Lakukan proses monitoring pada pelanggan berikut:';
+  static const String lihatDetailPelanggan = 'Lihat Detail Data Pelanggan';
 }

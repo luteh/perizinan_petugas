@@ -11,6 +11,7 @@ import 'package:perizinan_petugas/presentation/email_verification/email_verifica
 import 'package:perizinan_petugas/presentation/login/bloc/login_cubit.dart';
 import 'package:perizinan_petugas/presentation/main/cubit/main_cubit.dart';
 import 'package:perizinan_petugas/presentation/main/views/home/cubit/home_cubit.dart';
+import 'package:perizinan_petugas/presentation/main/views/notification/cubit/notification_cubit.dart';
 import 'package:perizinan_petugas/presentation/main/views/profile/cubit/profile_cubit.dart';
 import 'package:perizinan_petugas/presentation/main/views/tanpa_izin/cubit/tanpa_izin_cubit.dart';
 import 'package:perizinan_petugas/presentation/monitoring/cubit/monitoring_cubit.dart';
@@ -83,6 +84,9 @@ class AppPages {
             create: (context) => getIt.get()..onStarted(),
           ),
           BlocProvider<ProfileCubit>(
+            create: (context) => getIt.get(),
+          ),
+          BlocProvider<NotificationCubit>(
             create: (context) => getIt.get(),
           ),
         ],

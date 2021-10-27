@@ -94,25 +94,28 @@ class MyText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: onTap,
-      child: Container(
-        height: height,
-        width: width,
-        alignment: alignment,
-        margin: margin,
-        child: Text(
-          text,
-          style: TextStyle(
-            color: color,
-            fontSize: fontSize ?? Sizes.sp14,
-            fontWeight: fontWeight,
-            height: lineHeight,
-            decoration: decoration,
+    return Container(
+      height: height,
+      width: width,
+      alignment: alignment,
+      margin: margin,
+      child: Material(
+        color: Colors.white,
+        child: InkWell(
+          onTap: onTap,
+          child: Text(
+            text,
+            style: TextStyle(
+              color: color,
+              fontSize: fontSize ?? Sizes.sp14,
+              fontWeight: fontWeight,
+              height: lineHeight,
+              decoration: decoration,
+            ),
+            overflow: overflow,
+            maxLines: maxLines,
+            textAlign: textAlign,
           ),
-          overflow: overflow,
-          maxLines: maxLines,
-          textAlign: textAlign,
         ),
       ),
     );
