@@ -100,7 +100,7 @@ class MyText extends StatelessWidget {
       alignment: alignment,
       margin: margin,
       child: Material(
-        color: Colors.white,
+        color: Colors.transparent,
         child: InkWell(
           onTap: onTap,
           child: Text(
