@@ -14,7 +14,7 @@ class Body extends StatelessWidget {
           fit: BoxFit.cover,
         ),
       ),
-      child: const LoginCard(),
+      child: LoginCard(),
     );
   }
 }

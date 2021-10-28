@@ -11,7 +11,9 @@ import 'package:perizinan_petugas/presentation/change_password/widgets/body/chan
 import 'package:perizinan_petugas/presentation/login/login_page.dart';
 
 class Body extends StatelessWidget {
-  const Body({Key? key}) : super(key: key);
+  Body({Key? key}) : super(key: key);
+
+  final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +28,10 @@ class Body extends StatelessWidget {
           fontWeight: FontWeight.bold,
           color: ColorPalettes.textGrey,
         ),
-        const ChangePasswordForm(),
+        Form(
+          key: _formKey,
+          child: const ChangePasswordForm(),
+        ),
         PrimaryButton(
           text: Strings.simpan.toUpperCase(),
           onPressed: () => _onPressSimpan(context, _isLoggedIn),
@@ -39,6 +44,10 @@ class Body extends StatelessWidget {
   }
 
   _onPressSimpan(BuildContext context, bool isLoggedIn) async {
+    if (!(_formKey.currentState?.validate() ?? false)) {
+      return;
+    }
+
     if (isLoggedIn) {
       NavigationUtil.popUntil();
       return;

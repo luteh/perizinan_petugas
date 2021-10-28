@@ -22,7 +22,7 @@ class EmailVerificationPage extends StatelessWidget {
             fit: BoxFit.cover,
           ),
         ),
-        child: const Body(),
+        child: Body(),
       ),
     );
   }

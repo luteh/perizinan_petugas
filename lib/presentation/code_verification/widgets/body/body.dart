@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:perizinan_petugas/core/constants/strings.dart';
 import 'package:perizinan_petugas/core/style/color_palettes.dart';
 import 'package:perizinan_petugas/core/style/sizes.dart';
+import 'package:perizinan_petugas/core/utils/form_builder_util.dart';
 import 'package:perizinan_petugas/core/utils/navigation_util.dart';
 import 'package:perizinan_petugas/core/utils/theme_util.dart';
 import 'package:perizinan_petugas/core/widgets/my_text.dart';
@@ -14,7 +16,9 @@ import 'package:perizinan_petugas/presentation/code_verification/cubit/code_veri
 import 'package:pin_code_fields/pin_code_fields.dart';
 
 class Body extends StatelessWidget {
-  const Body({Key? key}) : super(key: key);
+  Body({Key? key}) : super(key: key);
+
+  final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -44,14 +48,24 @@ class Body extends StatelessWidget {
             right: Sizes.width70,
             top: Sizes.height70,
           ),
-          child: PinCodeTextField(
-            length: 4,
-            obscureText: false,
-            animationType: AnimationType.fade,
-            animationDuration: ThemeUtil.shortAnimationDuration,
-            onChanged: (value) {},
-            appContext: context,
-            keyboardType: TextInputType.number,
+          child: Form(
+            key: _formKey,
+            child: PinCodeTextField(
+              length: 4,
+              obscureText: false,
+              animationType: AnimationType.fade,
+              animationDuration: ThemeUtil.shortAnimationDuration,
+              onChanged: (value) {},
+              appContext: context,
+              keyboardType: TextInputType.number,
+              validator: FormBuilderValidators.compose([
+                FormBuilderUtil.emptyValidator(context),
+                FormBuilderUtil.minLength(
+                  context,
+                  minLength: 4,
+                ),
+              ]),
+            ),
           ),
         ),
         PrimaryButton(
@@ -82,6 +96,10 @@ class Body extends StatelessWidget {
   }
 
   _onPressBerikutnya(BuildContext context) async {
+    if (!(_formKey.currentState?.validate() ?? false)) {
+      return;
+    }
+    
     await NavigationUtil.pushNamed(ChangePasswordPage.routeName);
   }
 }

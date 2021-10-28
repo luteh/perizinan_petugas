@@ -9,7 +9,9 @@ import 'package:perizinan_petugas/presentation/login/widgets/body/login_form.dar
 import 'package:perizinan_petugas/presentation/main/main_page.dart';
 
 class LoginCard extends StatelessWidget {
-  const LoginCard({Key? key}) : super(key: key);
+  LoginCard({Key? key}) : super(key: key);
+
+  final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +31,10 @@ class LoginCard extends StatelessWidget {
       ),
       child: Column(
         children: [
-          const LoginForm(),
+          Form(
+            key: _formKey,
+            child: const LoginForm(),
+          ),
           const ForgotPasswordSection(),
           PrimaryButton(
             text: Strings.masuk,
@@ -45,6 +50,8 @@ class LoginCard extends StatelessWidget {
   }
 
   _onPressMasuk(BuildContext context) async {
-    await NavigationUtil.pushNamedAndRemoveUntil(MainPage.routeName);
+    if (_formKey.currentState?.validate() ?? false) {
+      await NavigationUtil.pushNamedAndRemoveUntil(MainPage.routeName);
+    }
   }
 }

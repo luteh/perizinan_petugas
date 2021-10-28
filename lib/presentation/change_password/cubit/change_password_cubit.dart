@@ -16,4 +16,16 @@ class ChangePasswordCubit extends Cubit<ChangePasswordState> {
       emit(state.copyWith(isLoggedIn: true));
     }
   }
+
+  saveOldPassword(String oldPassword) {
+    emit(state.copyWith(oldPassword: oldPassword));
+  }
+
+  saveNewPassword(String newPassword) {
+    emit(state.copyWith(newPassword: newPassword));
+  }
+
+  saveNewPasswordConfirmation(String newPasswordConfirmation) {
+    emit(state.copyWith(newPasswordConfirmation: newPasswordConfirmation));
+  }
 }

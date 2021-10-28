@@ -12,6 +12,7 @@ class MyFormField extends StatefulWidget {
   final int? maxLines;
   final EdgeInsets? padding;
   final bool isObscure;
+  final String? Function(String?)? validator;
 
   const MyFormField({
     Key? key,
@@ -22,6 +23,7 @@ class MyFormField extends StatefulWidget {
     this.maxLines,
     this.padding,
     this.isObscure = false,
+    this.validator,
   }) : super(key: key);
 
   @override
@@ -52,7 +54,7 @@ class _MyFormFieldState extends State<MyFormField> {
                 bottom: Sizes.height6,
               ),
             ),
-          TextField(
+          TextFormField(
             textInputAction: TextInputAction.done,
             keyboardType: widget.keyboardType ?? TextInputType.text,
             maxLines: widget.isObscure ? 1 : widget.maxLines,
@@ -80,7 +82,8 @@ class _MyFormFieldState extends State<MyFormField> {
                   : null,
             ),
             onChanged: widget.onChanged,
-          )
+            validator: widget.validator,
+          ),
         ],
       ),
     );
