@@ -109,6 +109,7 @@ class Strings {
 
   // Change Password Page
   static const String descCreatePassword = 'Silahkan membuat kata sandi anda';
+  static const String kataSandiLama = 'Kata sandi lama';
   static const String kataSandiBaru = 'Kata sandi baru';
   static const String konfirmasiKataSandiBaru = 'Konfirmasi kata sandi baru';
 

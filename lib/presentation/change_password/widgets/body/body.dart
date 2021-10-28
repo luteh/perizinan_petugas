@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:perizinan_petugas/core/constants/strings.dart';
 import 'package:perizinan_petugas/core/style/color_palettes.dart';
 import 'package:perizinan_petugas/core/style/sizes.dart';
 import 'package:perizinan_petugas/core/utils/navigation_util.dart';
 import 'package:perizinan_petugas/core/widgets/my_text.dart';
 import 'package:perizinan_petugas/core/widgets/primary_button.dart';
+import 'package:perizinan_petugas/presentation/change_password/cubit/change_password_cubit.dart';
 import 'package:perizinan_petugas/presentation/change_password/widgets/body/change_password_form.dart';
 import 'package:perizinan_petugas/presentation/login/login_page.dart';
 
@@ -13,6 +15,9 @@ class Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final _isLoggedIn = context
+        .select((ChangePasswordCubit element) => element.state.isLoggedIn);
+
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -24,7 +29,7 @@ class Body extends StatelessWidget {
         const ChangePasswordForm(),
         PrimaryButton(
           text: Strings.simpan.toUpperCase(),
-          onPressed: () => _onPressSimpan(context),
+          onPressed: () => _onPressSimpan(context, _isLoggedIn),
           margin: EdgeInsets.only(
             top: Sizes.height46,
           ),
@@ -33,7 +38,12 @@ class Body extends StatelessWidget {
     );
   }
 
-  _onPressSimpan(BuildContext context) async {
+  _onPressSimpan(BuildContext context, bool isLoggedIn) async {
+    if (isLoggedIn) {
+      NavigationUtil.popUntil();
+      return;
+    }
+
     await NavigationUtil.pushNamedAndRemoveUntil(LoginPage.routeName);
   }
 }

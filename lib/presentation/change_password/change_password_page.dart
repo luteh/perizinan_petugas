@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:perizinan_petugas/core/constants/image_asset.dart';
 import 'package:perizinan_petugas/core/constants/strings.dart';
 import 'package:perizinan_petugas/presentation/change_password/widgets/body/body.dart';
+
+import 'cubit/change_password_cubit.dart';
 
 class ChangePasswordPage extends StatelessWidget {
   static const String routeName = '/change-password';
@@ -10,6 +13,9 @@ class ChangePasswordPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final _isLoggedIn = context
+        .select((ChangePasswordCubit element) => element.state.isLoggedIn);
+
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -17,12 +23,14 @@ class ChangePasswordPage extends StatelessWidget {
         ),
       ),
       body: Container(
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage(ImageAsset.bgDamaiPutra),
-            fit: BoxFit.cover,
-          ),
-        ),
+        decoration: _isLoggedIn
+            ? const BoxDecoration(color: Colors.white)
+            : const BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage(ImageAsset.bgDamaiPutra),
+                  fit: BoxFit.cover,
+                ),
+              ),
         child: const Body(),
       ),
     );

@@ -65,7 +65,7 @@ class AppPages {
         // final _args = Get.arguments as ChangePasswordArgs;
 
         return BlocProvider<ChangePasswordCubit>(
-          create: (context) => getIt.get(),
+          create: (context) => getIt.get()..onStarted(),
           child: const ChangePasswordPage(),
         );
       },

@@ -7,6 +7,7 @@ import 'package:perizinan_petugas/core/utils/navigation_util.dart';
 import 'package:perizinan_petugas/core/widgets/my_card.dart';
 import 'package:perizinan_petugas/core/widgets/my_list_tile.dart';
 import 'package:perizinan_petugas/core/widgets/my_text.dart';
+import 'package:perizinan_petugas/presentation/change_password/change_password_page.dart';
 import 'package:perizinan_petugas/presentation/login/login_page.dart';
 
 class GeneralInfoSection extends StatelessWidget {
@@ -36,9 +37,10 @@ class GeneralInfoSection extends StatelessWidget {
           blurRadius: Sizes.radius15,
           child: Column(
             children: [
-              const MyListTile(
+              MyListTile(
                 imageAsset: ImageAsset.icUbahKataSandi,
                 title: Strings.ubahKataSandi,
+                onTap: () => _onTapUbahKataSandi(context),
               ),
               MyListTile(
                 imageAsset: ImageAsset.icLogout,
@@ -54,5 +56,9 @@ class GeneralInfoSection extends StatelessWidget {
 
   _onTapLogout(BuildContext context) async {
     await NavigationUtil.pushNamedAndRemoveUntil(LoginPage.routeName);
+  }
+
+  _onTapUbahKataSandi(BuildContext context) async {
+    await NavigationUtil.pushNamed(ChangePasswordPage.routeName);
   }
 }
