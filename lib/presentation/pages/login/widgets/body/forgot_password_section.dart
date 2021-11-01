@@ -5,7 +5,7 @@ import 'package:perizinan_petugas/core/style/color_palettes.dart';
 import 'package:perizinan_petugas/core/style/sizes.dart';
 import 'package:perizinan_petugas/core/utils/navigation_util.dart';
 import 'package:perizinan_petugas/presentation/core/widgets/my_text.dart';
-import 'package:perizinan_petugas/presentation/email_verification/email_verification_page.dart';
+import 'package:perizinan_petugas/presentation/pages/email_verification/email_verification_page.dart';
 
 class ForgotPasswordSection extends StatelessWidget {
   const ForgotPasswordSection({Key? key}) : super(key: key);

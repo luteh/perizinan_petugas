@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-import '../style/sizes.dart';
-import '../utils/theme_util.dart';
+import '../../../core/style/sizes.dart';
+import '../../../core/utils/theme_util.dart';
 
 enum TextType {
   headline1,

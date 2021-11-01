@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:perizinan_petugas/presentation/monitoring_result.dart/widgets/body/monitoring_list.dart';
+import 'package:perizinan_petugas/presentation/pages/monitoring_result.dart/widgets/body/monitoring_list.dart';
 
 class MonitoringTabBarView extends StatelessWidget {
   final TabController tabController;

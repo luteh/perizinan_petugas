@@ -4,7 +4,7 @@ import 'package:perizinan_petugas/data/remote/request/accounts/token/request_tok
 import 'package:perizinan_petugas/data/remote/response/accounts/token/request_token_response.dart';
 import 'package:perizinan_petugas/data/remote/response/base_response.dart';
 
-import '../../core/unions/failure.dart';
+import '../../domain/core/unions/failure.dart';
 import '../../domain/entities/login/user.dart';
 import '../../domain/repositories/my_repository.dart';
 import '../../domain/usecases/do_login_usecase.dart';

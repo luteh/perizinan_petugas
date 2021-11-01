@@ -7,10 +7,10 @@ import 'package:perizinan_petugas/domain/core/unions/failure.dart';
 import 'package:perizinan_petugas/core/utils/navigation_util.dart';
 import 'package:perizinan_petugas/presentation/core/widgets/primary_button.dart';
 import 'package:perizinan_petugas/presentation/core/base_widget_class.dart';
-import 'package:perizinan_petugas/presentation/login/cubit/login_cubit.dart';
-import 'package:perizinan_petugas/presentation/login/widgets/body/forgot_password_section.dart';
-import 'package:perizinan_petugas/presentation/login/widgets/body/login_form.dart';
-import 'package:perizinan_petugas/presentation/main/main_page.dart';
+import 'package:perizinan_petugas/presentation/pages/login/cubit/login_cubit.dart';
+import 'package:perizinan_petugas/presentation/pages/login/widgets/body/forgot_password_section.dart';
+import 'package:perizinan_petugas/presentation/pages/login/widgets/body/login_form.dart';
+import 'package:perizinan_petugas/presentation/pages/main/main_page.dart';
 
 class LoginCard extends StatelessWidget with BaseWidgetClass {
   LoginCard({Key? key}) : super(key: key);

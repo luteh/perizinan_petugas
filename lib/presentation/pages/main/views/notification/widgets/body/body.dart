@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:perizinan_petugas/core/style/sizes.dart';
-import 'package:perizinan_petugas/presentation/main/views/notification/widgets/body/notification_list_item.dart';
+import 'package:perizinan_petugas/presentation/pages/main/views/notification/widgets/body/notification_list_item.dart';
 
 class Body extends StatelessWidget {
   const Body({Key? key}) : super(key: key);

@@ -3,7 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:perizinan_petugas/core/style/color_palettes.dart';
 import 'package:perizinan_petugas/core/style/sizes.dart';
 import 'package:perizinan_petugas/presentation/core/widgets/my_text.dart';
-import 'package:perizinan_petugas/presentation/permission_detail/widgets/detail_fields.dart';
+import 'package:perizinan_petugas/presentation/pages/permission_detail/widgets/detail_fields.dart';
 
 class DetailCard extends StatelessWidget {
   const DetailCard({Key? key}) : super(key: key);

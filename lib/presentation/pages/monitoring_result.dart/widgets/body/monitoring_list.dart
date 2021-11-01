@@ -3,7 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:perizinan_petugas/core/constants/strings.dart';
 import 'package:perizinan_petugas/core/style/sizes.dart';
 import 'package:perizinan_petugas/presentation/core/widgets/my_text.dart';
-import 'package:perizinan_petugas/presentation/monitoring_result.dart/widgets/body/monitoring_list_item.dart';
+import 'package:perizinan_petugas/presentation/pages/monitoring_result.dart/widgets/body/monitoring_list_item.dart';
 
 class MonitoringList extends StatelessWidget {
   const MonitoringList({Key? key}) : super(key: key);

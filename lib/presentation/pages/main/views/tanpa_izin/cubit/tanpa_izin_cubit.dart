@@ -4,7 +4,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:injectable/injectable.dart';
 import 'package:perizinan_petugas/domain/core/unions/result_state.dart';
 import 'package:perizinan_petugas/core/utils/navigation_util.dart';
-import 'package:perizinan_petugas/presentation/without_permit_detail/without_permit_detail_page.dart';
+import 'package:perizinan_petugas/presentation/pages/without_permit_detail/without_permit_detail_page.dart';
 
 part 'tanpa_izin_cubit.freezed.dart';
 part 'tanpa_izin_state.dart';

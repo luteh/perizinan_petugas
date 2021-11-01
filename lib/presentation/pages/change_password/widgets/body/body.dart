@@ -6,9 +6,9 @@ import 'package:perizinan_petugas/core/style/sizes.dart';
 import 'package:perizinan_petugas/core/utils/navigation_util.dart';
 import 'package:perizinan_petugas/presentation/core/widgets/my_text.dart';
 import 'package:perizinan_petugas/presentation/core/widgets/primary_button.dart';
-import 'package:perizinan_petugas/presentation/change_password/cubit/change_password_cubit.dart';
-import 'package:perizinan_petugas/presentation/change_password/widgets/body/change_password_form.dart';
-import 'package:perizinan_petugas/presentation/login/login_page.dart';
+import 'package:perizinan_petugas/presentation/pages/change_password/cubit/change_password_cubit.dart';
+import 'package:perizinan_petugas/presentation/pages/change_password/widgets/body/change_password_form.dart';
+import 'package:perizinan_petugas/presentation/pages/login/login_page.dart';
 
 class Body extends StatelessWidget {
   Body({Key? key}) : super(key: key);

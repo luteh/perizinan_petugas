@@ -5,13 +5,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/widgets.dart';
 import 'package:fpdart/fpdart.dart';
-import '../constants/strings.dart';
-import '../libraries/image_picker_util.dart';
-import '../libraries/permission_helper.dart';
-import '../style/sizes.dart';
-import '../../domain/core/unions/failure.dart';
-import '../utils/get_util.dart';
-import '../widgets/my_text.dart';
+import '../../../core/constants/strings.dart';
+import '../../../core/libraries/image_picker_util.dart';
+import '../../../core/libraries/permission_helper.dart';
+import '../../../core/style/sizes.dart';
+import '../../../domain/core/unions/failure.dart';
+import '../../../core/utils/get_util.dart';
+import 'my_text.dart';
 
 class ImagePermissionDialog extends StatelessWidget {
   final Function(File) pickedImageFile;

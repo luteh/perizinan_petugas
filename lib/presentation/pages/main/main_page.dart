@@ -8,9 +8,9 @@ import 'package:perizinan_petugas/core/style/color_palettes.dart';
 import 'package:perizinan_petugas/core/style/sizes.dart';
 import 'package:perizinan_petugas/core/utils/theme_util.dart';
 import 'package:perizinan_petugas/presentation/core/widgets/fade_indexed_stack.dart';
-import 'package:perizinan_petugas/presentation/main/cubit/main_cubit.dart';
-import 'package:perizinan_petugas/presentation/main/views/notification/notification_view.dart';
-import 'package:perizinan_petugas/presentation/main/views/tanpa_izin/tanpa_izin_view.dart';
+import 'package:perizinan_petugas/presentation/pages/main/cubit/main_cubit.dart';
+import 'package:perizinan_petugas/presentation/pages/main/views/notification/notification_view.dart';
+import 'package:perizinan_petugas/presentation/pages/main/views/tanpa_izin/tanpa_izin_view.dart';
 
 import 'views/home/home_view.dart';
 import 'views/profile/profile_view.dart';

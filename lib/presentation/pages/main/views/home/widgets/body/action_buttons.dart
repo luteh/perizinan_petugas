@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:perizinan_petugas/core/constants/image_asset.dart';
 import 'package:perizinan_petugas/core/style/sizes.dart';
-import 'package:perizinan_petugas/presentation/main/views/home/widgets/body/icon_card.dart';
-import 'package:perizinan_petugas/presentation/main/views/home/widgets/dialog/map_filter_dialog.dart';
+import 'package:perizinan_petugas/presentation/pages/main/views/home/widgets/body/icon_card.dart';
+import 'package:perizinan_petugas/presentation/pages/main/views/home/widgets/dialog/map_filter_dialog.dart';
 
 class ActionButtons extends StatelessWidget {
   const ActionButtons({Key? key}) : super(key: key);

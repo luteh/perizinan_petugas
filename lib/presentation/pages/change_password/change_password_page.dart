@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:perizinan_petugas/core/constants/image_asset.dart';
 import 'package:perizinan_petugas/core/constants/strings.dart';
-import 'package:perizinan_petugas/presentation/change_password/widgets/body/body.dart';
+import 'package:perizinan_petugas/presentation/pages/change_password/widgets/body/body.dart';
 
 import 'cubit/change_password_cubit.dart';
 

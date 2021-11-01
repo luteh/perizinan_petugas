@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/widgets.dart';
 
-import '../style/color_palettes.dart';
-import '../style/sizes.dart';
-import '../widgets/my_text.dart';
+import '../../../core/style/color_palettes.dart';
+import '../../../core/style/sizes.dart';
+import 'my_text.dart';
 
 class SecondaryButton extends StatelessWidget {
   final String text;

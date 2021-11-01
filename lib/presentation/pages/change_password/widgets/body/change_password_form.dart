@@ -7,7 +7,7 @@ import 'package:perizinan_petugas/core/constants/strings.dart';
 import 'package:perizinan_petugas/core/style/sizes.dart';
 import 'package:perizinan_petugas/core/utils/form_builder_util.dart';
 import 'package:perizinan_petugas/presentation/core/widgets/my_form_field.dart';
-import 'package:perizinan_petugas/presentation/change_password/cubit/change_password_cubit.dart';
+import 'package:perizinan_petugas/presentation/pages/change_password/cubit/change_password_cubit.dart';
 
 class ChangePasswordForm extends StatelessWidget {
   const ChangePasswordForm({Key? key}) : super(key: key);

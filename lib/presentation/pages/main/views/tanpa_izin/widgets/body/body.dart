@@ -9,8 +9,8 @@ import 'package:perizinan_petugas/core/style/sizes.dart';
 import 'package:perizinan_petugas/core/utils/navigation_util.dart';
 import 'package:perizinan_petugas/presentation/core/widgets/my_icon_card.dart';
 import 'package:perizinan_petugas/presentation/core/widgets/primary_button.dart';
-import 'package:perizinan_petugas/presentation/main/views/tanpa_izin/cubit/tanpa_izin_cubit.dart';
-import 'package:perizinan_petugas/presentation/monitoring_data/monitoring_data_page.dart';
+import 'package:perizinan_petugas/presentation/pages/main/views/tanpa_izin/cubit/tanpa_izin_cubit.dart';
+import 'package:perizinan_petugas/presentation/pages/monitoring_data/monitoring_data_page.dart';
 
 class Body extends StatelessWidget {
   const Body({Key? key}) : super(key: key);

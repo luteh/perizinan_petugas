@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:perizinan_petugas/presentation/main/views/tanpa_izin/widgets/header/header.dart';
+import 'package:perizinan_petugas/presentation/pages/main/views/tanpa_izin/widgets/header/header.dart';
 
 import 'widgets/body/body.dart';
 

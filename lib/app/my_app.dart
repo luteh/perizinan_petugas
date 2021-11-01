@@ -8,8 +8,8 @@ import '../core/constants/strings.dart';
 import '../core/style/app_theme.dart';
 import '../data/local/local_data_source.dart';
 import '../di/injection_container.dart';
-import '../presentation/login/login_page.dart';
-import '../presentation/main/main_page.dart';
+import '../presentation/pages/login/login_page.dart';
+import '../presentation/pages/main/main_page.dart';
 import 'app_blocs.dart';
 import 'app_pages.dart';
 

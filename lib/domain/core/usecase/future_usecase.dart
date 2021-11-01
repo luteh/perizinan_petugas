@@ -2,7 +2,7 @@ import 'dart:developer';
 
 import 'package:fpdart/fpdart.dart';
 
-import '../../../domain/core/unions/failure.dart';
+import '../unions/failure.dart';
 
 abstract class FutureUseCase<Type, Params> {
   Future<Either<Failure, Type>> call(Params params) async {

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../style/sizes.dart';
+import '../../../core/style/sizes.dart';
 
 class MySliverAppBar extends StatelessWidget {
   // 1

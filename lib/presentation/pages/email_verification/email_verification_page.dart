@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:perizinan_petugas/core/constants/image_asset.dart';
 import 'package:perizinan_petugas/core/constants/strings.dart';
-import 'package:perizinan_petugas/presentation/email_verification/widgets/body/body.dart';
+import 'package:perizinan_petugas/presentation/pages/email_verification/widgets/body/body.dart';
 
 class EmailVerificationPage extends StatelessWidget {
   static const routeName = '/email-verification';

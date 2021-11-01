@@ -11,8 +11,8 @@ import 'package:perizinan_petugas/core/utils/navigation_util.dart';
 import 'package:perizinan_petugas/core/utils/theme_util.dart';
 import 'package:perizinan_petugas/presentation/core/widgets/my_text.dart';
 import 'package:perizinan_petugas/presentation/core/widgets/primary_button.dart';
-import 'package:perizinan_petugas/presentation/change_password/change_password_page.dart';
-import 'package:perizinan_petugas/presentation/code_verification/cubit/code_verification_cubit.dart';
+import 'package:perizinan_petugas/presentation/pages/change_password/change_password_page.dart';
+import 'package:perizinan_petugas/presentation/pages/code_verification/cubit/code_verification_cubit.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
 class Body extends StatelessWidget {

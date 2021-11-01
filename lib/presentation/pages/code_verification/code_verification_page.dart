@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:perizinan_petugas/core/constants/image_asset.dart';
 import 'package:perizinan_petugas/core/constants/strings.dart';
-import 'package:perizinan_petugas/presentation/code_verification/code_verification_args.dart';
-import 'package:perizinan_petugas/presentation/code_verification/widgets/body/body.dart';
+import 'package:perizinan_petugas/presentation/pages/code_verification/code_verification_args.dart';
+import 'package:perizinan_petugas/presentation/pages/code_verification/widgets/body/body.dart';
 
 /// Required arguments as [CodeVerificationArgs]
 class CodeVerificationPage extends StatelessWidget {

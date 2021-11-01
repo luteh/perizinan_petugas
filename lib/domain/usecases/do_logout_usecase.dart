@@ -2,8 +2,8 @@ import 'package:equatable/equatable.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../core/base/usecase/future_usecase.dart';
-import '../../core/unions/failure.dart';
+import '../core/usecase/future_usecase.dart';
+import '../core/unions/failure.dart';
 import '../../domain/repositories/my_repository.dart';
 
 class DoLogoutUseCaseParams extends Equatable {

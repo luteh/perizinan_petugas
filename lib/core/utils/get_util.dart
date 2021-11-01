@@ -3,7 +3,7 @@ import 'navigation_util.dart';
 import 'package:get/get.dart';
 
 import '../style/sizes.dart';
-import '../unions/failure.dart';
+import '../../domain/core/unions/failure.dart';
 
 class GetUtil {
   const GetUtil._();

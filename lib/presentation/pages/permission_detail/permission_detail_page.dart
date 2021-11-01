@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:perizinan_petugas/core/constants/strings.dart';
 import 'package:perizinan_petugas/core/style/sizes.dart';
-import 'package:perizinan_petugas/presentation/permission_detail/widgets/detail_card.dart';
-import 'package:perizinan_petugas/presentation/permission_detail/widgets/footer/footer.dart';
-import 'package:perizinan_petugas/presentation/permission_detail/widgets/unit_perumahan_section.dart';
+import 'package:perizinan_petugas/presentation/pages/permission_detail/widgets/detail_card.dart';
+import 'package:perizinan_petugas/presentation/pages/permission_detail/widgets/footer/footer.dart';
+import 'package:perizinan_petugas/presentation/pages/permission_detail/widgets/unit_perumahan_section.dart';
 
 class PermissionDetailPage extends StatelessWidget {
   static const routeName = '/permission-detail';

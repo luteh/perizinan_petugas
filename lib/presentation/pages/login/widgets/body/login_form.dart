@@ -5,7 +5,7 @@ import 'package:perizinan_petugas/core/constants/strings.dart';
 import 'package:perizinan_petugas/core/style/sizes.dart';
 import 'package:perizinan_petugas/core/utils/form_builder_util.dart';
 import 'package:perizinan_petugas/presentation/core/widgets/my_form_field.dart';
-import 'package:perizinan_petugas/presentation/login/cubit/login_cubit.dart';
+import 'package:perizinan_petugas/presentation/pages/login/cubit/login_cubit.dart';
 
 class LoginForm extends StatelessWidget {
   const LoginForm({Key? key}) : super(key: key);

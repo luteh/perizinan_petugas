@@ -9,8 +9,8 @@ import 'package:perizinan_petugas/core/utils/navigation_util.dart';
 import 'package:perizinan_petugas/presentation/core/widgets/my_form_field.dart';
 import 'package:perizinan_petugas/presentation/core/widgets/my_text.dart';
 import 'package:perizinan_petugas/presentation/core/widgets/primary_button.dart';
-import 'package:perizinan_petugas/presentation/code_verification/code_verification_args.dart';
-import 'package:perizinan_petugas/presentation/code_verification/code_verification_page.dart';
+import 'package:perizinan_petugas/presentation/pages/code_verification/code_verification_args.dart';
+import 'package:perizinan_petugas/presentation/pages/code_verification/code_verification_page.dart';
 
 class Body extends StatelessWidget {
   Body({Key? key}) : super(key: key);

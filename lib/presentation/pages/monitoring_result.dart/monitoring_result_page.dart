@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:perizinan_petugas/core/constants/strings.dart';
 import 'package:perizinan_petugas/core/style/sizes.dart';
-import 'package:perizinan_petugas/presentation/monitoring_result.dart/widgets/body/body.dart';
-import 'package:perizinan_petugas/presentation/monitoring_result.dart/widgets/header/header.dart';
+import 'package:perizinan_petugas/presentation/pages/monitoring_result.dart/widgets/body/body.dart';
+import 'package:perizinan_petugas/presentation/pages/monitoring_result.dart/widgets/header/header.dart';
 
 class MonitoringResultPage extends StatelessWidget {
   static const routeName = '/monitoring-result';

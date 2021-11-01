@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import '../widgets/my_text.dart';
-import '../widgets/primary_button.dart';
+import 'my_text.dart';
+import 'primary_button.dart';
 
-import '../style/sizes.dart';
-import '../../domain/core/unions/failure.dart';
+import '../../../core/style/sizes.dart';
+import '../../../domain/core/unions/failure.dart';
 
 class MyErrorWidget extends StatelessWidget {
   final Failure failure;

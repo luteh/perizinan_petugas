@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../style/color_palettes.dart';
+import '../../../core/style/color_palettes.dart';
 
 class GradientContainer extends StatelessWidget {
   final Widget child;

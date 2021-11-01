@@ -1,10 +1,9 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
-import 'package:perizinan_petugas/domain/core/unions/result_state.dart';
 import 'package:perizinan_petugas/data/remote/response/accounts/token/request_token_response.dart';
 import 'package:perizinan_petugas/data/remote/response/base_response.dart';
-import 'package:perizinan_petugas/domain/entities/login/login.dart';
+import 'package:perizinan_petugas/domain/core/unions/result_state.dart';
 import 'package:perizinan_petugas/domain/usecases/do_login_usecase.dart';
 
 part 'login_cubit.freezed.dart';

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:perizinan_petugas/core/utils/navigation_util.dart';
-import 'package:perizinan_petugas/presentation/permission_detail/permission_detail_page.dart';
+import 'package:perizinan_petugas/presentation/pages/permission_detail/permission_detail_page.dart';
 
 class HomeMaps extends StatelessWidget {
   const HomeMaps({Key? key}) : super(key: key);

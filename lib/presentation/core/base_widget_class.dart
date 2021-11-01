@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:perizinan_petugas/core/style/color_palettes.dart';
 import 'package:perizinan_petugas/core/style/sizes.dart';
 import 'package:perizinan_petugas/core/utils/get_util.dart';
-import 'package:perizinan_petugas/core/widgets/loading_dialog.dart';
+import 'package:perizinan_petugas/presentation/core/widgets/loading_dialog.dart';
 
 mixin BaseWidgetClass {
   Flushbar showFlushbar(BuildContext context, String? title, String? message,

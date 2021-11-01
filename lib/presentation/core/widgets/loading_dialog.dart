@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../constants/strings.dart';
-import '../style/sizes.dart';
-import '../utils/theme_util.dart';
-import '../widgets/my_text.dart';
+import '../../../core/constants/strings.dart';
+import '../../../core/style/sizes.dart';
+import '../../../core/utils/theme_util.dart';
+import 'my_text.dart';
 
 class LoadingDialog extends StatelessWidget {
   const LoadingDialog({Key? key}) : super(key: key);

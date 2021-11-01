@@ -4,9 +4,9 @@ import 'package:perizinan_petugas/core/style/sizes.dart';
 import 'package:perizinan_petugas/core/utils/theme_util.dart';
 import 'package:perizinan_petugas/presentation/core/widgets/fade_indexed_stack.dart';
 import 'package:perizinan_petugas/presentation/core/widgets/my_card.dart';
-import 'package:perizinan_petugas/presentation/without_permit_detail/cubit/without_permit_detail_cubit.dart';
-import 'package:perizinan_petugas/presentation/without_permit_detail/widgets/body/hasil_monitoring_view.dart';
-import 'package:perizinan_petugas/presentation/without_permit_detail/widgets/body/informasi_umum_view.dart';
+import 'package:perizinan_petugas/presentation/pages/without_permit_detail/cubit/without_permit_detail_cubit.dart';
+import 'package:perizinan_petugas/presentation/pages/without_permit_detail/widgets/body/hasil_monitoring_view.dart';
+import 'package:perizinan_petugas/presentation/pages/without_permit_detail/widgets/body/informasi_umum_view.dart';
 
 class Body extends StatelessWidget {
   const Body({Key? key}) : super(key: key);

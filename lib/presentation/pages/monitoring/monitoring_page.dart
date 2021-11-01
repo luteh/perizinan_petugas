@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:perizinan_petugas/core/constants/strings.dart';
-import 'package:perizinan_petugas/presentation/monitoring/monitoring_args.dart';
-import 'package:perizinan_petugas/presentation/monitoring/widgets/body/body.dart';
-import 'package:perizinan_petugas/presentation/monitoring/widgets/footer/footer.dart';
+import 'package:perizinan_petugas/presentation/pages/monitoring/monitoring_args.dart';
+import 'package:perizinan_petugas/presentation/pages/monitoring/widgets/body/body.dart';
+import 'package:perizinan_petugas/presentation/pages/monitoring/widgets/footer/footer.dart';
 
 /// Can send arguments as [MonitoringArgs]
 class MonitoringPage extends StatelessWidget {

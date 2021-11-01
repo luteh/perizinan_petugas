@@ -3,7 +3,7 @@ import 'package:flutter/painting.dart';
 import 'package:flutter/widgets.dart';
 
 import '../style/sizes.dart';
-import '../widgets/my_text.dart';
+import '../../presentation/core/widgets/my_text.dart';
 
 extension SnackbarExt on BuildContext {
   ScaffoldFeatureController showErrorSnackbar(String message,

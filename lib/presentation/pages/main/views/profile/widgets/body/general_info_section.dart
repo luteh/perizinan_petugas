@@ -7,8 +7,8 @@ import 'package:perizinan_petugas/core/utils/navigation_util.dart';
 import 'package:perizinan_petugas/presentation/core/widgets/my_card.dart';
 import 'package:perizinan_petugas/presentation/core/widgets/my_list_tile.dart';
 import 'package:perizinan_petugas/presentation/core/widgets/my_text.dart';
-import 'package:perizinan_petugas/presentation/change_password/change_password_page.dart';
-import 'package:perizinan_petugas/presentation/login/login_page.dart';
+import 'package:perizinan_petugas/presentation/pages/change_password/change_password_page.dart';
+import 'package:perizinan_petugas/presentation/pages/login/login_page.dart';
 
 class GeneralInfoSection extends StatelessWidget {
   const GeneralInfoSection({Key? key}) : super(key: key);

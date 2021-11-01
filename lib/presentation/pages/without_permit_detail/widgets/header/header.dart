@@ -3,7 +3,7 @@ import 'package:perizinan_petugas/core/style/color_palettes.dart';
 import 'package:perizinan_petugas/core/style/sizes.dart';
 import 'package:perizinan_petugas/presentation/core/widgets/my_card.dart';
 import 'package:perizinan_petugas/domain/without_permit_detail/tab_item_data.dart';
-import 'package:perizinan_petugas/presentation/without_permit_detail/widgets/header/tab_item.dart';
+import 'package:perizinan_petugas/presentation/pages/without_permit_detail/widgets/header/tab_item.dart';
 
 class Header extends StatelessWidget {
   const Header({Key? key}) : super(key: key);

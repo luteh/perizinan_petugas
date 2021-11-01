@@ -5,8 +5,8 @@ import 'package:perizinan_petugas/core/style/sizes.dart';
 import 'package:perizinan_petugas/presentation/core/widgets/my_card.dart';
 import 'package:perizinan_petugas/presentation/core/widgets/my_form_field.dart';
 import 'package:perizinan_petugas/presentation/core/widgets/my_text.dart';
-import 'package:perizinan_petugas/presentation/monitoring/widgets/body/add_photo_item.dart';
-import 'package:perizinan_petugas/presentation/monitoring/widgets/body/total_biaya_form.dart';
+import 'package:perizinan_petugas/presentation/pages/monitoring/widgets/body/add_photo_item.dart';
+import 'package:perizinan_petugas/presentation/pages/monitoring/widgets/body/total_biaya_form.dart';
 
 class MonitoringCard extends StatelessWidget {
   const MonitoringCard({Key? key}) : super(key: key);

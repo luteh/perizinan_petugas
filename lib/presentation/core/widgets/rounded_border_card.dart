@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../style/color_palettes.dart';
-import '../style/sizes.dart';
+import '../../../core/style/color_palettes.dart';
+import '../../../core/style/sizes.dart';
 
 class RoundedBorderCard extends StatelessWidget {
   final Widget child;

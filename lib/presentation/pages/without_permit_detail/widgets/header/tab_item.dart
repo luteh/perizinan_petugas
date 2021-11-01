@@ -5,7 +5,7 @@ import 'package:perizinan_petugas/core/style/color_palettes.dart';
 import 'package:perizinan_petugas/core/style/sizes.dart';
 import 'package:perizinan_petugas/presentation/core/widgets/my_text.dart';
 import 'package:perizinan_petugas/domain/without_permit_detail/tab_item_data.dart';
-import 'package:perizinan_petugas/presentation/without_permit_detail/cubit/without_permit_detail_cubit.dart';
+import 'package:perizinan_petugas/presentation/pages/without_permit_detail/cubit/without_permit_detail_cubit.dart';
 
 class TabItem extends StatelessWidget {
   final TabItemData data;

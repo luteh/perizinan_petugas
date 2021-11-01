@@ -4,9 +4,9 @@ import 'package:perizinan_petugas/core/style/color_palettes.dart';
 import 'package:perizinan_petugas/core/style/sizes.dart';
 import 'package:perizinan_petugas/core/utils/navigation_util.dart';
 import 'package:perizinan_petugas/presentation/core/widgets/primary_button.dart';
-import 'package:perizinan_petugas/presentation/monitoring/monitoring_args.dart';
-import 'package:perizinan_petugas/presentation/monitoring/monitoring_page.dart';
-import 'package:perizinan_petugas/presentation/without_permit_detail/widgets/body/hasil_monitoring_list_item.dart';
+import 'package:perizinan_petugas/presentation/pages/monitoring/monitoring_args.dart';
+import 'package:perizinan_petugas/presentation/pages/monitoring/monitoring_page.dart';
+import 'package:perizinan_petugas/presentation/pages/without_permit_detail/widgets/body/hasil_monitoring_list_item.dart';
 
 class HasilMonitoringView extends StatelessWidget {
   const HasilMonitoringView({Key? key}) : super(key: key);

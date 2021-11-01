@@ -4,8 +4,8 @@ import 'package:injectable/injectable.dart';
 import 'package:perizinan_petugas/data/remote/response/accounts/token/request_token_response.dart';
 import 'package:perizinan_petugas/data/remote/response/base_response.dart';
 
-import '../../core/base/usecase/future_usecase.dart';
-import '../../core/unions/failure.dart';
+import '../core/usecase/future_usecase.dart';
+import '../core/unions/failure.dart';
 import '../../domain/repositories/my_repository.dart';
 
 class DoLoginUseCaseParams extends Equatable {
