@@ -1,15 +1,14 @@
 import 'package:fpdart/fpdart.dart';
 import 'package:injectable/injectable.dart';
+import 'package:perizinan_petugas/data/remote/request/accounts/token/request_token_request.dart';
+import 'package:perizinan_petugas/data/remote/response/accounts/token/request_token_response.dart';
+import 'package:perizinan_petugas/data/remote/response/base_response.dart';
 
-import '../../core/constants/constants.dart';
-import '../../core/constants/strings.dart';
 import '../../core/unions/failure.dart';
-import '../../domain/entities/login/login.dart';
 import '../../domain/entities/login/user.dart';
 import '../../domain/repositories/my_repository.dart';
 import '../../domain/usecases/do_login_usecase.dart';
 import '../../domain/usecases/do_logout_usecase.dart';
-import '../../domain/usecases/update_profile_usecase.dart';
 import '../local/local_data_source.dart';
 import '../remote/remote_data_source.dart';
 
@@ -20,21 +19,18 @@ class MyRepositoryImpl implements MyRepository {
 
   MyRepositoryImpl(this._remoteDataSource, this._localDataSource);
   @override
-  Future<Either<Failure, Login>> doLogin(DoLoginUseCaseParams params) async {
-    final _data = await _remoteDataSource.doLogin(params);
+  Future<Either<Failure, BaseResponse<RequestTokenResponse>>> doLogin(
+      DoLoginUseCaseParams params) async {
+    final _response = await _remoteDataSource.doLogin(
+        request: RequestTokenRequest(
+      emailAddress: params.email,
+      password: params.password,
+      firebaseToken: 'firebaseToken',
+    ));
 
-    if (_data.status == Constants.statusError) {
-      return Left(
-        Failure.defaultError(_data.message ?? Strings.msgErrorGeneral),
-      );
-    }
+    await _localDataSource.saveToken(_response.data.toJsonString());
 
-    await Future.wait([
-      _localDataSource.saveToken(_data.token),
-      _localDataSource.saveUser(_data.user?.toEntity())
-    ]);
-
-    return Right(_data.toDomain());
+    return Right(_response);
   }
 
   @override
@@ -53,21 +49,5 @@ class MyRepositoryImpl implements MyRepository {
   @override
   User? getUser() {
     return _localDataSource.getUser()?.toDomain();
-  }
-
-  @override
-  Future<Either<Failure, Login>> updateProfile(
-      UpdateProfileUseCaseParams params) async {
-    final _data = await _remoteDataSource.updateProfile(params);
-
-    if (_data.status == Constants.statusError) {
-      return Left(
-        Failure.defaultError(_data.message ?? Strings.msgErrorGeneral),
-      );
-    }
-
-    await _localDataSource.saveUser(_data.user?.toEntity());
-
-    return Right(_data.toDomain());
   }
 }

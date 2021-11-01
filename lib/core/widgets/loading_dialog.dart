@@ -14,7 +14,7 @@ class LoadingDialog extends StatelessWidget {
       elevation: 0,
       backgroundColor: Colors.transparent,
       insetPadding: EdgeInsets.symmetric(
-        horizontal: Sizes.width40,
+        horizontal: Sizes.width104,
         vertical: Sizes.height24,
       ),
       child: Container(

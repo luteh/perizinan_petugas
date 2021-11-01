@@ -10,8 +10,8 @@ class HiveManager {
 
   HiveManager(this._box);
 
-  Future<void> saveToken(String? token) async {
-    await _box.put(HiveKey.token, token);
+  Future<void> saveToken(String? tokenJson) async {
+    await _box.put(HiveKey.token, tokenJson);
   }
 
   Future<void> deleteToken() async {

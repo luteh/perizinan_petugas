@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:perizinan_petugas/data/remote/response/base_response.dart';
 
 part 'failure.freezed.dart';
 
@@ -46,6 +47,19 @@ class Failure with _$Failure {
       try {
         late Failure failure;
         if (error is DioError) {
+          if (error.response?.data != null) {
+            final _baseResponse =
+                BaseResponse.fromJson(error.response?.data, (json) => null);
+
+            if (_baseResponse.errors?.isNotEmpty ?? false) {
+              return Failure.defaultError(_baseResponse.errors!.join('\n'));
+            }
+
+            if (_baseResponse.message != null) {
+              return Failure.defaultError(_baseResponse.message!);
+            }
+          }
+
           switch (error.type) {
             case DioErrorType.cancel:
               failure = const Failure.requestCancelled();

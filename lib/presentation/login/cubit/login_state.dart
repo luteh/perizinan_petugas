@@ -5,7 +5,7 @@ class LoginState with _$LoginState {
   const factory LoginState({
     required String email,
     required String password,
-    required ResultState<Login> loginResultState,
+    required ResultState<BaseResponse<RequestTokenResponse>> loginResultState,
   }) = _LoginState;
 
   factory LoginState.initial() => const LoginState(

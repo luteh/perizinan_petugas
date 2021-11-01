@@ -8,7 +8,7 @@ import 'package:perizinan_petugas/presentation/code_verification/code_verificati
 import 'package:perizinan_petugas/presentation/code_verification/cubit/code_verification_cubit.dart';
 import 'package:perizinan_petugas/presentation/email_verification/cubit/email_verification_cubit.dart';
 import 'package:perizinan_petugas/presentation/email_verification/email_verification_page.dart';
-import 'package:perizinan_petugas/presentation/login/bloc/login_cubit.dart';
+import 'package:perizinan_petugas/presentation/login/cubit/login_cubit.dart';
 import 'package:perizinan_petugas/presentation/main/cubit/main_cubit.dart';
 import 'package:perizinan_petugas/presentation/main/views/home/cubit/home_cubit.dart';
 import 'package:perizinan_petugas/presentation/main/views/notification/cubit/notification_cubit.dart';

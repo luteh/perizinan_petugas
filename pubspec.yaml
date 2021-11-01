@@ -78,6 +78,8 @@ dev_dependencies:
   injectable_generator: ^1.5.2
   # Splash screen
   flutter_native_splash: ^1.2.4
+  # Toasts & Snackbars customization
+  another_flushbar: ^1.10.24
 
 flutter:
   uses-material-design: true

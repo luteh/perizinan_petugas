@@ -13,7 +13,7 @@ import '../data/local/local_data_source.dart';
 abstract class RegisterModule {
   // You can register named preemptive types like follows
   @Named("baseUrl")
-  String get baseUrl => 'http://dpg/api';
+  String get baseUrl => 'http://103.101.224.73:3100/customer/api';
 
   // url here will be injected
   @lazySingleton
