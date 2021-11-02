@@ -29,8 +29,9 @@ abstract class RegisterModule {
           onRequest: (options, handler) {
             final _token = localDataSource.getToken();
 
-            if (_token != null) {
-              options.headers['Authorization'] = 'Bearer $_token';
+            if (_token?.accessToken != null) {
+              options.headers['Authorization'] =
+                  'Bearer ${_token?.accessToken}';
             }
             handler.next(options);
           },

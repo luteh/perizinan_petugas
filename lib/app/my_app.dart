@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
@@ -10,7 +9,6 @@ import '../data/local/local_data_source.dart';
 import '../di/injection_container.dart';
 import '../presentation/pages/login/login_page.dart';
 import '../presentation/pages/main/main_page.dart';
-import 'app_blocs.dart';
 import 'app_pages.dart';
 
 class MyApp extends StatelessWidget {
@@ -25,9 +23,9 @@ class MyApp extends StatelessWidget {
       ],
     );
 
-    // final _initialRoute = getIt.get<LocalDataSource>().getToken() == null
-    //     ? LoginPage.routeName
-    //     : MainPage.routeName;
+    final _initialRoute = getIt.get<LocalDataSource>().getToken() == null
+        ? LoginPage.routeName
+        : MainPage.routeName;
 
     return ScreenUtilInit(
       designSize: const Size(375, 812),
@@ -38,7 +36,7 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           title: Strings.appName,
           theme: AppTheme.lightTheme,
-          initialRoute: LoginPage.routeName,
+          initialRoute: _initialRoute,
           getPages: AppPages.routes,
         );
       },

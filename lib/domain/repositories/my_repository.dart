@@ -20,5 +20,6 @@ abstract class MyRepository {
       ForgotPasswordUseCaseParams params);
 
   Future<Either<Failure, dynamic>> doLogout(DoLogoutUseCaseParams params);
+  
   User? getUser();
 }
