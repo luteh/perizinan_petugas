@@ -8,6 +8,7 @@ import 'package:perizinan_petugas/data/remote/response/base_response.dart';
 import 'package:perizinan_petugas/domain/core/usecase/no_param.dart';
 import 'package:perizinan_petugas/domain/usecases/do_verification_code_usecase.dart';
 import 'package:perizinan_petugas/domain/usecases/forgot_password_usecase.dart';
+import 'package:perizinan_petugas/domain/usecases/update_password_usecase.dart';
 
 import '../../domain/core/unions/failure.dart';
 import '../../domain/entities/login/user.dart';
@@ -82,6 +83,15 @@ class MyRepositoryImpl implements MyRepository {
   Future<Either<Failure, BaseResponse<GetProfileResponse>>> getProfile(
       NoParam params) async {
     final _response = await _remoteDataSource.getProfile();
+
+    return Right(_response);
+  }
+
+  @override
+  Future<Either<Failure, BaseResponse>> updatePassword(
+      UpdatePasswordUseCaseParams params) async {
+    final _response =
+        await _remoteDataSource.updatePassword(request: params.toRequest());
 
     return Right(_response);
   }

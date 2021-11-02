@@ -40,6 +40,13 @@ abstract class RegisterModule {
             handler.next(options);
           },
           onError: (dioError, handler) async {
+            final _token = localDataSource.getToken();
+
+            if (_token?.accessToken?.value == null) {
+              handler.next(dioError);
+              return;
+            }
+
             // Do force logout when error unauthorized
             if (dioError.response?.statusCode == HttpStatus.unauthorized) {
               handler.reject(dioError);
