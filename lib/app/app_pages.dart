@@ -85,7 +85,7 @@ class AppPages {
             create: (context) => getIt.get()..onStarted(),
           ),
           BlocProvider<ProfileCubit>(
-            create: (context) => getIt.get(),
+            create: (context) => getIt.get()..onStarted(),
           ),
           BlocProvider<NotificationCubit>(
             create: (context) => getIt.get(),

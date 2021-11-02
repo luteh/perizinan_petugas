@@ -3,6 +3,7 @@ import 'package:perizinan_petugas/data/core/serialize_helper.dart';
 import 'package:perizinan_petugas/data/remote/request/accounts/forgot_password/set_password_request.dart';
 import 'package:perizinan_petugas/data/remote/request/accounts/forgot_password/verification_code_request.dart';
 import 'package:perizinan_petugas/data/remote/request/accounts/token/request_token_request.dart';
+import 'package:perizinan_petugas/data/remote/response/accounts/profile/get_profile_response.dart';
 import 'package:perizinan_petugas/data/remote/response/accounts/token/request_token_response.dart';
 import 'package:perizinan_petugas/data/remote/response/base_response.dart';
 
@@ -41,6 +42,14 @@ class RemoteDataSource with SerializeHelper {
     return BaseResponse.fromJson(
       _response.data,
       (json) => null,
+    );
+  }
+
+  Future<BaseResponse<GetProfileResponse>> getProfile() async {
+    final _response = await _apiService.getProfile();
+    return BaseResponse.fromJson(
+      _response.data,
+      (json) => GetProfileResponse.fromJson(json as dynamic),
     );
   }
 }

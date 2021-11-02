@@ -33,4 +33,10 @@ class ApiService {
       data: request.toJson(),
     );
   }
+
+  Future<Response> getProfile() async {
+    return await _dio.get(
+      Endpoint.getProfile,
+    );
+  }
 }

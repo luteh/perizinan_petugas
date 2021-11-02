@@ -2,8 +2,10 @@ import 'package:fpdart/fpdart.dart';
 import 'package:injectable/injectable.dart';
 import 'package:perizinan_petugas/data/remote/request/accounts/forgot_password/verification_code_request.dart';
 import 'package:perizinan_petugas/data/remote/request/accounts/token/request_token_request.dart';
+import 'package:perizinan_petugas/data/remote/response/accounts/profile/get_profile_response.dart';
 import 'package:perizinan_petugas/data/remote/response/accounts/token/request_token_response.dart';
 import 'package:perizinan_petugas/data/remote/response/base_response.dart';
+import 'package:perizinan_petugas/domain/core/usecase/no_param.dart';
 import 'package:perizinan_petugas/domain/usecases/do_verification_code_usecase.dart';
 import 'package:perizinan_petugas/domain/usecases/forgot_password_usecase.dart';
 
@@ -72,6 +74,14 @@ class MyRepositoryImpl implements MyRepository {
       ForgotPasswordUseCaseParams params) async {
     final _response =
         await _remoteDataSource.setNewPassword(request: params.toRequest());
+
+    return Right(_response);
+  }
+
+  @override
+  Future<Either<Failure, BaseResponse<GetProfileResponse>>> getProfile(
+      NoParam params) async {
+    final _response = await _remoteDataSource.getProfile();
 
     return Right(_response);
   }

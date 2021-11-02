@@ -4,6 +4,10 @@ import 'package:dio/adapter.dart';
 import 'package:dio/dio.dart';
 import 'package:hive/hive.dart';
 import 'package:injectable/injectable.dart';
+import 'package:perizinan_petugas/core/utils/navigation_util.dart';
+import 'package:perizinan_petugas/di/injection_container.dart';
+import 'package:perizinan_petugas/domain/usecases/do_logout_usecase.dart';
+import 'package:perizinan_petugas/presentation/pages/login/login_page.dart';
 
 import '../core/constants/constants.dart';
 import '../data/local/hive/hive_key.dart';
@@ -29,11 +33,24 @@ abstract class RegisterModule {
           onRequest: (options, handler) {
             final _token = localDataSource.getToken();
 
-            if (_token?.accessToken != null) {
+            if (_token?.accessToken?.value != null) {
               options.headers['Authorization'] =
-                  'Bearer ${_token?.accessToken}';
+                  'Bearer ${_token?.accessToken?.value}';
             }
             handler.next(options);
+          },
+          onError: (dioError, handler) async {
+            // Do force logout when error unauthorized
+            if (dioError.response?.statusCode == HttpStatus.unauthorized) {
+              handler.reject(dioError);
+              await getIt
+                  .get<DoLogoutUseCase>()
+                  .call(const DoLogoutUseCaseParams());
+              NavigationUtil.pushNamedAndRemoveUntil(LoginPage.routeName);
+              return;
+            }
+
+            handler.next(dioError);
           },
         ),
       )

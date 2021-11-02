@@ -10,7 +10,9 @@ class ProfileView extends StatelessWidget {
     return Column(
       children: const [
         Header(),
-        Body(),
+        Expanded(
+          child: Body(),
+        ),
       ],
     );
   }

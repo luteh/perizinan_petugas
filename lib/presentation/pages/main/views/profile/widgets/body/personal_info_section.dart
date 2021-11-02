@@ -3,12 +3,16 @@ import 'package:perizinan_petugas/core/constants/image_asset.dart';
 import 'package:perizinan_petugas/core/constants/strings.dart';
 import 'package:perizinan_petugas/core/style/color_palettes.dart';
 import 'package:perizinan_petugas/core/style/sizes.dart';
+import 'package:perizinan_petugas/data/remote/response/accounts/profile/get_profile_response.dart';
 import 'package:perizinan_petugas/presentation/core/widgets/my_card.dart';
 import 'package:perizinan_petugas/presentation/core/widgets/my_list_tile.dart';
 import 'package:perizinan_petugas/presentation/core/widgets/my_text.dart';
 
 class PersonalInfoSection extends StatelessWidget {
-  const PersonalInfoSection({Key? key}) : super(key: key);
+  final GetProfileResponse profileResponse;
+
+  const PersonalInfoSection({Key? key, required this.profileResponse})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -37,25 +41,25 @@ class PersonalInfoSection extends StatelessWidget {
               context: context,
               color: ColorPalettes.dividerGrey,
               tiles: [
-                const MyListTile(
+                MyListTile(
                   imageAsset: ImageAsset.icNama,
                   title: Strings.nama,
-                  subtitle: 'Maria Genoveva Ashari',
+                  subtitle: profileResponse.name ?? '-',
                 ),
-                const MyListTile(
+                MyListTile(
                   imageAsset: ImageAsset.icEmail,
                   title: Strings.email,
-                  subtitle: 'Maria Genoveva Ashari',
+                  subtitle: profileResponse.emailAddress ?? '-',
                 ),
-                const MyListTile(
+                MyListTile(
                   imageAsset: ImageAsset.icNoTelepon,
                   title: Strings.noTelepon,
-                  subtitle: 'Maria Genoveva Ashari',
+                  subtitle: profileResponse.phoneNumber ?? '-',
                 ),
-                const MyListTile(
+                MyListTile(
                   imageAsset: ImageAsset.icGrup,
                   title: Strings.grup,
-                  subtitle: 'Maria Genoveva Ashari',
+                  subtitle: profileResponse.groupName ?? '-',
                 ),
               ],
             ).toList(),
