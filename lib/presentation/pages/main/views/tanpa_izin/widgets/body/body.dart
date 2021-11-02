@@ -25,7 +25,7 @@ class Body extends StatelessWidget {
           builder: (context, state) {
             return GoogleMap(
               initialCameraPosition: const CameraPosition(
-                target: LatLng(-6.1788664, 106.7908143),
+                target: LatLng(-6.1777942826873335, 106.97580143809319),
                 zoom: 15,
               ),
               myLocationButtonEnabled: false,

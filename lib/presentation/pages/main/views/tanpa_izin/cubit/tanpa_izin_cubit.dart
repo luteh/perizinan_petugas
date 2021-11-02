@@ -19,7 +19,7 @@ class TanpaIzinCubit extends Cubit<TanpaIzinState> {
         markers: {
           Marker(
             markerId: const MarkerId('1'),
-            position: const LatLng(-6.1788664, 106.7908143),
+            position: const LatLng(-6.1777942826873335, 106.97580143809319),
             infoWindow: InfoWindow(
               title: 'Tanpa Izin 1',
               onTap: _onTapInfoWindowMarker,
