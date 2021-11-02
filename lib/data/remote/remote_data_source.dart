@@ -1,5 +1,6 @@
 import 'package:injectable/injectable.dart';
 import 'package:perizinan_petugas/data/core/serialize_helper.dart';
+import 'package:perizinan_petugas/data/remote/request/accounts/forgot_password/set_password_request.dart';
 import 'package:perizinan_petugas/data/remote/request/accounts/forgot_password/verification_code_request.dart';
 import 'package:perizinan_petugas/data/remote/request/accounts/token/request_token_request.dart';
 import 'package:perizinan_petugas/data/remote/response/accounts/token/request_token_response.dart';
@@ -27,6 +28,16 @@ class RemoteDataSource with SerializeHelper {
     required VerificationCodeRequest request,
   }) async {
     final _response = await _apiService.doVerificationCode(request: request);
+    return BaseResponse.fromJson(
+      _response.data,
+      (json) => null,
+    );
+  }
+
+  Future<BaseResponse> setNewPassword({
+    required SetPasswordRequest request,
+  }) async {
+    final _response = await _apiService.setNewPassword(request: request);
     return BaseResponse.fromJson(
       _response.data,
       (json) => null,

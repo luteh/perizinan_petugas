@@ -5,6 +5,7 @@ import 'package:perizinan_petugas/data/remote/request/accounts/token/request_tok
 import 'package:perizinan_petugas/data/remote/response/accounts/token/request_token_response.dart';
 import 'package:perizinan_petugas/data/remote/response/base_response.dart';
 import 'package:perizinan_petugas/domain/usecases/do_verification_code_usecase.dart';
+import 'package:perizinan_petugas/domain/usecases/forgot_password_usecase.dart';
 
 import '../../domain/core/unions/failure.dart';
 import '../../domain/entities/login/user.dart';
@@ -62,6 +63,15 @@ class MyRepositoryImpl implements MyRepository {
       emailAddress: params.emailAddress,
       verificationCode: params.verificationCode,
     ));
+
+    return Right(_response);
+  }
+
+  @override
+  Future<Either<Failure, BaseResponse>> forgotPassword(
+      ForgotPasswordUseCaseParams params) async {
+    final _response =
+        await _remoteDataSource.setNewPassword(request: params.toRequest());
 
     return Right(_response);
   }
