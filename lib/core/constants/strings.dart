@@ -106,6 +106,7 @@ class Strings {
   static const String verifikasiKode = 'Verifikasi Kode';
   static const String descCodeSent = 'Kode verifikasi telah dikirimkan ke email:';
   static const String descResentCode = 'Kirim ulang kode dalam : ';
+  static const String kirimUlang = 'Kirim Ulang';
 
   // Change Password Page
   static const String descCreatePassword = 'Silahkan membuat kata sandi anda';

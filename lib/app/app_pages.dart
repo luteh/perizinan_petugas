@@ -1,6 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/route_manager.dart';
 import 'package:perizinan_petugas/di/injection_container.dart';
+import 'package:perizinan_petugas/presentation/pages/change_password/change_password_args.dart';
 import 'package:perizinan_petugas/presentation/pages/change_password/change_password_page.dart';
 import 'package:perizinan_petugas/presentation/pages/change_password/cubit/change_password_cubit.dart';
 import 'package:perizinan_petugas/presentation/pages/code_verification/code_verification_args.dart';
@@ -62,10 +63,10 @@ class AppPages {
     GetPage(
       name: ChangePasswordPage.routeName,
       page: () {
-        // final _args = Get.arguments as ChangePasswordArgs;
+        final _args = Get.arguments as ChangePasswordArgs?;
 
         return BlocProvider<ChangePasswordCubit>(
-          create: (context) => getIt.get()..onStarted(),
+          create: (context) => getIt.get()..onStarted(args: _args),
           child: const ChangePasswordPage(),
         );
       },

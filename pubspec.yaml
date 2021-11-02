@@ -63,6 +63,10 @@ dependencies:
   # qr_flutter: ^4.0.0
   # # QR Code Scanner
   # qr_code_scanner: ^0.5.2
+  # Toasts & Snackbars customization
+  another_flushbar: ^1.10.24
+  # Count down timer
+  flutter_countdown_timer: ^4.1.0
 
 dev_dependencies:
   flutter_test:
@@ -78,8 +82,6 @@ dev_dependencies:
   injectable_generator: ^1.5.2
   # Splash screen
   flutter_native_splash: ^1.2.4
-  # Toasts & Snackbars customization
-  another_flushbar: ^1.10.24
 
 flutter:
   uses-material-design: true

@@ -7,6 +7,7 @@ class ChangePasswordState with _$ChangePasswordState {
     required String oldPassword,
     required String newPassword,
     required String newPasswordConfirmation,
+    required ChangePasswordArgs? args,
   }) = _ChangePasswordState;
 
   factory ChangePasswordState.initial() => const ChangePasswordState(
@@ -14,5 +15,6 @@ class ChangePasswordState with _$ChangePasswordState {
         oldPassword: '',
         newPassword: '',
         newPasswordConfirmation: '',
+        args: null,
       );
 }
