@@ -71,19 +71,19 @@ android {
             }
         }
 
-        profile {
-            minifyEnabled true 
-            shrinkResources true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        // profile {
+        //     minifyEnabled true 
+        //     shrinkResources true
+        //     proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             
-            applicationVariants.all { variant ->
-                variant.outputs.all {
-                    def appName = "DPG Officer"
-                    def newName= "${appName}-profile-v${flutterVersionName}.apk"
-                    outputFileName = newName
-                }
-            }
-        }
+        //     applicationVariants.all { variant ->
+        //         variant.outputs.all {
+        //             def appName = "DPG Officer"
+        //             def newName= "${appName}-profile-v${flutterVersionName}.apk"
+        //             outputFileName = newName
+        //         }
+        //     }
+        // }
 
         // debug {
         //     // minifyEnabled true 
