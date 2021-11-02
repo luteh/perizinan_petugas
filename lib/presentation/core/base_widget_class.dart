@@ -25,7 +25,7 @@ mixin BaseWidgetClass {
     )..show(context).then((_) => thenEvent);
   }
 
-  showLoadingDialog() async {
+  Future<void> showLoadingDialog() async {
     await GetUtil.showDialog(
       const LoadingDialog(),
       barrierDismissible: false,

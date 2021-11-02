@@ -1,5 +1,6 @@
 import 'package:injectable/injectable.dart';
 import 'package:perizinan_petugas/data/core/serialize_helper.dart';
+import 'package:perizinan_petugas/data/remote/request/accounts/forgot_password/verification_code_request.dart';
 import 'package:perizinan_petugas/data/remote/request/accounts/token/request_token_request.dart';
 import 'package:perizinan_petugas/data/remote/response/accounts/token/request_token_response.dart';
 import 'package:perizinan_petugas/data/remote/response/base_response.dart';
@@ -19,6 +20,16 @@ class RemoteDataSource with SerializeHelper {
     return BaseResponse.fromJson(
       _response.data,
       (json) => RequestTokenResponse.fromJson(json as dynamic),
+    );
+  }
+
+  Future<BaseResponse> doVerificationCode({
+    required VerificationCodeRequest request,
+  }) async {
+    final _response = await _apiService.doVerificationCode(request: request);
+    return BaseResponse.fromJson(
+      _response.data,
+      (json) => null,
     );
   }
 }

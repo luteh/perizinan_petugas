@@ -1,8 +1,10 @@
 import 'package:fpdart/fpdart.dart';
 import 'package:injectable/injectable.dart';
+import 'package:perizinan_petugas/data/remote/request/accounts/forgot_password/verification_code_request.dart';
 import 'package:perizinan_petugas/data/remote/request/accounts/token/request_token_request.dart';
 import 'package:perizinan_petugas/data/remote/response/accounts/token/request_token_response.dart';
 import 'package:perizinan_petugas/data/remote/response/base_response.dart';
+import 'package:perizinan_petugas/domain/usecases/do_verification_code_usecase.dart';
 
 import '../../domain/core/unions/failure.dart';
 import '../../domain/entities/login/user.dart';
@@ -49,5 +51,18 @@ class MyRepositoryImpl implements MyRepository {
   @override
   User? getUser() {
     return _localDataSource.getUser()?.toDomain();
+  }
+
+  @override
+  Future<Either<Failure, BaseResponse>> doVerificationCode(
+      DoVerificationCodeUseCaseParams params) async {
+    final _response = await _remoteDataSource.doVerificationCode(
+        request: VerificationCodeRequest(
+      type: params.mapType(),
+      emailAddress: params.emailAddress,
+      verificationCode: params.verificationCode,
+    ));
+
+    return Right(_response);
   }
 }
