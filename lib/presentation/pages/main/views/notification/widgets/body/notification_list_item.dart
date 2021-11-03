@@ -5,8 +5,10 @@ import 'package:flutter/widgets.dart';
 import 'package:perizinan_petugas/core/constants/strings.dart';
 import 'package:perizinan_petugas/core/style/color_palettes.dart';
 import 'package:perizinan_petugas/core/style/sizes.dart';
+import 'package:perizinan_petugas/core/utils/navigation_util.dart';
 import 'package:perizinan_petugas/presentation/core/widgets/my_card.dart';
 import 'package:perizinan_petugas/presentation/core/widgets/my_text.dart';
+import 'package:perizinan_petugas/presentation/pages/permission_detail/permission_detail_page.dart';
 
 class NotificationListItem extends StatelessWidget {
   const NotificationListItem({Key? key}) : super(key: key);
@@ -58,6 +60,7 @@ class NotificationListItem extends StatelessWidget {
                     Row(
                       children: [
                         Expanded(
+                          flex: 4,
                           child: MyText(
                             text: Strings.nama,
                             fontSize: Sizes.sp12,
@@ -65,8 +68,9 @@ class NotificationListItem extends StatelessWidget {
                           ),
                         ),
                         Expanded(
+                          flex: 6,
                           child: MyText(
-                            text: ': Value',
+                            text: ': Maria Genoveva Ashari',
                             fontSize: Sizes.sp12,
                             color: ColorPalettes.textGrey,
                           ),
@@ -77,6 +81,7 @@ class NotificationListItem extends StatelessWidget {
                     Row(
                       children: [
                         Expanded(
+                          flex: 4,
                           child: MyText(
                             text: Strings.unitPerumahan,
                             fontSize: Sizes.sp12,
@@ -84,8 +89,9 @@ class NotificationListItem extends StatelessWidget {
                           ),
                         ),
                         Expanded(
+                          flex: 6,
                           child: MyText(
-                            text: ': Value',
+                            text: ': SC2.10-01',
                             fontSize: Sizes.sp12,
                             color: ColorPalettes.textGrey,
                           ),
@@ -96,6 +102,7 @@ class NotificationListItem extends StatelessWidget {
                     Row(
                       children: [
                         Expanded(
+                          flex: 4,
                           child: MyText(
                             text: Strings.jenisIzin,
                             fontSize: Sizes.sp12,
@@ -103,8 +110,9 @@ class NotificationListItem extends StatelessWidget {
                           ),
                         ),
                         Expanded(
+                          flex: 6,
                           child: MyText(
-                            text: ': Value',
+                            text: ': Izin Renovasi',
                             fontSize: Sizes.sp12,
                             color: ColorPalettes.textGrey,
                           ),
@@ -115,6 +123,7 @@ class NotificationListItem extends StatelessWidget {
                     Row(
                       children: [
                         Expanded(
+                          flex: 4,
                           child: MyText(
                             text: Strings.tanggalPelaksanaan,
                             fontSize: Sizes.sp12,
@@ -122,8 +131,9 @@ class NotificationListItem extends StatelessWidget {
                           ),
                         ),
                         Expanded(
+                          flex: 6,
                           child: MyText(
-                            text: ': Value',
+                            text: ': 02 - 05 Desember 2020',
                             fontSize: Sizes.sp12,
                             color: ColorPalettes.textGrey,
                           ),
@@ -150,5 +160,7 @@ class NotificationListItem extends StatelessWidget {
     );
   }
 
-  _onTapLihatDetailPelanggan(BuildContext context) {}
+  _onTapLihatDetailPelanggan(BuildContext context) async {
+    await NavigationUtil.pushNamed(PermissionDetailPage.routeName);
+  }
 }

@@ -7,12 +7,13 @@ import 'package:perizinan_petugas/core/constants/image_asset.dart';
 import 'package:perizinan_petugas/core/constants/strings.dart';
 import 'package:perizinan_petugas/core/style/sizes.dart';
 import 'package:perizinan_petugas/core/utils/navigation_util.dart';
+import 'package:perizinan_petugas/presentation/core/base_widget_class.dart';
 import 'package:perizinan_petugas/presentation/core/widgets/my_icon_card.dart';
 import 'package:perizinan_petugas/presentation/core/widgets/primary_button.dart';
 import 'package:perizinan_petugas/presentation/pages/main/views/tanpa_izin/cubit/tanpa_izin_cubit.dart';
 import 'package:perizinan_petugas/presentation/pages/monitoring_data/monitoring_data_page.dart';
 
-class Body extends StatelessWidget {
+class Body extends StatelessWidget with BaseWidgetClass {
   const Body({Key? key}) : super(key: key);
 
   @override
@@ -53,13 +54,20 @@ class Body extends StatelessWidget {
                   ),
                 ),
               ),
-              PrimaryButton(
-                text: Strings.konfirmasi,
-                onPressed: () => _onPressConfirmation(context),
-                margin: EdgeInsets.only(
-                  bottom: Sizes.height22,
-                  top: Sizes.height27,
-                ),
+              BlocSelector<TanpaIzinCubit, TanpaIzinState, Set<Marker>>(
+                selector: (state) {
+                  return state.markers;
+                },
+                builder: (context, state) {
+                  return PrimaryButton(
+                    text: Strings.konfirmasi,
+                    onPressed: () => _onPressConfirmation(context, state),
+                    margin: EdgeInsets.only(
+                      bottom: Sizes.height22,
+                      top: Sizes.height27,
+                    ),
+                  );
+                },
               ),
             ],
           ),
@@ -74,7 +82,11 @@ class Body extends StatelessWidget {
 
   _onTapGps(BuildContext context) {}
 
-  _onPressConfirmation(BuildContext context) async {
+  _onPressConfirmation(BuildContext context, Set<Marker> state) async {
+    if (state.length < 2) {
+      showFlushbar(context, null, 'Tandai titik pada map terlebih dahulu');
+      return;
+    }
     await NavigationUtil.pushNamed(MonitoringDataPage.routeName);
   }
 }

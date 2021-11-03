@@ -21,7 +21,7 @@ class Body extends StatelessWidget {
           height: Sizes.height31,
         );
       },
-      itemCount: 5,
+      itemCount: 1,
     );
   }
 }

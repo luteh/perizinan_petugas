@@ -14,8 +14,8 @@ mixin BaseWidgetClass {
       titleSize: Sizes.sp16,
       messageSize: message != null ? Sizes.sp14 : Sizes.sp16,
       backgroundColor: isError
-          ? Colors.red.withOpacity(0.56)
-          : ColorPalettes.primary.withOpacity(0.56),
+          ? Colors.red.withOpacity(0.8)
+          : ColorPalettes.primary.withOpacity(0.8),
       flushbarPosition:
           isTopPosition ? FlushbarPosition.TOP : FlushbarPosition.BOTTOM,
       padding: EdgeInsets.all(Sizes.width15),

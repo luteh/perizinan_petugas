@@ -32,22 +32,22 @@ class InformasiUmumFields extends StatelessWidget {
           const MyListTile(
             imageAsset: ImageAsset.icNoTelepon,
             title: Strings.noTelepon,
-            subtitle: 'Maria Genoveva Ashari',
+            subtitle: '0811263368777',
           ),
           const MyListTile(
             imageAsset: ImageAsset.icEmail,
             title: Strings.email,
-            subtitle: 'Maria Genoveva Ashari',
+            subtitle: 'anggraini@gmail.com',
           ),
           const MyListTile(
             imageAsset: ImageAsset.icTanggalPelaksanaan,
             title: Strings.tanggalPelaksanaan,
-            subtitle: 'Maria Genoveva Ashari',
+            subtitle: '02 Desember 2020',
           ),
           const MyListTile(
             imageAsset: ImageAsset.icDetailKegiatan,
             title: Strings.detailKegiatan,
-            subtitle: 'Maria Genoveva Ashari',
+            subtitle: 'Mengadakan shooting dan pemotretan',
           ),
         ],
       ).toList(),

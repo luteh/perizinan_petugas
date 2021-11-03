@@ -2,8 +2,8 @@ import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:injectable/injectable.dart';
-import 'package:perizinan_petugas/domain/core/unions/result_state.dart';
 import 'package:perizinan_petugas/core/utils/navigation_util.dart';
+import 'package:perizinan_petugas/domain/core/unions/result_state.dart';
 import 'package:perizinan_petugas/presentation/pages/without_permit_detail/without_permit_detail_page.dart';
 
 part 'tanpa_izin_cubit.freezed.dart';
@@ -21,7 +21,7 @@ class TanpaIzinCubit extends Cubit<TanpaIzinState> {
             markerId: const MarkerId('1'),
             position: const LatLng(-6.1777942826873335, 106.97580143809319),
             infoWindow: InfoWindow(
-              title: 'Tanpa Izin 1',
+              title: 'Maria Genoveva Ashari',
               onTap: _onTapInfoWindowMarker,
             ),
           ),

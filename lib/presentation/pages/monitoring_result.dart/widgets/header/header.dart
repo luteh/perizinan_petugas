@@ -36,7 +36,7 @@ class Header extends StatelessWidget {
                   color: Colors.white,
                 ),
                 MyText(
-                  text: 'Rp500.000',
+                  text: 'Rp250.000',
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
                   margin: EdgeInsets.only(
@@ -49,7 +49,7 @@ class Header extends StatelessWidget {
           const Expanded(
             child: MyText(
               alignment: Alignment.center,
-              text: '10 Desember 2020',
+              text: '5 Desember 2020',
               color: Colors.white,
             ),
           ),

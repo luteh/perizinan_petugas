@@ -19,7 +19,7 @@ class DetailFields extends StatelessWidget {
         children: [
           FilledField(
             label: Strings.jenisIzin,
-            value: 'value',
+            value: 'Izin Renovasi',
             isDividerVisible: true,
             padding: EdgeInsets.symmetric(
               horizontal: Sizes.width16,
@@ -27,7 +27,7 @@ class DetailFields extends StatelessWidget {
           ),
           FilledField(
             label: Strings.nama,
-            value: 'value',
+            value: 'Maria Genoveva Ashari',
             isDividerVisible: true,
             padding: EdgeInsets.symmetric(
               horizontal: Sizes.width16,
@@ -35,7 +35,7 @@ class DetailFields extends StatelessWidget {
           ),
           FilledField(
             label: Strings.project,
-            value: 'value',
+            value: 'Baltic Segara City',
             isDividerVisible: true,
             padding: EdgeInsets.symmetric(
               horizontal: Sizes.width16,
@@ -43,7 +43,7 @@ class DetailFields extends StatelessWidget {
           ),
           FilledField(
             label: Strings.namaUnit,
-            value: 'value',
+            value: 'Rum1 Baltic Segara City Blok SC2.10 No 01',
             isDividerVisible: true,
             padding: EdgeInsets.symmetric(
               horizontal: Sizes.width16,
@@ -51,7 +51,7 @@ class DetailFields extends StatelessWidget {
           ),
           FilledField(
             label: Strings.jenis,
-            value: 'value',
+            value: 'Rumah',
             isDividerVisible: true,
             padding: EdgeInsets.symmetric(
               horizontal: Sizes.width16,
@@ -59,7 +59,7 @@ class DetailFields extends StatelessWidget {
           ),
           FilledField(
             label: Strings.tipe,
-            value: 'value',
+            value: 'Rumah 1',
             isDividerVisible: true,
             padding: EdgeInsets.symmetric(
               horizontal: Sizes.width16,
@@ -67,7 +67,7 @@ class DetailFields extends StatelessWidget {
           ),
           FilledField(
             label: Strings.luasBangunan,
-            value: 'value',
+            value: '53',
             isDividerVisible: true,
             padding: EdgeInsets.symmetric(
               horizontal: Sizes.width16,
@@ -75,7 +75,7 @@ class DetailFields extends StatelessWidget {
           ),
           FilledField(
             label: Strings.luasTanah,
-            value: 'value',
+            value: '148',
             isDividerVisible: true,
             padding: EdgeInsets.symmetric(
               horizontal: Sizes.width16,
@@ -83,7 +83,7 @@ class DetailFields extends StatelessWidget {
           ),
           FilledField(
             label: Strings.noTelepon,
-            value: 'value',
+            value: '08966533332',
             isDividerVisible: true,
             padding: EdgeInsets.symmetric(
               horizontal: Sizes.width16,
@@ -91,7 +91,7 @@ class DetailFields extends StatelessWidget {
           ),
           FilledField(
             label: Strings.lokasiPelaksanaan,
-            value: 'value',
+            value: '7.7809616,110.4619592',
             isDividerVisible: true,
             padding: EdgeInsets.symmetric(
               horizontal: Sizes.width16,
@@ -99,7 +99,7 @@ class DetailFields extends StatelessWidget {
           ),
           FilledField(
             label: Strings.tanggalPelaksanaan,
-            value: 'value',
+            value: '02 - 05 Desember 2020',
             isDividerVisible: true,
             padding: EdgeInsets.symmetric(
               horizontal: Sizes.width16,
@@ -107,7 +107,7 @@ class DetailFields extends StatelessWidget {
           ),
           FilledField(
             label: Strings.jenisRenovasi,
-            value: 'value',
+            value: 'Sedang',
             isDividerVisible: true,
             padding: EdgeInsets.symmetric(
               horizontal: Sizes.width16,
@@ -115,7 +115,7 @@ class DetailFields extends StatelessWidget {
           ),
           FilledField(
             label: Strings.detailKegiatan,
-            value: 'value',
+            value: 'Mengadakan acara grand opening toko',
             isDividerVisible: false,
             padding: EdgeInsets.symmetric(
               horizontal: Sizes.width16,

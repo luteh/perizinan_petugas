@@ -12,7 +12,7 @@ class MonitoringTabBarView extends StatelessWidget {
       controller: tabController,
       children: const [
         MonitoringList(),
-        MonitoringList(),
+        SizedBox.shrink(),
         MonitoringList(),
       ],
     );

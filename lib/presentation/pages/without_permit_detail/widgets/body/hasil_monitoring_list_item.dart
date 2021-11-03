@@ -18,10 +18,10 @@ class HasilMonitoringListItem extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const MyCachedNetworkImage(
-            imageUrl: 'https://via.placeholder.com/153x102',
+            imageUrl: 'https://topcareer.id/wp-content/uploads/2019/09/cropped-behind-the-scenes-of-a-ryan-muirhead-photo-shoot-3-750x460.jpg',
           ),
           MyText(
-            text: Strings.lorem,
+            text: 'Pemotretan masih berlangsung',
             margin: EdgeInsets.only(
               top: Sizes.height15,
             ),

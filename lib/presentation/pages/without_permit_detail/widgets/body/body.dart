@@ -27,7 +27,7 @@ class Body extends StatelessWidget {
           return FadeIndexedStack(
             index: state,
             duration: ThemeUtil.shortAnimationDuration,
-            children: [
+            children: const [
               InformasiUmumView(),
               HasilMonitoringView(),
             ],

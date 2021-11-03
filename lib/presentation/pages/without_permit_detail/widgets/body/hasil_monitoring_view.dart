@@ -31,7 +31,7 @@ class HasilMonitoringView extends StatelessWidget {
                 color: ColorPalettes.dividerGrey,
               );
             },
-            itemCount: 3,
+            itemCount: 1,
           ),
           PrimaryButton(
             text: Strings.uploadHasilMonitoring,

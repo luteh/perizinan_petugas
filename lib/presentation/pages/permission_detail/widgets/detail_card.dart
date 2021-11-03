@@ -28,7 +28,7 @@ class DetailCard extends StatelessWidget {
       child: Column(
         children: [
           MyText(
-            text: 'Sedang Berjalan',
+            text: 'Selesai',
             color: Colors.red,
             margin: EdgeInsets.only(
               top: Sizes.height34,
@@ -36,7 +36,7 @@ class DetailCard extends StatelessWidget {
             fontSize: Sizes.sp14,
             fontWeight: FontWeight.w500,
           ),
-          DetailFields(),
+          const DetailFields(),
         ],
       ),
     );

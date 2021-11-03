@@ -21,10 +21,10 @@ class MonitoringListItem extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const MyCachedNetworkImage(
-            imageUrl: 'https://via.placeholder.com/153x102',
+            imageUrl: 'https://interiordesign.id/wp-content/uploads/2018/05/renovasi-rumah-1.jpg',
           ),
           MyText(
-            text: Strings.lorem,
+            text: 'Pelaksanaan renovasi telah selesai',
             margin: EdgeInsets.only(
               top: Sizes.height15,
             ),

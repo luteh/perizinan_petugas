@@ -11,7 +11,7 @@ class MonitoringList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      itemCount: 2,
+      itemCount: 1,
       itemBuilder: (BuildContext context, int index) {
         return Column(
           children: [
@@ -49,7 +49,7 @@ class MonitoringList extends StatelessWidget {
                   height: Sizes.height20,
                 );
               },
-              itemCount: 2,
+              itemCount: 1,
             ),
           ],
         );

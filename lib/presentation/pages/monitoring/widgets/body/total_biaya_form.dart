@@ -19,6 +19,7 @@ class TotalBiayaForm extends StatelessWidget {
         MyFormField(
           label: Strings.totalBiayaKerusakan,
           hint: Strings.hintTotalBiayaKerusakan,
+          initialValue: 'Rp250.000',
           padding: EdgeInsets.only(
             left: Sizes.width18,
             right: Sizes.width18,

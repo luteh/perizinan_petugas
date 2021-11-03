@@ -23,7 +23,7 @@ class HomeMaps extends StatelessWidget {
           markerId: const MarkerId('1'),
           position: const LatLng(-6.1777942826873335, 106.97580143809319),
           infoWindow: InfoWindow(
-            title: 'Customer Name',
+            title: 'Maria Genoveva Ashari',
             onTap: () => _onTapInfoWindowMarker(context),
           ),
         ),
