@@ -6,7 +6,9 @@ import 'package:hive/hive.dart';
 import 'package:injectable/injectable.dart';
 import 'package:perizinan_petugas/core/utils/navigation_util.dart';
 import 'package:perizinan_petugas/di/injection_container.dart';
+import 'package:perizinan_petugas/domain/core/usecase/no_param.dart';
 import 'package:perizinan_petugas/domain/usecases/do_logout_usecase.dart';
+import 'package:perizinan_petugas/domain/usecases/refresh_token_usecase.dart';
 import 'package:perizinan_petugas/presentation/pages/login/login_page.dart';
 
 import '../core/constants/constants.dart';
@@ -29,39 +31,6 @@ abstract class RegisterModule {
       sendTimeout: Constants.timeoutInMillisecond,
     ))
       ..interceptors.add(
-        InterceptorsWrapper(
-          onRequest: (options, handler) {
-            final _token = localDataSource.getToken();
-
-            if (_token?.accessToken?.value != null) {
-              options.headers['Authorization'] =
-                  'Bearer ${_token?.accessToken?.value}';
-            }
-            handler.next(options);
-          },
-          onError: (dioError, handler) async {
-            final _token = localDataSource.getToken();
-
-            if (_token?.accessToken?.value == null) {
-              handler.next(dioError);
-              return;
-            }
-
-            // Do force logout when error unauthorized
-            if (dioError.response?.statusCode == HttpStatus.unauthorized) {
-              handler.reject(dioError);
-              await getIt
-                  .get<DoLogoutUseCase>()
-                  .call(const DoLogoutUseCaseParams());
-              NavigationUtil.pushNamedAndRemoveUntil(LoginPage.routeName);
-              return;
-            }
-
-            handler.next(dioError);
-          },
-        ),
-      )
-      ..interceptors.add(
         LogInterceptor(responseBody: true, requestBody: true),
       );
 
@@ -74,6 +43,66 @@ abstract class RegisterModule {
       };
       return client;
     };
+
+    _dio.interceptors.add(
+      InterceptorsWrapper(
+        onRequest: (options, handler) {
+          final _token = localDataSource.getToken();
+
+          if (_token?.accessToken?.value != null) {
+            options.headers['Authorization'] =
+                'Bearer ${_token?.accessToken?.value}';
+          }
+          handler.next(options);
+        },
+        onError: (dioError, handler) async {
+          final _token = localDataSource.getToken();
+
+          // Just continue Dio process when not logged in
+          if (_token?.accessToken?.value == null) {
+            handler.next(dioError);
+            return;
+          }
+
+          // Do refresh token when logged in & error unauthorized
+          if (dioError.response?.statusCode == HttpStatus.unauthorized) {
+            final _result =
+                await getIt.get<RefreshTokenUseCase>().call(const NoParam());
+            _result.fold(
+              (l) async {
+                handler.reject(dioError);
+
+                // do force logout when refresh token expired
+                await getIt
+                    .get<DoLogoutUseCase>()
+                    .call(const DoLogoutUseCaseParams());
+                NavigationUtil.pushNamedAndRemoveUntil(LoginPage.routeName);
+              },
+              (r) async {
+                // get previous request options
+                final _options = Options(
+                  method: dioError.requestOptions.method,
+                  headers: dioError.requestOptions.headers,
+                );
+
+                // do previous request
+                final _response = await _dio.request<dynamic>(
+                  dioError.requestOptions.path,
+                  data: dioError.requestOptions.data,
+                  queryParameters: dioError.requestOptions.queryParameters,
+                  options: _options,
+                );
+
+                handler.resolve(_response);
+              },
+            );
+            return;
+          }
+
+          handler.next(dioError);
+        },
+      ),
+    );
 
     return _dio;
   }

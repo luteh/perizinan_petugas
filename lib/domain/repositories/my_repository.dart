@@ -13,6 +13,9 @@ import '../usecases/do_login_usecase.dart';
 import '../usecases/do_logout_usecase.dart';
 
 abstract class MyRepository {
+  Future<Either<Failure, BaseResponse<RequestTokenResponse>>> refreshToken(
+      NoParam params);
+
   Future<Either<Failure, BaseResponse<RequestTokenResponse>>> doLogin(
       DoLoginUseCaseParams params);
 

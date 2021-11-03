@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:perizinan_petugas/data/remote/request/accounts/token/refresh_token_request.dart';
 
 part 'request_token_response.freezed.dart';
 part 'request_token_response.g.dart';
@@ -18,6 +19,13 @@ class RequestTokenResponse with _$RequestTokenResponse {
 
   String toJsonString() {
     return jsonEncode(toJson());
+  }
+
+  RefreshTokenRequest toRefreshTokenRequest() {
+    return RefreshTokenRequest(
+      accessToken: accessToken?.value ?? '',
+      refreshToken: refreshToken?.value ?? '',
+    );
   }
 }
 

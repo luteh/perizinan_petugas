@@ -95,4 +95,22 @@ class MyRepositoryImpl implements MyRepository {
 
     return Right(_response);
   }
+
+  @override
+  Future<Either<Failure, BaseResponse<RequestTokenResponse>>> refreshToken(
+      NoParam params) async {
+    final _token = _localDataSource.getToken();
+
+    if (_token == null) {
+      return const Left(Failure.unauthorisedRequest());
+    }
+
+    final _response = await _remoteDataSource.refreshToken(
+      request: _token.toRefreshTokenRequest(),
+    );
+
+    await _localDataSource.saveToken(_response.data.toJsonString());
+
+    return Right(_response);
+  }
 }

@@ -23,7 +23,7 @@ class Body extends StatelessWidget {
           },
           success: (data) {
             return RefreshIndicator(
-              onRefresh: () => _onRefresh(context),
+              onRefresh: () async => _onRefresh(context),
               child: SingleChildScrollView(
                 physics: const AlwaysScrollableScrollPhysics(),
                 primary: true,
