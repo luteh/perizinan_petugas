@@ -5,6 +5,7 @@ import 'package:dio/dio.dart';
 import 'package:hive/hive.dart';
 import 'package:injectable/injectable.dart';
 import 'package:perizinan_petugas/core/utils/navigation_util.dart';
+import 'package:perizinan_petugas/data/remote/api/endpoint.dart';
 import 'package:perizinan_petugas/di/injection_container.dart';
 import 'package:perizinan_petugas/domain/core/usecase/no_param.dart';
 import 'package:perizinan_petugas/domain/usecases/do_logout_usecase.dart';
@@ -66,17 +67,18 @@ abstract class RegisterModule {
 
           // Do refresh token when logged in & error unauthorized
           if (dioError.response?.statusCode == HttpStatus.unauthorized) {
+            // Do force logout when refresh token got unauthorized / expired
+            if (dioError.requestOptions.path.contains(Endpoint.refreshToken)) {
+              await _doForceLogout(dioError, handler);
+              return;
+            }
+
             final _result =
                 await getIt.get<RefreshTokenUseCase>().call(const NoParam());
             _result.fold(
               (l) async {
-                handler.reject(dioError);
-
                 // do force logout when refresh token expired
-                await getIt
-                    .get<DoLogoutUseCase>()
-                    .call(const DoLogoutUseCaseParams());
-                NavigationUtil.pushNamedAndRemoveUntil(LoginPage.routeName);
+                await _doForceLogout(dioError, handler);
               },
               (r) async {
                 // get previous request options
@@ -109,4 +111,13 @@ abstract class RegisterModule {
 
   @lazySingleton
   Box<dynamic> hiveBoxDpg() => Hive.box(HiveKey.boxDpg);
+
+  Future<void> _doForceLogout(
+      DioError dioError, ErrorInterceptorHandler handler) async {
+    handler.reject(dioError);
+
+    // do force logout when refresh token expired
+    await getIt.get<DoLogoutUseCase>().call(const DoLogoutUseCaseParams());
+    NavigationUtil.pushNamedAndRemoveUntil(LoginPage.routeName);
+  }
 }
