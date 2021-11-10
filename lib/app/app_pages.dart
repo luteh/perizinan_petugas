@@ -25,6 +25,8 @@ import 'package:perizinan_petugas/presentation/pages/monitoring_result.dart/cubi
 import 'package:perizinan_petugas/presentation/pages/monitoring_result.dart/monitoring_result_page.dart';
 import 'package:perizinan_petugas/presentation/pages/permission_detail/cubit/permission_detail_cubit.dart';
 import 'package:perizinan_petugas/presentation/pages/permission_detail/permission_detail_page.dart';
+import 'package:perizinan_petugas/presentation/pages/qr_code_scanner/cubit/qr_code_scanner_cubit.dart';
+import 'package:perizinan_petugas/presentation/pages/qr_code_scanner/qr_code_scanner_page.dart';
 import 'package:perizinan_petugas/presentation/pages/without_permit_detail/cubit/without_permit_detail_cubit.dart';
 import 'package:perizinan_petugas/presentation/pages/without_permit_detail/without_permit_detail_page.dart';
 
@@ -138,6 +140,13 @@ class AppPages {
       page: () => BlocProvider<WithoutPermitDetailCubit>(
         create: (context) => getIt.get(),
         child: const WithoutPermitDetailPage(),
+      ),
+    ),
+    GetPage(
+      name: QrCodeScannerPage.routeName,
+      page: () => BlocProvider<QrCodeScannerCubit>(
+        create: (context) => getIt.get(),
+        child: const QrCodeScannerPage(),
       ),
     ),
   ];

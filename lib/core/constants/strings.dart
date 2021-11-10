@@ -31,6 +31,7 @@ class Strings {
   static const String labelChoosePermissionType = 'Pilih Jenis Izin';
   static const String labelChooseExecutionDate = 'Pilih Tanggal Pelaksanaan';
   static const String show = 'Tampilkan';
+  static const String msgQRCameraPermissionDenied = 'Akses kamera dibutuhkan untuk scan QR code';
 
   // Permission Detail Page
   static const String permissionDetail = 'Detail Izin';
@@ -117,4 +118,7 @@ class Strings {
   // Notification Page
   static const String descDoMonitoring = 'Lakukan proses monitoring pada pelanggan berikut:';
   static const String lihatDetailPelanggan = 'Lihat Detail Data Pelanggan';
+
+  // Qr Code Scanner Page
+  static const String scanQrCode = 'Scan QR Code';
 }
