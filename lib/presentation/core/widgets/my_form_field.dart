@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:perizinan_petugas/core/style/color_palettes.dart';
 import 'package:perizinan_petugas/core/style/sizes.dart';
 import 'package:perizinan_petugas/presentation/core/widgets/my_text.dart';
@@ -14,6 +15,7 @@ class MyFormField extends StatefulWidget {
   final bool isObscure;
   final String? Function(String?)? validator;
   final String? initialValue;
+  final String? name;
 
   const MyFormField({
     Key? key,
@@ -26,6 +28,7 @@ class MyFormField extends StatefulWidget {
     this.isObscure = false,
     this.validator,
     this.initialValue,
+    this.name,
   }) : super(key: key);
 
   @override
@@ -56,7 +59,7 @@ class _MyFormFieldState extends State<MyFormField> {
                 bottom: Sizes.height6,
               ),
             ),
-          TextFormField(
+          FormBuilderTextField(
             initialValue: widget.initialValue,
             textInputAction: TextInputAction.done,
             keyboardType: widget.keyboardType ?? TextInputType.text,
@@ -84,8 +87,11 @@ class _MyFormFieldState extends State<MyFormField> {
                       })
                   : null,
             ),
-            onChanged: widget.onChanged,
+            onChanged: (value) {
+              widget.onChanged?.call(value ?? '');
+            },
             validator: widget.validator,
+            name: widget.name ?? '',
           ),
         ],
       ),

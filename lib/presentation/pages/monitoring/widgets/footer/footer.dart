@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:perizinan_petugas/core/constants/strings.dart';
 import 'package:perizinan_petugas/core/style/sizes.dart';
-import 'package:perizinan_petugas/core/utils/navigation_util.dart';
 import 'package:perizinan_petugas/presentation/core/widgets/primary_button.dart';
+import 'package:perizinan_petugas/presentation/pages/monitoring/cubit/monitoring_cubit.dart';
 
 class Footer extends StatelessWidget {
   const Footer({Key? key}) : super(key: key);
@@ -20,6 +21,6 @@ class Footer extends StatelessWidget {
   }
 
   _onPressSimpan(BuildContext context) {
-    NavigationUtil.popUntil();
+    context.read<MonitoringCubit>().simpanMonitoringData();
   }
 }

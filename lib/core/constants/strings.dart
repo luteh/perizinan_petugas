@@ -59,6 +59,7 @@ class Strings {
   static const String simpan = 'Simpan';
   static const String totalBiayaKerusakan = 'Total Biaya Kerusakan';
   static const String hintTotalBiayaKerusakan = 'Masukan Biaya';
+  static const String msgLengkapiMonitoringData = 'Harap lengkapi foto dan keterangan';
 
   // Monitoring Result Page
   static const String hasilMonitoring = 'Hasil Monitoring';
