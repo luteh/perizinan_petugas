@@ -22,21 +22,24 @@ class DropDownField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: margin,
-      child: Wrap(
-        direction: Axis.vertical,
-        spacing: Sizes.height9,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           MyText(
             text: label,
             fontSize: Sizes.sp14,
             color: Colors.black,
             fontWeight: FontWeight.bold,
+            margin: EdgeInsets.only(
+              bottom: Sizes.height9,
+            ),
           ),
           DropdownButtonFormField(
             decoration: InputDecoration(
               constraints: BoxConstraints.tightFor(
                 height: Sizes.height35,
-                width: Sizes.width220,
+                // width: Sizes.width220,
               ),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(Sizes.radius5),

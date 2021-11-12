@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:perizinan_petugas/core/constants/strings.dart';
+import 'package:perizinan_petugas/core/utils/navigation_util.dart';
 import 'package:perizinan_petugas/presentation/core/widgets/primary_button.dart';
 
 class ShowButton extends StatelessWidget {
@@ -18,5 +19,7 @@ class ShowButton extends StatelessWidget {
     );
   }
 
-  _onPressShow(BuildContext context) {}
+  _onPressShow(BuildContext context) {
+    NavigationUtil.popUntil();
+  }
 }

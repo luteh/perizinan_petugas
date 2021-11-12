@@ -22,19 +22,44 @@ class MapFilterDialog extends StatelessWidget {
             horizontal: Sizes.width12,
             vertical: Sizes.height21,
           ),
-          child: Wrap(
-            direction: Axis.vertical,
-            crossAxisAlignment: WrapCrossAlignment.center,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
             children: [
               DropDownField(
                 label: Strings.labelChoosePermissionStatus,
-                items: const ['a', 'b'],
+                items: const [
+                  'Sedang Diproses',
+                  'Disetujui',
+                  'Ditolak',
+                  'Verifikasi Pembayaran',
+                  'Sedang Berjalan',
+                  'Selesai',
+                  'Verifikasi Klaim Deposit',
+                ],
                 onChanged: (value) =>
                     _onChangePermissionStatus(parentContext, value),
               ),
               DropDownField(
                 label: Strings.labelChoosePermissionType,
-                items: const ['a', 'b'],
+                items: const [
+                  'Izin Sewa Lahan',
+                  'Izin Kegiatan Acara',
+                  'Izin Pemotretan',
+                  'Izin Pemasangan Spanduk',
+                  'Izin Pemasangan Sign Box',
+                  'Izin Sewa Totem',
+                  'Izin Penyebaran Brosur',
+                  'Izin Pemasangan Tenda',
+                  'Izin Pemasangan Umbul-Umbul',
+                  'Izin Lintas Kendaraan',
+                  'Izin Pedagang Keliling',
+                  'Izin Shooting',
+                  'Izin Penarikan Kabel',
+                  'Izin Galian',
+                  'Izin Renovasi',
+                  'Izin Pembangunan Kavling',
+                  'Izin Pembangunan Tanah Lebih',
+                ],
                 onChanged: (value) =>
                     _onChangePermissionType(parentContext, value),
                 margin: EdgeInsets.only(
