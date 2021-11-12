@@ -3,6 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:perizinan_petugas/core/style/color_palettes.dart';
 import 'package:perizinan_petugas/core/style/sizes.dart';
+import 'package:perizinan_petugas/core/utils/form_builder_util.dart';
 import 'package:perizinan_petugas/presentation/core/widgets/my_text.dart';
 
 class MyFormField extends StatefulWidget {
@@ -90,7 +91,10 @@ class _MyFormFieldState extends State<MyFormField> {
             onChanged: (value) {
               widget.onChanged?.call(value ?? '');
             },
-            validator: widget.validator,
+            validator: widget.validator ??
+                FormBuilderValidators.compose([
+                  FormBuilderUtil.emptyValidator(context),
+                ]),
             name: widget.name ?? '',
           ),
         ],

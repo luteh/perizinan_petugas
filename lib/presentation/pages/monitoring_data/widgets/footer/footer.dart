@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_form_builder/src/form_builder.dart';
 import 'package:perizinan_petugas/core/constants/strings.dart';
 import 'package:perizinan_petugas/core/style/color_palettes.dart';
 import 'package:perizinan_petugas/core/style/sizes.dart';
@@ -12,7 +13,8 @@ import 'package:perizinan_petugas/presentation/pages/monitoring/monitoring_args.
 import 'package:perizinan_petugas/presentation/pages/monitoring/monitoring_page.dart';
 
 class Footer extends StatelessWidget {
-  const Footer({Key? key}) : super(key: key);
+  final GlobalKey<FormBuilderState> formKey;
+  const Footer({Key? key, required this.formKey}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +48,9 @@ class Footer extends StatelessWidget {
   }
 
   _onPressSave(BuildContext context) async {
-    NavigationUtil.popUntil();
+    if (formKey.currentState?.validate() ?? false) {
+      NavigationUtil.popUntil();
+    }
   }
 
   _onTapUploadMonitoringPhoto(BuildContext context) async {
