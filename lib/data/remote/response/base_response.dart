@@ -10,7 +10,7 @@ part 'base_response.g.dart';
 class BaseResponse<T> with _$BaseResponse<T> {
   const BaseResponse._();
   const factory BaseResponse({
-    required bool? successed,
+    required bool? succeeded,
     required String? message,
     required List<String>? errors,
     required T data,
@@ -23,5 +23,5 @@ class BaseResponse<T> with _$BaseResponse<T> {
 
   Map<String, dynamic> toJson(Object Function(T value) toJsonT) {
     return _$BaseResponseToJson<T>(this, toJsonT);
-  }
+  } 
 }

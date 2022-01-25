@@ -63,6 +63,7 @@ dependencies:
   another_flushbar: ^1.10.28
   # Count down timer
   flutter_countdown_timer: ^4.1.0
+  easy_debounce: ^2.0.2+1
 
 dev_dependencies:
   flutter_test:

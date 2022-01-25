@@ -3,10 +3,11 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'base_domain.freezed.dart';
 
 @freezed
-class BaseDomain with _$BaseDomain {
+class BaseDomain<T> with _$BaseDomain<T> {
   const factory BaseDomain({
-    required String? status,
-    required String? statusCode,
-    required String? message,
+    required bool succeeded,
+    required String message,
+    required List<String> errors,
+    required T data,
   }) = _BaseDomain;
 }

@@ -3,10 +3,12 @@ part of 'home_cubit.dart';
 @freezed
 class HomeState with _$HomeState {
   const factory HomeState({
-    required ResultState<dynamic> fetchHomeResult,
+    required ResultState<List<MonitoringEntity>> fetchMonitoringListResult,
+    required String searchKeyword,
   }) = _HomeState;
 
   factory HomeState.initial() => const HomeState(
-        fetchHomeResult: ResultState.initial(),
+        fetchMonitoringListResult: ResultState.initial(),
+        searchKeyword: '',
       );
 }
