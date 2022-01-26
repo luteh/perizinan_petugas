@@ -2,14 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:perizinan_petugas/core/style/color_palettes.dart';
 import 'package:perizinan_petugas/core/style/sizes.dart';
+import 'package:perizinan_petugas/domain/entities/monitoring/permit_and_customer_detail_entity.dart';
 import 'package:perizinan_petugas/domain/entities/monitoring/permit_detail_entity.dart';
 import 'package:perizinan_petugas/presentation/core/widgets/my_text.dart';
 import 'package:perizinan_petugas/presentation/pages/permission_detail/widgets/detail_fields.dart';
 
 class DetailCard extends StatelessWidget {
-  final PermitDetailEntity permitDetail;
+  final PermitAndCustomerDetailEntity permitAndCustomerDetail;
 
-  const DetailCard({Key? key, required this.permitDetail}) : super(key: key);
+  const DetailCard({Key? key, required this.permitAndCustomerDetail})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +33,7 @@ class DetailCard extends StatelessWidget {
       child: Column(
         children: [
           MyText(
-            text: 'Selesai',
+            text: permitAndCustomerDetail.permitDetail.submissionStatus,
             color: Colors.red,
             margin: EdgeInsets.only(
               top: Sizes.height34,
@@ -39,7 +41,9 @@ class DetailCard extends StatelessWidget {
             fontSize: Sizes.sp14,
             fontWeight: FontWeight.w500,
           ),
-          const DetailFields(),
+          DetailFields(
+            permitAndCustomerDetail: permitAndCustomerDetail,
+          ),
         ],
       ),
     );

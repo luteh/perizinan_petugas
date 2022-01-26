@@ -37,10 +37,10 @@ class PermissionDetailPage extends StatelessWidget {
                     Column(
                       children: [
                         DetailCard(
-                          permitDetail: data,
+                          permitAndCustomerDetail: data,
                         ),
                         Footer(
-                          permitDetail: data,
+                          permitAndCustomerDetail: data,
                         ),
                       ],
                     ),
@@ -49,7 +49,7 @@ class PermissionDetailPage extends StatelessWidget {
                       left: Sizes.width117,
                       right: Sizes.width117,
                       child: UnitPerumahanSection(
-                        permitDetail: data,
+                        permitAndCustomerDetail: data,
                       ),
                     ),
                   ],
@@ -60,7 +60,7 @@ class PermissionDetailPage extends StatelessWidget {
               return MyErrorWidget(
                 failure: failure,
                 onPressRetry: () {
-                  context.read<PermissionDetailCubit>().fetchPermitDetail();
+                  context.read<PermissionDetailCubit>().fetchPermitAndCustomerDetail();
                 },
               );
             },

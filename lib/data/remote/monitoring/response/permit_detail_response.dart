@@ -43,6 +43,7 @@ class PermitDetailResponse with _$PermitDetailResponse {
     required String? totalBrochure,
     required int? permitId,
     required String? imgPayment,
+    required String? submissionStatus,
   }) = _PermitDetailResponse;
 
   factory PermitDetailResponse.fromJson(Map<String, dynamic> json) =>
@@ -72,6 +73,7 @@ class PermitDetailResponse with _$PermitDetailResponse {
         totalBrochure: totalBrochure ?? '',
         permitId: permitId ?? 0,
         imgPayment: imgPayment ?? '',
+        submissionStatus: submissionStatus ?? '',
       );
 }
 

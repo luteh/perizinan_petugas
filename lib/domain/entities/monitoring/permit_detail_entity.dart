@@ -28,6 +28,7 @@ class PermitDetailEntity with _$PermitDetailEntity {
         required String totalBrochure,
         required int permitId,
         required String imgPayment,
+        required String submissionStatus,
     }) = _PermitDetailEntity;
 }
 

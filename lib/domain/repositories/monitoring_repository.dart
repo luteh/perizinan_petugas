@@ -1,4 +1,5 @@
 import 'package:fpdart/fpdart.dart';
+import 'package:perizinan_petugas/domain/entities/monitoring/detail_customer_entity.dart';
 import 'package:perizinan_petugas/domain/entities/monitoring/permit_detail_entity.dart';
 
 import '../core/unions/failure.dart';
@@ -9,4 +10,5 @@ abstract class MonitoringRepository {
       String keyword);
 
   Future<Either<Failure, PermitDetailEntity>> fetchPermitDetail(int id);
+  Future<Either<Failure, DetailCustomerEntity>> fetchDetailCustomer(int id);
 }

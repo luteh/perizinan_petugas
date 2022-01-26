@@ -1,5 +1,6 @@
 import 'package:fpdart/fpdart.dart';
 import 'package:injectable/injectable.dart';
+import 'package:perizinan_petugas/domain/entities/monitoring/detail_customer_entity.dart';
 
 import '../../domain/core/unions/failure.dart';
 import '../../domain/entities/monitoring/monitoring_entity.dart';
@@ -23,6 +24,12 @@ class MonitoringRepositoryImpl implements MonitoringRepository {
   @override
   Future<Either<Failure, PermitDetailEntity>> fetchPermitDetail(int id) async {
     final _response = await _remoteDataSource.fetchPermitDetail(id);
-    return Right(_response.data.first.toDomain());
+    return Right(_response.data.toDomain());
+  }
+
+  @override
+  Future<Either<Failure, DetailCustomerEntity>> fetchDetailCustomer(int id) async {
+    final _response = await _remoteDataSource.fetchCustomerDetail(id);
+    return Right(_response.data.toDomain());
   }
 }

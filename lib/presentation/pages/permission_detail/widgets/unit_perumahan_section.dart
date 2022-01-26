@@ -3,12 +3,13 @@ import 'package:flutter/widgets.dart';
 import 'package:perizinan_petugas/core/constants/strings.dart';
 import 'package:perizinan_petugas/core/style/color_palettes.dart';
 import 'package:perizinan_petugas/core/style/sizes.dart';
+import 'package:perizinan_petugas/domain/entities/monitoring/permit_and_customer_detail_entity.dart';
 import 'package:perizinan_petugas/domain/entities/monitoring/permit_detail_entity.dart';
 import 'package:perizinan_petugas/presentation/core/widgets/my_text.dart';
 
 class UnitPerumahanSection extends StatelessWidget {
-  final PermitDetailEntity permitDetail;
-  const UnitPerumahanSection({Key? key, required this.permitDetail})
+  final PermitAndCustomerDetailEntity permitAndCustomerDetail;
+  const UnitPerumahanSection({Key? key, required this.permitAndCustomerDetail})
       : super(key: key);
 
   @override
@@ -30,7 +31,7 @@ class UnitPerumahanSection extends StatelessWidget {
             color: Colors.white,
           ),
           MyText(
-            text: 'SC2.10-01',
+            text: permitAndCustomerDetail.customerDetail.unitCode,
             fontSize: Sizes.sp12,
             color: Colors.white,
             fontWeight: FontWeight.bold,

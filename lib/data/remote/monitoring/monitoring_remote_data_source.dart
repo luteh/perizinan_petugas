@@ -1,4 +1,5 @@
 import 'package:injectable/injectable.dart';
+import 'package:perizinan_petugas/data/remote/monitoring/response/detail_customer_response.dart';
 
 import '../../core/serialize_helper.dart';
 import '../response/base_response.dart';
@@ -22,13 +23,20 @@ class MonitoringRemoteDataSource with SerializeHelper {
     );
   }
 
-  Future<BaseResponse<List<PermitDetailResponse>>> fetchPermitDetail(
-      int id) async {
+  Future<BaseResponse<PermitDetailResponse>> fetchPermitDetail(int id) async {
     final _response = await _apiService.fetchPermitDetail(id);
     return BaseResponse.fromJson(
       _response.data,
-      (json) => serializeList<PermitDetailResponse>(
-          json, (p0) => PermitDetailResponse.fromJson(p0)),
+      (json) => PermitDetailResponse.fromJson(json as dynamic),
+    );
+  }
+
+  Future<BaseResponse<DetailCustomerResponse>> fetchCustomerDetail(
+      int id) async {
+    final _response = await _apiService.fetchCustomerDetail(id);
+    return BaseResponse.fromJson(
+      _response.data,
+      (json) => DetailCustomerResponse.fromJson(json as dynamic),
     );
   }
 }

@@ -1,11 +1,16 @@
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
-import 'package:perizinan_petugas/core/constants/strings.dart';
-import 'package:perizinan_petugas/core/style/sizes.dart';
 
+import '../../../../core/constants/strings.dart';
+import '../../../../core/style/sizes.dart';
+import '../../../../core/utils/date_util.dart';
+import '../../../../domain/entities/monitoring/permit_and_customer_detail_entity.dart';
 import 'filled_field.dart';
 
 class DetailFields extends StatelessWidget {
-  const DetailFields({Key? key}) : super(key: key);
+  final PermitAndCustomerDetailEntity permitAndCustomerDetail;
+  const DetailFields({Key? key, required this.permitAndCustomerDetail})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +24,7 @@ class DetailFields extends StatelessWidget {
         children: [
           FilledField(
             label: Strings.jenisIzin,
-            value: 'Izin Renovasi',
+            value: permitAndCustomerDetail.permitDetail.name,
             isDividerVisible: true,
             padding: EdgeInsets.symmetric(
               horizontal: Sizes.width16,
@@ -27,7 +32,7 @@ class DetailFields extends StatelessWidget {
           ),
           FilledField(
             label: Strings.nama,
-            value: 'Maria Genoveva Ashari',
+            value: permitAndCustomerDetail.customerDetail.name,
             isDividerVisible: true,
             padding: EdgeInsets.symmetric(
               horizontal: Sizes.width16,
@@ -35,7 +40,7 @@ class DetailFields extends StatelessWidget {
           ),
           FilledField(
             label: Strings.project,
-            value: 'Baltic Segara City',
+            value: permitAndCustomerDetail.customerDetail.unitProjectName,
             isDividerVisible: true,
             padding: EdgeInsets.symmetric(
               horizontal: Sizes.width16,
@@ -43,7 +48,7 @@ class DetailFields extends StatelessWidget {
           ),
           FilledField(
             label: Strings.namaUnit,
-            value: 'Rum1 Baltic Segara City Blok SC2.10 No 01',
+            value: permitAndCustomerDetail.customerDetail.unitName,
             isDividerVisible: true,
             padding: EdgeInsets.symmetric(
               horizontal: Sizes.width16,
@@ -51,7 +56,7 @@ class DetailFields extends StatelessWidget {
           ),
           FilledField(
             label: Strings.jenis,
-            value: 'Rumah',
+            value: permitAndCustomerDetail.customerDetail.unitCategoryName,
             isDividerVisible: true,
             padding: EdgeInsets.symmetric(
               horizontal: Sizes.width16,
@@ -59,7 +64,7 @@ class DetailFields extends StatelessWidget {
           ),
           FilledField(
             label: Strings.tipe,
-            value: 'Rumah 1',
+            value: permitAndCustomerDetail.customerDetail.unitTypeName,
             isDividerVisible: true,
             padding: EdgeInsets.symmetric(
               horizontal: Sizes.width16,
@@ -67,7 +72,7 @@ class DetailFields extends StatelessWidget {
           ),
           FilledField(
             label: Strings.luasBangunan,
-            value: '53',
+            value: permitAndCustomerDetail.customerDetail.unitBuildingArea,
             isDividerVisible: true,
             padding: EdgeInsets.symmetric(
               horizontal: Sizes.width16,
@@ -75,7 +80,7 @@ class DetailFields extends StatelessWidget {
           ),
           FilledField(
             label: Strings.luasTanah,
-            value: '148',
+            value: permitAndCustomerDetail.customerDetail.unitLandArea,
             isDividerVisible: true,
             padding: EdgeInsets.symmetric(
               horizontal: Sizes.width16,
@@ -83,7 +88,7 @@ class DetailFields extends StatelessWidget {
           ),
           FilledField(
             label: Strings.noTelepon,
-            value: '08966533332',
+            value: permitAndCustomerDetail.customerDetail.phoneNumber,
             isDividerVisible: true,
             padding: EdgeInsets.symmetric(
               horizontal: Sizes.width16,
@@ -91,7 +96,8 @@ class DetailFields extends StatelessWidget {
           ),
           FilledField(
             label: Strings.lokasiPelaksanaan,
-            value: '7.7809616,110.4619592',
+            value:
+                '${permitAndCustomerDetail.permitDetail.location.firstOrNull?.latitude ?? ''}, ${permitAndCustomerDetail.permitDetail.location.firstOrNull?.longitude ?? ''}',
             isDividerVisible: true,
             padding: EdgeInsets.symmetric(
               horizontal: Sizes.width16,
@@ -99,23 +105,24 @@ class DetailFields extends StatelessWidget {
           ),
           FilledField(
             label: Strings.tanggalPelaksanaan,
-            value: '02 - 05 Desember 2020',
+            value:
+                '${permitAndCustomerDetail.permitDetail.startDate} - ${permitAndCustomerDetail.permitDetail.endDate}',
             isDividerVisible: true,
             padding: EdgeInsets.symmetric(
               horizontal: Sizes.width16,
             ),
           ),
-          FilledField(
-            label: Strings.jenisRenovasi,
-            value: 'Sedang',
-            isDividerVisible: true,
-            padding: EdgeInsets.symmetric(
-              horizontal: Sizes.width16,
-            ),
-          ),
+          // FilledField(
+          //   label: Strings.jenisRenovasi,
+          //   value: 'Sedang',
+          //   isDividerVisible: true,
+          //   padding: EdgeInsets.symmetric(
+          //     horizontal: Sizes.width16,
+          //   ),
+          // ),
           FilledField(
             label: Strings.detailKegiatan,
-            value: 'Mengadakan acara grand opening toko',
+            value: permitAndCustomerDetail.permitDetail.description,
             isDividerVisible: false,
             padding: EdgeInsets.symmetric(
               horizontal: Sizes.width16,
