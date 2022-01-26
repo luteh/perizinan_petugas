@@ -2,11 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:perizinan_petugas/core/style/color_palettes.dart';
 import 'package:perizinan_petugas/core/style/sizes.dart';
+import 'package:perizinan_petugas/domain/entities/monitoring/permit_detail_entity.dart';
 import 'package:perizinan_petugas/presentation/core/widgets/my_text.dart';
 import 'package:perizinan_petugas/presentation/pages/permission_detail/widgets/detail_fields.dart';
 
 class DetailCard extends StatelessWidget {
-  const DetailCard({Key? key}) : super(key: key);
+  final PermitDetailEntity permitDetail;
+
+  const DetailCard({Key? key, required this.permitDetail}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

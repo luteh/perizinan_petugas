@@ -27,6 +27,7 @@ import '../presentation/pages/monitoring_data/monitoring_data_page.dart';
 import '../presentation/pages/monitoring_result.dart/cubit/monitoring_result_cubit.dart';
 import '../presentation/pages/monitoring_result.dart/monitoring_result_page.dart';
 import '../presentation/pages/permission_detail/cubit/permission_detail_cubit.dart';
+import '../presentation/pages/permission_detail/permission_detail_args.dart';
 import '../presentation/pages/permission_detail/permission_detail_page.dart';
 import '../presentation/pages/qr_code_scanner/cubit/qr_code_scanner_cubit.dart';
 import '../presentation/pages/qr_code_scanner/qr_code_scanner_page.dart';
@@ -98,10 +99,13 @@ class AppPages {
     ),
     GetPage(
       name: PermissionDetailPage.routeName,
-      page: () => BlocProvider<PermissionDetailCubit>(
-        create: (context) => getIt.get(),
-        child: const PermissionDetailPage(),
-      ),
+      page: () {
+        final _args = Get.arguments as PermissionDetailArgs;
+        return BlocProvider<PermissionDetailCubit>(
+          create: (context) => getIt.get()..onStarted(_args),
+          child: const PermissionDetailPage(),
+        );
+      },
     ),
     GetPage(
       name: MonitoringPage.routeName,

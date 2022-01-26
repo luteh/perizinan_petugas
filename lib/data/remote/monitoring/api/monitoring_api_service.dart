@@ -17,4 +17,10 @@ class MonitoringApiService {
       },
     );
   }
+
+  Future<Response> fetchPermitDetail(int id) async {
+    return await _dio.get(
+      Endpoint.permitDetail(id),
+    );
+  }
 }

@@ -3,10 +3,13 @@ import 'package:flutter/widgets.dart';
 import 'package:perizinan_petugas/core/constants/strings.dart';
 import 'package:perizinan_petugas/core/style/color_palettes.dart';
 import 'package:perizinan_petugas/core/style/sizes.dart';
+import 'package:perizinan_petugas/domain/entities/monitoring/permit_detail_entity.dart';
 import 'package:perizinan_petugas/presentation/core/widgets/my_text.dart';
 
 class UnitPerumahanSection extends StatelessWidget {
-  const UnitPerumahanSection({Key? key}) : super(key: key);
+  final PermitDetailEntity permitDetail;
+  const UnitPerumahanSection({Key? key, required this.permitDetail})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {

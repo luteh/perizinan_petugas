@@ -2,5 +2,13 @@ part of 'permission_detail_cubit.dart';
 
 @freezed
 class PermissionDetailState with _$PermissionDetailState {
-  const factory PermissionDetailState.initial() = _Initial;
+  const factory PermissionDetailState({
+    required PermissionDetailArgs args,
+    required ResultState<PermitDetailEntity> fetchPermitDetailResult,
+  }) = _PermissionDetailState;
+
+  factory PermissionDetailState.initial() => PermissionDetailState(
+        args: PermissionDetailArgs.initial(),
+        fetchPermitDetailResult: const ResultState.initial(),
+      );
 }

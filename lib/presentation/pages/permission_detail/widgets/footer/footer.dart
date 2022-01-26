@@ -6,13 +6,15 @@ import 'package:perizinan_petugas/core/constants/strings.dart';
 import 'package:perizinan_petugas/core/style/color_palettes.dart';
 import 'package:perizinan_petugas/core/style/sizes.dart';
 import 'package:perizinan_petugas/core/utils/navigation_util.dart';
+import 'package:perizinan_petugas/domain/entities/monitoring/permit_detail_entity.dart';
 import 'package:perizinan_petugas/presentation/core/widgets/my_text.dart';
 import 'package:perizinan_petugas/presentation/core/widgets/primary_button.dart';
 import 'package:perizinan_petugas/presentation/pages/monitoring/monitoring_page.dart';
 import 'package:perizinan_petugas/presentation/pages/monitoring_result.dart/monitoring_result_page.dart';
 
 class Footer extends StatelessWidget {
-  const Footer({Key? key}) : super(key: key);
+  final PermitDetailEntity permitDetail;
+  const Footer({Key? key, required this.permitDetail}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
