@@ -2,7 +2,7 @@ import 'package:equatable/equatable.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 import '../../../../domain/entities/login/user.dart';
-import '../../hive/hive_type_id.dart';
+import '../../core/hive_type_id.dart';
 
 part 'user_entity.g.dart';
 
