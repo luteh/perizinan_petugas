@@ -47,13 +47,13 @@ class MySearchUserField extends StatelessWidget {
             child: SvgPicture.asset(ImageAsset.icSearch),
           ),
           prefixIconConstraints: const BoxConstraints(),
-          suffixIcon: InkWell(
-            onTap: onTapMic,
-            child: const Icon(
-              Icons.mic,
-              color: Colors.black,
-            ),
-          ),
+          // suffixIcon: InkWell(
+          //   onTap: onTapMic,
+          //   child: const Icon(
+          //     Icons.mic,
+          //     color: Colors.black,
+          //   ),
+          // ),
         ),
         onChanged: onChanged,
       ),
