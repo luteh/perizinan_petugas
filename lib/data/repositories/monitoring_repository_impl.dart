@@ -16,8 +16,19 @@ class MonitoringRepositoryImpl implements MonitoringRepository {
 
   @override
   Future<Either<Failure, List<MonitoringEntity>>> fetchMonitoringList(
-      String keyword) async {
-    final _response = await _remoteDataSource.fetchMonitoringList(keyword);
+    String keyword,
+    String? permitStatus,
+    int? permitTypeId,
+    DateTime? startDate,
+    DateTime? endDate,
+  ) async {
+    final _response = await _remoteDataSource.fetchMonitoringList(
+      keyword,
+      permitStatus,
+      permitTypeId,
+      startDate,
+      endDate,
+    );
     return Right(_response.data.map((e) => e.toDomain()).toList());
   }
 
@@ -28,7 +39,8 @@ class MonitoringRepositoryImpl implements MonitoringRepository {
   }
 
   @override
-  Future<Either<Failure, DetailCustomerEntity>> fetchDetailCustomer(int id) async {
+  Future<Either<Failure, DetailCustomerEntity>> fetchDetailCustomer(
+      int id) async {
     final _response = await _remoteDataSource.fetchCustomerDetail(id);
     return Right(_response.data.toDomain());
   }

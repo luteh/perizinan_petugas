@@ -28,8 +28,7 @@ class SubmissionsRepositoryImpl implements SubmissionsRepository {
       fetchSubmissionStatusesLocal() async {
     return Right(_localDataSource
             .getSubmissionStatuses()
-            ?.map((e) => e.toDomain())
-            .toList() ??
-        []);
+            .map((e) => e.toDomain())
+            .toList());
   }
 }

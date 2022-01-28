@@ -8,11 +8,15 @@ import 'package:perizinan_petugas/presentation/core/widgets/my_text.dart';
 class DatePickerField extends StatelessWidget {
   final String label;
   final EdgeInsets? margin;
+  final String name;
+  final DateTimeRange? initialValue;
 
   const DatePickerField({
     Key? key,
     required this.label,
     this.margin,
+    required this.name,
+    this.initialValue,
   }) : super(key: key);
 
   @override
@@ -33,6 +37,7 @@ class DatePickerField extends StatelessWidget {
             ),
           ),
           FormBuilderDateRangePicker(
+            initialValue: initialValue,
             decoration: InputDecoration(
               constraints: BoxConstraints.tightFor(
                 height: Sizes.height35,
@@ -55,7 +60,7 @@ class DatePickerField extends StatelessWidget {
             firstDate: DateTime(1945),
             lastDate: DateTime(2101),
             initialEntryMode: DatePickerEntryMode.calendarOnly,
-            name: '',
+            name: name,
             format: DateFormat('dd MMM yyyy', 'id'),
           ),
         ],

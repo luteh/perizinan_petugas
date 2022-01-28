@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:perizinan_petugas/core/style/sizes.dart';
 import 'package:perizinan_petugas/presentation/core/widgets/my_text.dart';
 
@@ -9,6 +10,8 @@ class DropDownField extends StatelessWidget {
   final List<String> items;
   final Function(String?)? onChanged;
   final EdgeInsets? margin;
+  final String name;
+  final String? initialValue;
 
   const DropDownField({
     Key? key,
@@ -16,6 +19,8 @@ class DropDownField extends StatelessWidget {
     required this.items,
     this.onChanged,
     this.margin,
+    required this.name,
+    this.initialValue,
   }) : super(key: key);
 
   @override
@@ -35,7 +40,8 @@ class DropDownField extends StatelessWidget {
               bottom: Sizes.height9,
             ),
           ),
-          DropdownButtonFormField(
+          FormBuilderDropdown(
+            initialValue: initialValue,
             decoration: InputDecoration(
               constraints: BoxConstraints.tightFor(
                 height: Sizes.height35,
@@ -60,6 +66,7 @@ class DropDownField extends StatelessWidget {
                   ),
                 )
                 .toList(),
+            name: name,
           ),
         ],
       ),

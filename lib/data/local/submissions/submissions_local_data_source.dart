@@ -18,7 +18,8 @@ class SubmissionsLocalDataSource {
     await _hiveManager.deleteSubmissionStatuses();
   }
 
-  List<SubmissionStatusLocal>? getSubmissionStatuses() {
-    return _hiveManager.getSubmissionStatuses();
+  List<SubmissionStatusLocal> getSubmissionStatuses() {
+    final _datas = _hiveManager.getSubmissionStatuses();
+    return _datas.map((e) => e as SubmissionStatusLocal).toList();
   }
 }

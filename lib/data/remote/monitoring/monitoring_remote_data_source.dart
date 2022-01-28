@@ -14,8 +14,19 @@ class MonitoringRemoteDataSource with SerializeHelper {
   MonitoringRemoteDataSource(this._apiService);
 
   Future<BaseResponse<List<MonitoringResponse>>> fetchMonitoringList(
-      String keyword) async {
-    final _response = await _apiService.fetchMonitoringList(keyword);
+    String keyword,
+    String? permitStatus,
+    int? permitTypeId,
+    DateTime? startDate,
+    DateTime? endDate,
+  ) async {
+    final _response = await _apiService.fetchMonitoringList(
+      keyword,
+      permitStatus,
+      permitTypeId,
+      startDate,
+      endDate,
+    );
     return BaseResponse.fromJson(
       _response.data,
       (json) => serializeList<MonitoringResponse>(

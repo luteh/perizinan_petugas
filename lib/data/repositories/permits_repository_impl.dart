@@ -26,7 +26,6 @@ class PermitsRepositoryImpl implements PermitsRepository {
   Future<Either<Failure, List<PermitTypeEntity>>>
       fetchPermitTypesLocal() async {
     return Right(
-        _localDataSource.getPermitTypes()?.map((e) => e.toDomain()).toList() ??
-            []);
+        _localDataSource.getPermitTypes().map((e) => e.toDomain()).toList());
   }
 }

@@ -19,7 +19,7 @@ class SubmissionsHiveManager {
     await _box.delete(HiveKey.submissionStatuses);
   }
 
-  List<SubmissionStatusLocal>? getSubmissionStatuses() {
-    return _box.get(HiveKey.submissionStatuses);
+  List<dynamic> getSubmissionStatuses() {
+    return _box.get(HiveKey.submissionStatuses, defaultValue: []);
   }
 }

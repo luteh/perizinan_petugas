@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:injectable/injectable.dart';
 
@@ -18,7 +20,7 @@ class PermitsHiveManager {
     await _box.delete(HiveKey.permitTypes);
   }
 
-  List<PermitTypeLocal>? getPermitTypes() {
-    return _box.get(HiveKey.permitTypes);
+  List<dynamic> getPermitTypes() {
+    return _box.get(HiveKey.permitTypes, defaultValue: []);
   }
 }

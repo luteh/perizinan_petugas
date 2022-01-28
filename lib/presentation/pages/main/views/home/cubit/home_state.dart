@@ -7,6 +7,9 @@ class HomeState with _$HomeState {
     required String searchKeyword,
     required List<PermitTypeEntity> permitTypes,
     required List<SubmissionStatusEntity> submissionStatuses,
+    required String? permitStatus,
+    required String? permitType,
+    required DateTimeRange? dateTimeRange,
   }) = _HomeState;
 
   factory HomeState.initial() => const HomeState(
@@ -14,5 +17,8 @@ class HomeState with _$HomeState {
         searchKeyword: '',
         permitTypes: [],
         submissionStatuses: [],
+        permitStatus: null,
+        permitType: null,
+        dateTimeRange: null,
       );
 }

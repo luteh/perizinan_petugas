@@ -17,7 +17,8 @@ class PermitsLocalDataSource {
     await _hiveManager.deletePermitTypes();
   }
 
-  List<PermitTypeLocal>? getPermitTypes() {
-    return _hiveManager.getPermitTypes();
+  List<PermitTypeLocal> getPermitTypes() {
+    final _datas = _hiveManager.getPermitTypes();
+    return _datas.map((e) => e as PermitTypeLocal).toList();
   }
 }

@@ -7,7 +7,12 @@ import '../entities/monitoring/monitoring_entity.dart';
 
 abstract class MonitoringRepository {
   Future<Either<Failure, List<MonitoringEntity>>> fetchMonitoringList(
-      String keyword);
+    String keyword,
+    String? permitStatus,
+    int? permitTypeId,
+    DateTime? startDate,
+    DateTime? endDate,
+  );
 
   Future<Either<Failure, PermitDetailEntity>> fetchPermitDetail(int id);
   Future<Either<Failure, DetailCustomerEntity>> fetchDetailCustomer(int id);

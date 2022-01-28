@@ -9,11 +9,21 @@ class MonitoringApiService {
 
   MonitoringApiService(this._dio);
 
-  Future<Response> fetchMonitoringList(String keyword) async {
+  Future<Response> fetchMonitoringList(
+    String keyword,
+    String? permitStatus,
+    int? permitTypeId,
+    DateTime? startDate,
+    DateTime? endDate,
+  ) async {
     return await _dio.get(
       Endpoint.monitoringList,
       queryParameters: {
         if (keyword.isNotEmpty) 'keyword': keyword,
+        if (permitTypeId != null) 'permitId': permitTypeId,
+        if (permitStatus != null) 'submissionStatus': permitStatus,
+        if (startDate != null) 'startDate': startDate,
+        if (endDate != null) 'endDate': endDate,
       },
     );
   }

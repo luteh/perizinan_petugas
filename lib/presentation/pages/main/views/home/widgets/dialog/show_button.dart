@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:perizinan_petugas/core/constants/strings.dart';
-import 'package:perizinan_petugas/core/utils/navigation_util.dart';
-import 'package:perizinan_petugas/presentation/core/widgets/primary_button.dart';
+
+import '../../../../../../../core/constants/strings.dart';
+import '../../../../../../core/widgets/primary_button.dart';
 
 class ShowButton extends StatelessWidget {
   final EdgeInsets? margin;
-  const ShowButton({Key? key, this.margin}) : super(key: key);
+  final Function() onPressed;
+  const ShowButton({Key? key, this.margin, required this.onPressed})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,12 +16,8 @@ class ShowButton extends StatelessWidget {
       margin: margin,
       child: PrimaryButton(
         text: Strings.show,
-        onPressed: () => _onPressShow(context),
+        onPressed: onPressed,
       ),
     );
-  }
-
-  _onPressShow(BuildContext context) {
-    NavigationUtil.popUntil();
   }
 }

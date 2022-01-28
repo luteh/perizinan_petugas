@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:easy_debounce/easy_debounce.dart';
+import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
@@ -35,12 +36,34 @@ class HomeCubit extends Cubit<HomeState> {
     ]);
   }
 
-  Future<void> fetchMonitoringList() async {
-    emit(
-        state.copyWith(fetchMonitoringListResult: const ResultState.loading()));
+  Future<void> fetchMonitoringList({
+    String? permitStatus,
+    String? permitType,
+    DateTimeRange? dateTimeRange,
+  }) async {
+    emit(state.copyWith(
+      fetchMonitoringListResult: const ResultState.loading(),
+      permitStatus: permitStatus,
+      permitType: permitType,
+      dateTimeRange: dateTimeRange,
+    ));
+
+    final _selectedPermitTypeId = state.permitTypes
+        .firstWhereOrNull((element) => element.name == state.permitType)
+        ?.id;
+    final _selectedPermitStatus = state.submissionStatuses
+        .firstWhereOrNull((element) => element.name == state.permitStatus)
+        ?.status;
+    final _selectedStartDate = state.dateTimeRange?.start;
+    final _selectedEndDate = state.dateTimeRange?.end;
 
     final _result = await _fetchMonitoringListUseCase(
-        FetchMonitoringListUseCaseParams(state.searchKeyword));
+        FetchMonitoringListUseCaseParams(
+            state.searchKeyword,
+            _selectedPermitStatus,
+            _selectedPermitTypeId,
+            _selectedStartDate,
+            _selectedEndDate));
 
     _result.fold(
       (l) => emit(state.copyWith(
