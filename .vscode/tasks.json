@@ -31,5 +31,19 @@
 			"group": "build",
 			"label": "flutter: flutter pub run build_runner build --delete-conflicting-outputs"
 		},
+		{
+			"type": "flutter",
+			"command": "flutter",
+			"args": [
+				"build",
+				"apk",
+				"--release",
+				"--obfuscate",
+				"--split-debug-info=debug_files"
+			],
+			"group": "build",
+			"problemMatcher": [],
+			"label": "flutter: flutter build apk --release --obfuscate --split-debug-info=debug_files",
+		}
 	]
 }
