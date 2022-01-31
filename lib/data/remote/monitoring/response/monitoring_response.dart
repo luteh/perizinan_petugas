@@ -29,7 +29,7 @@ class MonitoringResponse with _$MonitoringResponse {
     required String? statusSubmision,
     required String? submissionContactPersonName,
     required int? permitType,
-    required int? amount,
+    required double? amount,
   }) = _MonitoringResponse;
 
   factory MonitoringResponse.fromJson(Map<String, dynamic> json) =>
@@ -45,7 +45,7 @@ class MonitoringResponse with _$MonitoringResponse {
         statusSubmision: statusSubmision ?? '',
         submissionContactPersonName: submissionContactPersonName ?? '',
         permitType: permitType ?? 0,
-        amount: amount ?? 0,
+        amount: amount?.toInt() ?? 0,
       );
 }
 

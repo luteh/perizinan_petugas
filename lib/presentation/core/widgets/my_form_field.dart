@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
-import 'package:perizinan_petugas/core/style/color_palettes.dart';
-import 'package:perizinan_petugas/core/style/sizes.dart';
-import 'package:perizinan_petugas/core/utils/form_builder_util.dart';
-import 'package:perizinan_petugas/presentation/core/widgets/my_text.dart';
+
+import '../../../core/style/color_palettes.dart';
+import '../../../core/style/sizes.dart';
+import '../../../core/utils/form_builder_util.dart';
+import 'my_text.dart';
 
 class MyFormField extends StatefulWidget {
   final String? label;
@@ -17,6 +19,7 @@ class MyFormField extends StatefulWidget {
   final String? Function(String?)? validator;
   final String? initialValue;
   final String? name;
+  final List<TextInputFormatter>? inputFormatters;
 
   const MyFormField({
     Key? key,
@@ -30,6 +33,7 @@ class MyFormField extends StatefulWidget {
     this.validator,
     this.initialValue,
     this.name,
+    this.inputFormatters,
   }) : super(key: key);
 
   @override
@@ -91,6 +95,7 @@ class _MyFormFieldState extends State<MyFormField> {
             onChanged: (value) {
               widget.onChanged?.call(value ?? '');
             },
+            inputFormatters: widget.inputFormatters,
             validator: widget.validator ??
                 FormBuilderValidators.compose([
                   FormBuilderUtil.emptyValidator(context),

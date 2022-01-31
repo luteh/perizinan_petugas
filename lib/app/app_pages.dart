@@ -113,7 +113,7 @@ class AppPages {
         final _args = Get.arguments as MonitoringArgs?;
 
         return BlocProvider<MonitoringCubit>(
-          create: (context) => getIt.get(),
+          create: (context) => getIt.get()..onStarted(_args),
           child: MonitoringPage(
             args: _args,
           ),

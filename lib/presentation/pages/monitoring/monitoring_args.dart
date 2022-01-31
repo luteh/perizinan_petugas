@@ -1,10 +1,9 @@
-import 'package:equatable/equatable.dart';
-
-class MonitoringArgs extends Equatable {
+class MonitoringArgs {
   final String? title;
+  final int? id;
 
-  const MonitoringArgs({this.title});
-
-  @override
-  List<Object?> get props => [title];
+  const MonitoringArgs({
+    this.title,
+    this.id,
+  });
 }

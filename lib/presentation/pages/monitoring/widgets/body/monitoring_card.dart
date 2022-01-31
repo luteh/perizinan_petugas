@@ -39,7 +39,10 @@ class _MonitoringCardState extends State<MonitoringCard> with BaseWidgetClass {
           error: (failure) =>
               showFlushbar(context, null, Failure.getErrorMessage(failure)),
           success: (_) {
-            context.read<MonitoringCubit>().addMoreInputMonitoringItem();
+            if (context.read<MonitoringCubit>().state.eventType ==
+                EventType.addPhoto) {
+              context.read<MonitoringCubit>().addMoreInputMonitoringItem();
+            }
           },
           orElse: () => null,
         );
@@ -50,25 +53,25 @@ class _MonitoringCardState extends State<MonitoringCard> with BaseWidgetClass {
           right: Sizes.width20,
           top: Sizes.height36,
         ),
-        child: FormBuilder(
-          key: _formKey,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: EdgeInsets.only(
-                  left: Sizes.width18,
-                  top: Sizes.height20,
-                ),
-                child: ElevatedButton(
-                  onPressed: () => _onPressAddPhoto(context),
-                  child: const MyText(
-                    text: Strings.tambahFoto,
-                    color: Colors.white,
-                  ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: EdgeInsets.only(
+                left: Sizes.width18,
+                top: Sizes.height20,
+              ),
+              child: ElevatedButton(
+                onPressed: () => _onPressAddPhoto(context),
+                child: const MyText(
+                  text: Strings.tambahFoto,
+                  color: Colors.white,
                 ),
               ),
-              BlocBuilder<MonitoringCubit, MonitoringState>(
+            ),
+            FormBuilder(
+              key: _formKey,
+              child: BlocBuilder<MonitoringCubit, MonitoringState>(
                 buildWhen: (previous, current) =>
                     previous.inputMonitoringResult !=
                     current.inputMonitoringResult,
@@ -96,12 +99,12 @@ class _MonitoringCardState extends State<MonitoringCard> with BaseWidgetClass {
                   );
                 },
               ),
-              const TotalBiayaForm(),
-              SizedBox(
-                height: Sizes.height34,
-              ),
-            ],
-          ),
+            ),
+            const TotalBiayaForm(),
+            SizedBox(
+              height: Sizes.height34,
+            ),
+          ],
         ),
       ),
     );

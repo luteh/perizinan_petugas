@@ -1,9 +1,10 @@
 import 'package:injectable/injectable.dart';
-import 'package:perizinan_petugas/data/remote/monitoring/response/detail_customer_response.dart';
 
 import '../../core/serialize_helper.dart';
 import '../response/base_response.dart';
 import 'api/monitoring_api_service.dart';
+import 'request/submit_monitoring_result_request.dart';
+import 'response/detail_customer_response.dart';
 import 'response/monitoring_response.dart';
 import 'response/permit_detail_response.dart';
 
@@ -48,6 +49,15 @@ class MonitoringRemoteDataSource with SerializeHelper {
     return BaseResponse.fromJson(
       _response.data,
       (json) => DetailCustomerResponse.fromJson(json as dynamic),
+    );
+  }
+
+  Future<BaseResponse> submitMonitoringResult(
+      SubmitMonitoringResultRequest request) async {
+    final _response = await _apiService.submitMonitoringResult(request);
+    return BaseResponse.fromJson(
+      _response.data,
+      (json) => null,
     );
   }
 }

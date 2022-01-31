@@ -242,3 +242,10 @@ Random _rnd = Random();
 
 String getRandomString(int length) => String.fromCharCodes(Iterable.generate(
     length, (_) => _chars.codeUnitAt(_rnd.nextInt(_chars.length))));
+
+int idrToInt(String value) {
+  if (value.isEmpty) {
+    return 0;
+  }
+  return int.parse(value.replaceAll(RegExp(r"[Rp.]"), ""));
+}

@@ -2,20 +2,24 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/widgets.dart';
-import 'package:perizinan_petugas/core/constants/strings.dart';
-import 'package:perizinan_petugas/core/style/color_palettes.dart';
-import 'package:perizinan_petugas/core/style/sizes.dart';
-import 'package:perizinan_petugas/core/utils/navigation_util.dart';
-import 'package:perizinan_petugas/domain/entities/monitoring/permit_and_customer_detail_entity.dart';
-import 'package:perizinan_petugas/domain/entities/monitoring/permit_detail_entity.dart';
-import 'package:perizinan_petugas/presentation/core/widgets/my_text.dart';
-import 'package:perizinan_petugas/presentation/core/widgets/primary_button.dart';
-import 'package:perizinan_petugas/presentation/pages/monitoring/monitoring_page.dart';
-import 'package:perizinan_petugas/presentation/pages/monitoring_result.dart/monitoring_result_page.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../../../../core/constants/strings.dart';
+import '../../../../../core/style/color_palettes.dart';
+import '../../../../../core/style/sizes.dart';
+import '../../../../../core/utils/navigation_util.dart';
+import '../../../../../domain/entities/monitoring/permit_and_customer_detail_entity.dart';
+import '../../../../core/widgets/my_text.dart';
+import '../../../../core/widgets/primary_button.dart';
+import '../../../monitoring/monitoring_args.dart';
+import '../../../monitoring/monitoring_page.dart';
+import '../../../monitoring_result.dart/monitoring_result_page.dart';
+import '../../cubit/permission_detail_cubit.dart';
 
 class Footer extends StatelessWidget {
   final PermitAndCustomerDetailEntity permitAndCustomerDetail;
-  const Footer({Key? key, required this.permitAndCustomerDetail}) : super(key: key);
+  const Footer({Key? key, required this.permitAndCustomerDetail})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +52,9 @@ class Footer extends StatelessWidget {
   }
 
   _onPressMonitoring(BuildContext context) async {
-    await NavigationUtil.pushNamed(MonitoringPage.routeName);
+    await NavigationUtil.pushNamed(MonitoringPage.routeName,
+        arguments: MonitoringArgs(
+            id: context.read<PermissionDetailCubit>().state.args.id));
   }
 
   _onTapSeeMonitoringResult(BuildContext context) async {
