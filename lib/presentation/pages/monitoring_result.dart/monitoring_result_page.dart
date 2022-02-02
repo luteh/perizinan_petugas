@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:perizinan_petugas/core/constants/strings.dart';
-import 'package:perizinan_petugas/core/style/sizes.dart';
-import 'package:perizinan_petugas/presentation/pages/monitoring_result.dart/widgets/body/body.dart';
-import 'package:perizinan_petugas/presentation/pages/monitoring_result.dart/widgets/header/header.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../core/constants/strings.dart';
+import '../../../core/style/sizes.dart';
+import '../../core/widgets/my_error_widget.dart';
+import 'cubit/monitoring_result_cubit.dart';
+import 'widgets/body/body.dart';
+import 'widgets/header/header.dart';
+
+/// Must pass arguments as [MonitoringResultArgs]
 class MonitoringResultPage extends StatelessWidget {
   static const routeName = '/monitoring-result';
   const MonitoringResultPage({Key? key}) : super(key: key);
@@ -29,13 +34,36 @@ class MonitoringResultPage extends StatelessWidget {
           ),
         ],
       ),
-      body: Column(
-        children: const [
-          Header(),
-          Expanded(
-            child: Body(),
-          ),
-        ],
+      body: BlocBuilder<MonitoringResultCubit, MonitoringResultState>(
+        buildWhen: (previous, current) =>
+            previous.fetchMonitoringResultDetailResult !=
+            current.fetchMonitoringResultDetailResult,
+        builder: (context, state) {
+          return state.fetchMonitoringResultDetailResult.when(
+            initial: () => const SizedBox.shrink(),
+            loading: () => const Center(child: CircularProgressIndicator()),
+            success: (data) {
+              return Column(
+                children: const [
+                  Header(),
+                  Expanded(
+                    child: Body(),
+                  ),
+                ],
+              );
+            },
+            error: (failure) {
+              return MyErrorWidget(
+                failure: failure,
+                onPressRetry: () {
+                  context
+                      .read<MonitoringResultCubit>()
+                      .fetchMonitoringResultDetail();
+                },
+              );
+            },
+          );
+        },
       ),
     );
   }

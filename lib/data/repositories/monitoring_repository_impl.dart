@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:fpdart/fpdart.dart';
 import 'package:injectable/injectable.dart';
+import 'package:perizinan_petugas/domain/entities/monitoring/monitoring_result_detail_entity.dart';
 
 import '../../domain/core/unions/failure.dart';
 import '../../domain/entities/base_domain.dart';
@@ -68,5 +69,13 @@ class MonitoringRepositoryImpl implements MonitoringRepository {
           .toList(),
     ));
     return Right(_response.toDomain());
+  }
+
+  @override
+  Future<Either<Failure, MonitoringResultDetailEntity>>
+      fetchMonitoringResultDetail(int submissionId) async {
+    final _response =
+        await _remoteDataSource.fetchMonitoringResultDetail(submissionId);
+    return Right(_response.data.toDomain());
   }
 }

@@ -25,6 +25,7 @@ import '../presentation/pages/monitoring_data/cubit/monitoring_data_cubit.dart';
 import '../presentation/pages/monitoring_data/monitoring_data_args.dart';
 import '../presentation/pages/monitoring_data/monitoring_data_page.dart';
 import '../presentation/pages/monitoring_result.dart/cubit/monitoring_result_cubit.dart';
+import '../presentation/pages/monitoring_result.dart/monitoring_result_args.dart';
 import '../presentation/pages/monitoring_result.dart/monitoring_result_page.dart';
 import '../presentation/pages/permission_detail/cubit/permission_detail_cubit.dart';
 import '../presentation/pages/permission_detail/permission_detail_args.dart';
@@ -122,10 +123,14 @@ class AppPages {
     ),
     GetPage(
       name: MonitoringResultPage.routeName,
-      page: () => BlocProvider<MonitoringResultCubit>(
-        create: (context) => getIt.get(),
-        child: const MonitoringResultPage(),
-      ),
+      page: () {
+        final _args = Get.arguments as MonitoringResultArgs;
+
+        return BlocProvider<MonitoringResultCubit>(
+          create: (context) => getIt.get()..onStarted(_args),
+          child: const MonitoringResultPage(),
+        );
+      },
     ),
     GetPage(
         name: MonitoringDataPage.routeName,

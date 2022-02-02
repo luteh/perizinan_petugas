@@ -6,6 +6,7 @@ import 'api/monitoring_api_service.dart';
 import 'request/submit_monitoring_result_request.dart';
 import 'response/detail_customer_response.dart';
 import 'response/monitoring_response.dart';
+import 'response/monitoring_result_detail_response.dart';
 import 'response/permit_detail_response.dart';
 
 @lazySingleton
@@ -49,6 +50,16 @@ class MonitoringRemoteDataSource with SerializeHelper {
     return BaseResponse.fromJson(
       _response.data,
       (json) => DetailCustomerResponse.fromJson(json as dynamic),
+    );
+  }
+
+  Future<BaseResponse<MonitoringResultDetailResponse>>
+      fetchMonitoringResultDetail(int submissionId) async {
+    final _response =
+        await _apiService.fetchMonitoringResultDetail(submissionId);
+    return BaseResponse.fromJson(
+      _response.data,
+      (json) => MonitoringResultDetailResponse.fromJson(json as dynamic),
     );
   }
 

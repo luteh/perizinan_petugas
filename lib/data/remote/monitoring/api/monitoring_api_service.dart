@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
-import 'package:perizinan_petugas/data/remote/monitoring/request/submit_monitoring_result_request.dart';
 
+import '../request/submit_monitoring_result_request.dart';
 import 'endpoint.dart';
 
 @lazySingleton
@@ -38,6 +38,12 @@ class MonitoringApiService {
   Future<Response> fetchCustomerDetail(int id) async {
     return await _dio.get(
       Endpoint.customerDetail(id),
+    );
+  }
+
+  Future<Response> fetchMonitoringResultDetail(int submissionId) async {
+    return await _dio.get(
+      Endpoint.monitoringResultDetail(submissionId),
     );
   }
 

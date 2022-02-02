@@ -2,6 +2,7 @@ import 'package:fpdart/fpdart.dart';
 import 'package:perizinan_petugas/domain/entities/base_domain.dart';
 import 'package:perizinan_petugas/domain/entities/monitoring/detail_customer_entity.dart';
 import 'package:perizinan_petugas/domain/entities/monitoring/input_monitoring_data.dart';
+import 'package:perizinan_petugas/domain/entities/monitoring/monitoring_result_detail_entity.dart';
 import 'package:perizinan_petugas/domain/entities/monitoring/permit_detail_entity.dart';
 import 'package:perizinan_petugas/domain/entities/monitoring/submit_monitoring_result.dart';
 
@@ -25,4 +26,7 @@ abstract class MonitoringRepository {
     int amount,
     List<InputMonitoringData> inputMonitoringDatas,
   );
+
+  Future<Either<Failure, MonitoringResultDetailEntity>>
+      fetchMonitoringResultDetail(int submissionId);
 }
