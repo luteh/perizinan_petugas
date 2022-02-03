@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:perizinan_petugas/core/constants/strings.dart';
-import 'package:perizinan_petugas/core/style/sizes.dart';
-import 'package:perizinan_petugas/presentation/core/widgets/my_cached_network_image.dart';
-import 'package:perizinan_petugas/presentation/core/widgets/my_card.dart';
-import 'package:perizinan_petugas/presentation/core/widgets/my_text.dart';
+
+import '../../../../../core/style/sizes.dart';
+import '../../../../../domain/entities/monitoring/monitoring_result_detail_entity.dart';
+import '../../../../core/widgets/my_cached_network_image.dart';
+import '../../../../core/widgets/my_card.dart';
+import '../../../../core/widgets/my_text.dart';
 
 class MonitoringListItem extends StatelessWidget {
-  const MonitoringListItem({Key? key}) : super(key: key);
+  final ImageEntity imageEntity;
+  const MonitoringListItem({Key? key, required this.imageEntity})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,11 +23,11 @@ class MonitoringListItem extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const MyCachedNetworkImage(
-            imageUrl: 'https://interiordesign.id/wp-content/uploads/2018/05/renovasi-rumah-1.jpg',
+          MyCachedNetworkImage(
+            imageUrl: imageEntity.image,
           ),
           MyText(
-            text: 'Pelaksanaan renovasi telah selesai',
+            text: imageEntity.description,
             margin: EdgeInsets.only(
               top: Sizes.height15,
             ),

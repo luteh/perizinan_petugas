@@ -1,13 +1,20 @@
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/widgets.dart';
-import 'package:perizinan_petugas/core/constants/strings.dart';
-import 'package:perizinan_petugas/core/style/color_palettes.dart';
-import 'package:perizinan_petugas/core/style/sizes.dart';
-import 'package:perizinan_petugas/presentation/core/widgets/my_text.dart';
+
+import '../../../../../core/constants/strings.dart';
+import '../../../../../core/style/color_palettes.dart';
+import '../../../../../core/style/sizes.dart';
+import '../../../../../core/utils/date_util.dart';
+import '../../../../../core/utils/utils.dart';
+import '../../../../../domain/entities/monitoring/monitoring_result_detail_entity.dart';
+import '../../../../core/widgets/my_text.dart';
 
 class Header extends StatelessWidget {
-  const Header({Key? key}) : super(key: key);
+  final MonitoringResultDetailEntity monitoringResultDetailEntity;
+  const Header({Key? key, required this.monitoringResultDetailEntity})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +43,7 @@ class Header extends StatelessWidget {
                   color: Colors.white,
                 ),
                 MyText(
-                  text: 'Rp250.000',
+                  text: formatToIdr(monitoringResultDetailEntity.amount),
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
                   margin: EdgeInsets.only(
@@ -46,10 +53,11 @@ class Header extends StatelessWidget {
               ],
             ),
           ),
-          const Expanded(
+          Expanded(
             child: MyText(
               alignment: Alignment.center,
-              text: '5 Desember 2020',
+              text: DateUtil.toFormattedDate(monitoringResultDetailEntity
+                  .monitorings.lastOrNull?.monitoringDate),
               color: Colors.white,
             ),
           ),

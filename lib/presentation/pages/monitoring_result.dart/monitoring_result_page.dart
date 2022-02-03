@@ -20,19 +20,19 @@ class MonitoringResultPage extends StatelessWidget {
         title: const Text(
           Strings.hasilMonitoring,
         ),
-        actions: [
-          Padding(
-            padding: EdgeInsets.only(
-              right: Sizes.width32,
-            ),
-            child: InkWell(
-              onTap: () => _onTapDatePickerAction(context),
-              child: const Icon(
-                Icons.date_range_outlined,
-              ),
-            ),
-          ),
-        ],
+        // actions: [
+        //   Padding(
+        //     padding: EdgeInsets.only(
+        //       right: Sizes.width32,
+        //     ),
+        //     child: InkWell(
+        //       onTap: () => _onTapDatePickerAction(context),
+        //       child: const Icon(
+        //         Icons.date_range_outlined,
+        //       ),
+        //     ),
+        //   ),
+        // ],
       ),
       body: BlocBuilder<MonitoringResultCubit, MonitoringResultState>(
         buildWhen: (previous, current) =>
@@ -44,10 +44,14 @@ class MonitoringResultPage extends StatelessWidget {
             loading: () => const Center(child: CircularProgressIndicator()),
             success: (data) {
               return Column(
-                children: const [
-                  Header(),
+                children: [
+                  Header(
+                    monitoringResultDetailEntity: data,
+                  ),
                   Expanded(
-                    child: Body(),
+                    child: Body(
+                      monitoringResults: data.monitorings,
+                    ),
                   ),
                 ],
               );
