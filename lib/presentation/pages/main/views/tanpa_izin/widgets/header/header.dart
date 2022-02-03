@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:perizinan_petugas/presentation/core/widgets/my_colored_status_bar.dart';
 import 'package:perizinan_petugas/presentation/core/widgets/my_search_user_field.dart';
+import 'package:perizinan_petugas/presentation/pages/main/views/tanpa_izin/cubit/tanpa_izin_cubit.dart';
 
 class Header extends StatelessWidget {
   const Header({Key? key}) : super(key: key);
@@ -18,7 +20,9 @@ class Header extends StatelessWidget {
     );
   }
 
-  _onChangeSearchKeyword(BuildContext context, String value) {}
+  _onChangeSearchKeyword(BuildContext context, String value) {
+    context.read<TanpaIzinCubit>().changeSearchKeyword(value);
+  }
 
   _onTapMic(BuildContext context) {}
 }
