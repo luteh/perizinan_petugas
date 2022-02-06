@@ -1,4 +1,5 @@
 import 'package:injectable/injectable.dart';
+import 'package:perizinan_petugas/data/remote/monitoring_without_submission/request/submit_monitoring_data_request.dart';
 
 import '../../core/serialize_helper.dart';
 import '../response/base_response.dart';
@@ -19,6 +20,15 @@ class MonitoringWithoutSubmissionRemoteDataSource with SerializeHelper {
       _response.data,
       (json) => serializeList<MonitoringWithoutSubmissionResponse>(
           json, (p0) => MonitoringWithoutSubmissionResponse.fromJson(p0)),
+    );
+  }
+
+  Future<BaseResponse> submitMonitoringData(
+      SubmitMonitoringDataRequest request) async {
+    final _response = await _apiService.submitMonitoringData(request);
+    return BaseResponse.fromJson(
+      _response.data,
+      (json) => null,
     );
   }
 }

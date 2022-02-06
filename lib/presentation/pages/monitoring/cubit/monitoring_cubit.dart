@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
+import 'package:perizinan_petugas/core/utils/navigation_util.dart';
 
 import '../../../../core/constants/strings.dart';
 import '../../../../core/utils/utils.dart';
@@ -84,6 +85,11 @@ class MonitoringCubit extends Cubit<MonitoringState> {
 
     await state.validateInputMonitoringDataResult.maybeWhen(
       success: (_) async {
+        if (state.args?.monitoringType == MonitoringType.withoutPermit) {
+          NavigationUtil.popUntil(result: state.inputMonitoringDatas);
+          return;
+        }
+        
         emit(state.copyWith(
             submitMonitoringResult: const ResultState.loading()));
 

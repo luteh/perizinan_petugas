@@ -2,15 +2,18 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_form_builder/src/form_builder.dart';
-import 'package:perizinan_petugas/core/constants/strings.dart';
-import 'package:perizinan_petugas/core/style/color_palettes.dart';
-import 'package:perizinan_petugas/core/style/sizes.dart';
-import 'package:perizinan_petugas/core/utils/navigation_util.dart';
-import 'package:perizinan_petugas/presentation/core/widgets/my_text.dart';
-import 'package:perizinan_petugas/presentation/core/widgets/primary_button.dart';
-import 'package:perizinan_petugas/presentation/pages/monitoring/monitoring_args.dart';
-import 'package:perizinan_petugas/presentation/pages/monitoring/monitoring_page.dart';
+
+import '../../../../../core/constants/strings.dart';
+import '../../../../../core/style/color_palettes.dart';
+import '../../../../../core/style/sizes.dart';
+import '../../../../../core/utils/navigation_util.dart';
+import '../../../../core/widgets/my_text.dart';
+import '../../../../core/widgets/primary_button.dart';
+import '../../../monitoring/monitoring_args.dart';
+import '../../../monitoring/monitoring_page.dart';
+import '../../cubit/monitoring_data_cubit.dart';
 
 class Footer extends StatelessWidget {
   final GlobalKey<FormBuilderState> formKey;
@@ -48,17 +51,36 @@ class Footer extends StatelessWidget {
   }
 
   _onPressSave(BuildContext context) async {
-    if (formKey.currentState?.validate() ?? false) {
-      NavigationUtil.popUntil();
+    if (formKey.currentState?.saveAndValidate() ?? false) {
+      final _name = formKey.currentState!.value[Strings.nama];
+      final _unitPerumahan = formKey.currentState!.value[Strings.unitPerumahan];
+      final _noTelepon = formKey.currentState!.value[Strings.noTelepon];
+      final _alamat = formKey.currentState!.value[Strings.alamat];
+      final _deskripsiKegiatan =
+          formKey.currentState!.value[Strings.deskripsiKegiatan];
+
+      context.read<MonitoringDataCubit>().submitMonitoringData(
+            name: _name,
+            unitName: _unitPerumahan,
+            phoneNumber: _noTelepon,
+            address: _alamat,
+            description: _deskripsiKegiatan,
+          );
+      // NavigationUtil.popUntil();
+
     }
   }
 
   _onTapUploadMonitoringPhoto(BuildContext context) async {
-    await NavigationUtil.pushNamed(
+    final _result = await NavigationUtil.pushNamed(
       MonitoringPage.routeName,
-      arguments: const MonitoringArgs(
+      arguments: MonitoringArgs(
         title: Strings.fotoMonitoring,
+        inputMonitoringDatas:
+            context.read<MonitoringDataCubit>().state.inputMonitoringDatas,
       ),
     );
+
+    context.read<MonitoringDataCubit>().saveInputMonitoringDatas(_result);
   }
 }

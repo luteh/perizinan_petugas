@@ -1,8 +1,6 @@
-import 'package:equatable/equatable.dart';
+class MonitoringDataArgs {
+  final double latitude;
+  final double longitude;
 
-class MonitoringDataArgs extends Equatable {
-  const MonitoringDataArgs();
-  
-  @override
-  List<Object?> get props => [];
+  const MonitoringDataArgs(this.latitude, this.longitude);
 }

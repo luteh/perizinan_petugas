@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
+import 'package:perizinan_petugas/data/remote/monitoring_without_submission/request/submit_monitoring_data_request.dart';
 
 import 'endpoint.dart';
 
@@ -15,6 +16,14 @@ class MonitoringWithoutSubmissionApiService {
       queryParameters: {
         if (keyword.isNotEmpty) 'keyword': keyword,
       },
+    );
+  }
+
+  Future<Response> submitMonitoringData(
+      SubmitMonitoringDataRequest request) async {
+    return await _dio.post(
+      Endpoint.submitMonitoringData,
+      data: request.toJson(),
     );
   }
 }

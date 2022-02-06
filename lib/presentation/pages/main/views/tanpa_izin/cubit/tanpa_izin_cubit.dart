@@ -28,14 +28,14 @@ class TanpaIzinCubit extends Cubit<TanpaIzinState> {
   putMarker({required LatLng latLng}) {
     emit(state.copyWith(putMarkerResult: const ResultState.loading()));
 
-    if (state.markers.length > 1) {
-      state.markers.removeWhere((element) => element.markerId.value == '2');
-      // emit(state);
-    }
+    // if (state.markers.length > 1) {
+    //   state.markers.removeWhere((element) => element.markerId.value == '2');
+    //   // emit(state);
+    // }
 
     state.markers.add(
       Marker(
-        markerId: const MarkerId('2'),
+        markerId: const MarkerId('-1'),
         position: latLng,
         infoWindow: const InfoWindow(
           title: 'Tanpa Izin',
@@ -56,7 +56,7 @@ class TanpaIzinCubit extends Cubit<TanpaIzinState> {
         fetchMonitoringWithoutSubmissionsResult: const ResultState.loading()));
 
     final _result = await _fetchMonitoringWithoutSubmissionsUseCase(
-        FetchMonitoringWithoutSubmissionsUseCaseParams('keyword'));
+        FetchMonitoringWithoutSubmissionsUseCaseParams(state.searchKeyword));
 
     _result.fold(
       (l) => emit(state.copyWith(

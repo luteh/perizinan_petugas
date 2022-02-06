@@ -37,6 +37,7 @@ class Body extends StatelessWidget {
             MyFormField(
               label: Strings.nama,
               hint: Strings.nama,
+              name: Strings.nama,
               padding: EdgeInsets.only(
                 top: Sizes.height24,
               ),
@@ -45,6 +46,7 @@ class Body extends StatelessWidget {
             MyFormField(
               label: Strings.unitPerumahan,
               hint: Strings.unitPerumahan,
+              name: Strings.unitPerumahan,
               padding: EdgeInsets.only(
                 top: Sizes.height24,
               ),
@@ -53,6 +55,7 @@ class Body extends StatelessWidget {
             MyFormField(
               label: Strings.noTelepon,
               hint: Strings.noTelepon,
+              name: Strings.noTelepon,
               padding: EdgeInsets.only(
                 top: Sizes.height24,
               ),
@@ -61,6 +64,7 @@ class Body extends StatelessWidget {
             MyFormField(
               label: Strings.alamat,
               hint: Strings.alamat,
+              name: Strings.alamat,
               maxLines: 3,
               padding: EdgeInsets.only(
                 top: Sizes.height24,
@@ -70,6 +74,7 @@ class Body extends StatelessWidget {
             MyFormField(
               label: Strings.deskripsiKegiatan,
               hint: Strings.deskripsiKegiatan,
+              name: Strings.deskripsiKegiatan,
               maxLines: 4,
               padding: EdgeInsets.only(
                 top: Sizes.height24,

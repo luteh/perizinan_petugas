@@ -38,7 +38,7 @@ class InformasiUmumView extends StatelessWidget {
   onPressUbah(BuildContext context) async {
     await NavigationUtil.pushNamed(
       MonitoringDataPage.routeName,
-      arguments: const MonitoringDataArgs(),
+      arguments: const MonitoringDataArgs(0, 0),
     );
   }
 }

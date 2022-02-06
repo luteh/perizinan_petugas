@@ -3,16 +3,18 @@ import 'package:flutter/painting.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:perizinan_petugas/core/constants/image_asset.dart';
-import 'package:perizinan_petugas/core/constants/strings.dart';
-import 'package:perizinan_petugas/core/style/sizes.dart';
-import 'package:perizinan_petugas/core/utils/navigation_util.dart';
-import 'package:perizinan_petugas/domain/entities/monitoring_without_submission/monitoring_without_submission_entity.dart';
-import 'package:perizinan_petugas/presentation/core/base_widget_class.dart';
-import 'package:perizinan_petugas/presentation/core/widgets/my_icon_card.dart';
-import 'package:perizinan_petugas/presentation/core/widgets/primary_button.dart';
-import 'package:perizinan_petugas/presentation/pages/main/views/tanpa_izin/cubit/tanpa_izin_cubit.dart';
-import 'package:perizinan_petugas/presentation/pages/monitoring_data/monitoring_data_page.dart';
+
+import '../../../../../../../core/constants/image_asset.dart';
+import '../../../../../../../core/constants/strings.dart';
+import '../../../../../../../core/style/sizes.dart';
+import '../../../../../../../core/utils/navigation_util.dart';
+import '../../../../../../../domain/entities/monitoring_without_submission/monitoring_without_submission_entity.dart';
+import '../../../../../../core/base_widget_class.dart';
+import '../../../../../../core/widgets/my_icon_card.dart';
+import '../../../../../../core/widgets/primary_button.dart';
+import '../../../../../monitoring_data/monitoring_data_args.dart';
+import '../../../../../monitoring_data/monitoring_data_page.dart';
+import '../../cubit/tanpa_izin_cubit.dart';
 
 class Body extends StatelessWidget with BaseWidgetClass {
   final List<MonitoringWithoutSubmissionEntity> monitoringWithoutSubmissions;
@@ -84,6 +86,12 @@ class Body extends StatelessWidget with BaseWidgetClass {
       showFlushbar(context, null, 'Tandai titik pada map terlebih dahulu');
       return;
     }
-    await NavigationUtil.pushNamed(MonitoringDataPage.routeName);
+    final _result = await NavigationUtil.pushNamed(MonitoringDataPage.routeName,
+        arguments: MonitoringDataArgs(
+            _markers.last.position.latitude, _markers.last.position.longitude));
+
+    if (_result) {
+      context.read<TanpaIzinCubit>().fetchMonitoringWithoutSubmissions();
+    }
   }
 }
