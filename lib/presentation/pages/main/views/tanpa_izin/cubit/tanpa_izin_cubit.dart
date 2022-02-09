@@ -8,6 +8,7 @@ import '../../../../../../core/utils/navigation_util.dart';
 import '../../../../../../domain/core/unions/result_state.dart';
 import '../../../../../../domain/entities/monitoring_without_submission/monitoring_without_submission_entity.dart';
 import '../../../../../../domain/usecases/monitoring_without_submission/fetch_monitoring_without_submissions_usecase.dart';
+import '../../../../without_permit_detail/without_permit_detail_args.dart';
 import '../../../../without_permit_detail/without_permit_detail_page.dart';
 
 part 'tanpa_izin_cubit.freezed.dart';
@@ -48,7 +49,8 @@ class TanpaIzinCubit extends Cubit<TanpaIzinState> {
   }
 
   _onTapInfoWindowMarker(int customerId) async {
-    await NavigationUtil.pushNamed(WithoutPermitDetailPage.routeName);
+    await NavigationUtil.pushNamed(WithoutPermitDetailPage.routeName,
+        arguments: WithoutPermitDetailArgs(id: customerId));
   }
 
   fetchMonitoringWithoutSubmissions() async {

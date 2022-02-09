@@ -1,53 +1,64 @@
 import 'package:flutter/material.dart';
-import 'package:perizinan_petugas/core/constants/image_asset.dart';
-import 'package:perizinan_petugas/core/constants/strings.dart';
-import 'package:perizinan_petugas/core/style/color_palettes.dart';
-import 'package:perizinan_petugas/presentation/core/widgets/my_list_tile.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../../../../core/constants/image_asset.dart';
+import '../../../../../core/constants/strings.dart';
+import '../../../../../core/style/color_palettes.dart';
+import '../../../../../core/utils/date_util.dart';
+import '../../../../../domain/core/unions/result_state.dart';
+import '../../../../../domain/entities/monitoring_without_submission/monitoring_without_submission_detail_entity.dart';
+import '../../../../core/widgets/my_list_tile.dart';
+import '../../cubit/without_permit_detail_cubit.dart';
 
 class InformasiUmumFields extends StatelessWidget {
   const InformasiUmumFields({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final _detail =
+        (context.read<WithoutPermitDetailCubit>().state.fetchDetailResult
+                as Success<MonitoringWithoutSubmissionDetailEntity>)
+            .data;
+
     return Column(
       children: ListTile.divideTiles(
         context: context,
         color: ColorPalettes.dividerGrey,
         tiles: [
-          const MyListTile(
+          MyListTile(
             imageAsset: ImageAsset.icNama,
             title: Strings.nama,
-            subtitle: 'Maria Genoveva Ashari',
+            subtitle: _detail.name,
           ),
-          const MyListTile(
+          MyListTile(
             imageAsset: ImageAsset.icUnitPerumahan,
             title: Strings.unitPerumahan,
-            subtitle: 'BC-01',
+            subtitle: _detail.unitName,
           ),
-          const MyListTile(
+          MyListTile(
             imageAsset: ImageAsset.icAlamat,
             title: Strings.alamat,
-            subtitle: 'Jalan Diponegoro No. 43, Kalasan, Sleman Yogyakarta',
+            subtitle: _detail.address,
           ),
-          const MyListTile(
+          MyListTile(
             imageAsset: ImageAsset.icNoTelepon,
             title: Strings.noTelepon,
-            subtitle: '0811263368777',
+            subtitle: _detail.phoneNumber,
           ),
-          const MyListTile(
-            imageAsset: ImageAsset.icEmail,
-            title: Strings.email,
-            subtitle: 'anggraini@gmail.com',
-          ),
-          const MyListTile(
+          // MyListTile(
+          //   imageAsset: ImageAsset.icEmail,
+          //   title: Strings.email,
+          //   subtitle: 'anggraini@gmail.com',
+          // ),
+          MyListTile(
             imageAsset: ImageAsset.icTanggalPelaksanaan,
             title: Strings.tanggalPelaksanaan,
-            subtitle: '02 Desember 2020',
+            subtitle: DateUtil.toFormattedDate(_detail.monitoringDate),
           ),
-          const MyListTile(
+          MyListTile(
             imageAsset: ImageAsset.icDetailKegiatan,
             title: Strings.detailKegiatan,
-            subtitle: 'Mengadakan shooting dan pemotretan',
+            subtitle: _detail.description,
           ),
         ],
       ).toList(),

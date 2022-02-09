@@ -1,5 +1,6 @@
 import 'package:fpdart/fpdart.dart';
 import 'package:perizinan_petugas/domain/entities/monitoring/input_monitoring_data.dart';
+import 'package:perizinan_petugas/domain/entities/monitoring_without_submission/monitoring_without_submission_detail_entity.dart';
 
 import '../core/unions/failure.dart';
 import '../entities/monitoring_without_submission/monitoring_without_submission_entity.dart';
@@ -7,6 +8,9 @@ import '../entities/monitoring_without_submission/monitoring_without_submission_
 abstract class MonitoringWithoutSubmissionRepository {
   Future<Either<Failure, List<MonitoringWithoutSubmissionEntity>>>
       fetchMonitoringWithoutSubmissions(String keyword);
+
+  Future<Either<Failure, MonitoringWithoutSubmissionDetailEntity>>
+      fetchMonitoringWithoutSubmissionDetail(int id);
 
   Future<Either<Failure, String>> submitMonitoringData({
     required String name,

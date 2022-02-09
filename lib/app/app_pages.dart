@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/route_manager.dart';
+import 'package:perizinan_petugas/presentation/pages/without_permit_detail/without_permit_detail_args.dart';
 
 import '../di/injection_container.dart';
 import '../presentation/pages/change_password/change_password_args.dart';
@@ -146,10 +147,13 @@ class AppPages {
         }),
     GetPage(
       name: WithoutPermitDetailPage.routeName,
-      page: () => BlocProvider<WithoutPermitDetailCubit>(
-        create: (context) => getIt.get(),
-        child: const WithoutPermitDetailPage(),
-      ),
+      page: () {
+        final _args = Get.arguments as WithoutPermitDetailArgs;
+        return BlocProvider<WithoutPermitDetailCubit>(
+          create: (context) => getIt.get()..onStarted(_args),
+          child: const WithoutPermitDetailPage(),
+        );
+      },
     ),
     GetPage(
       name: QrCodeScannerPage.routeName,

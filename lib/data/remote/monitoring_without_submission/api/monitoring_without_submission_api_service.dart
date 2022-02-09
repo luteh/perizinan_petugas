@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
-import 'package:perizinan_petugas/data/remote/monitoring_without_submission/request/submit_monitoring_data_request.dart';
 
+import '../request/submit_monitoring_data_request.dart';
 import 'endpoint.dart';
 
 @lazySingleton
@@ -15,6 +15,15 @@ class MonitoringWithoutSubmissionApiService {
       Endpoint.monitoringWithoutSubmissions,
       queryParameters: {
         if (keyword.isNotEmpty) 'keyword': keyword,
+      },
+    );
+  }
+
+  Future<Response> fetchMonitoringWithoutSubmissionDetail(int id) async {
+    return await _dio.get(
+      Endpoint.monitoringWithoutSubmissionDetail,
+      queryParameters: {
+        'id': id,
       },
     );
   }

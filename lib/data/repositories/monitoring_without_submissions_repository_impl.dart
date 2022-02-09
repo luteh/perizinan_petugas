@@ -3,9 +3,9 @@ import 'dart:convert';
 import 'package:fpdart/fpdart.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../core/utils/date_util.dart';
 import '../../domain/core/unions/failure.dart';
 import '../../domain/entities/monitoring/input_monitoring_data.dart';
+import '../../domain/entities/monitoring_without_submission/monitoring_without_submission_detail_entity.dart';
 import '../../domain/entities/monitoring_without_submission/monitoring_without_submission_entity.dart';
 import '../../domain/repositories/monitoring_without_submission_repository.dart';
 import '../remote/monitoring_without_submission/monitoring_without_submission_remote_data_source.dart';
@@ -40,7 +40,7 @@ class MonitoringWithoutSubmissionRepositoryImpl
         .submitMonitoringData(SubmitMonitoringDataRequest(
       customerName: name,
       unitName: unitName,
-    phoneNumber: phoneNumber,
+      phoneNumber: phoneNumber,
       address: address,
       // tanggal: DateUtil.formatCurrentDate(),
       detailKegiatan: description,
@@ -55,5 +55,13 @@ class MonitoringWithoutSubmissionRepositoryImpl
     ));
 
     return Right(_response.message ?? 'Berhasil submit data');
+  }
+
+  @override
+  Future<Either<Failure, MonitoringWithoutSubmissionDetailEntity>>
+      fetchMonitoringWithoutSubmissionDetail(int id) async {
+    final _response =
+        await _remoteDataSource.fetchMonitoringWithoutSubmissionDetail(id);
+    return Right(_response.data.toDomain());
   }
 }

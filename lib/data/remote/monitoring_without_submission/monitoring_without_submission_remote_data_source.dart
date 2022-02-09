@@ -1,9 +1,10 @@
 import 'package:injectable/injectable.dart';
-import 'package:perizinan_petugas/data/remote/monitoring_without_submission/request/submit_monitoring_data_request.dart';
 
 import '../../core/serialize_helper.dart';
 import '../response/base_response.dart';
 import 'api/monitoring_without_submission_api_service.dart';
+import 'request/submit_monitoring_data_request.dart';
+import 'response/monitoring_without_submission_detail_response.dart';
 import 'response/monitoring_without_submission_response.dart';
 
 @lazySingleton
@@ -29,6 +30,17 @@ class MonitoringWithoutSubmissionRemoteDataSource with SerializeHelper {
     return BaseResponse.fromJson(
       _response.data,
       (json) => null,
+    );
+  }
+
+  Future<BaseResponse<MonitoringWithoutSubmissionDetailResponse>>
+      fetchMonitoringWithoutSubmissionDetail(int id) async {
+    final _response =
+        await _apiService.fetchMonitoringWithoutSubmissionDetail(id);
+    return BaseResponse.fromJson(
+      _response.data,
+      (json) =>
+          MonitoringWithoutSubmissionDetailResponse.fromJson(json as dynamic),
     );
   }
 }
