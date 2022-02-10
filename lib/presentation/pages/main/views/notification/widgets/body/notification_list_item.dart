@@ -2,16 +2,20 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/widgets.dart';
-import 'package:perizinan_petugas/core/constants/strings.dart';
-import 'package:perizinan_petugas/core/style/color_palettes.dart';
-import 'package:perizinan_petugas/core/style/sizes.dart';
-import 'package:perizinan_petugas/core/utils/navigation_util.dart';
-import 'package:perizinan_petugas/presentation/core/widgets/my_card.dart';
-import 'package:perizinan_petugas/presentation/core/widgets/my_text.dart';
-import 'package:perizinan_petugas/presentation/pages/permission_detail/permission_detail_page.dart';
+
+import '../../../../../../../core/constants/strings.dart';
+import '../../../../../../../core/style/color_palettes.dart';
+import '../../../../../../../core/style/sizes.dart';
+import '../../../../../../../core/utils/navigation_util.dart';
+import '../../../../../../../domain/entities/notification/notification_entity.dart';
+import '../../../../../../core/widgets/my_card.dart';
+import '../../../../../../core/widgets/my_text.dart';
+import '../../../../../permission_detail/permission_detail_page.dart';
 
 class NotificationListItem extends StatelessWidget {
-  const NotificationListItem({Key? key}) : super(key: key);
+  final NotificationEntity notification;
+  const NotificationListItem({Key? key, required this.notification})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {

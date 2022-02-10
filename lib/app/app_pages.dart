@@ -1,6 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/route_manager.dart';
-import 'package:perizinan_petugas/presentation/pages/without_permit_detail/without_permit_detail_args.dart';
 
 import '../di/injection_container.dart';
 import '../presentation/pages/change_password/change_password_args.dart';
@@ -34,6 +33,7 @@ import '../presentation/pages/permission_detail/permission_detail_page.dart';
 import '../presentation/pages/qr_code_scanner/cubit/qr_code_scanner_cubit.dart';
 import '../presentation/pages/qr_code_scanner/qr_code_scanner_page.dart';
 import '../presentation/pages/without_permit_detail/cubit/without_permit_detail_cubit.dart';
+import '../presentation/pages/without_permit_detail/without_permit_detail_args.dart';
 import '../presentation/pages/without_permit_detail/without_permit_detail_page.dart';
 
 class AppPages {
@@ -93,7 +93,7 @@ class AppPages {
             create: (context) => getIt.get()..onStarted(),
           ),
           BlocProvider<NotificationCubit>(
-            create: (context) => getIt.get(),
+            create: (context) => getIt.get()..onStarted(),
           ),
         ],
         child: const MainPage(),
