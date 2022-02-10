@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/constants/strings.dart';
 import '../../../../core/style/sizes.dart';
-import '../../../../core/utils/date_util.dart';
 import '../../../../domain/entities/monitoring/permit_and_customer_detail_entity.dart';
 import 'filled_field.dart';
 
@@ -49,6 +48,14 @@ class DetailFields extends StatelessWidget {
           FilledField(
             label: Strings.namaUnit,
             value: permitAndCustomerDetail.customerDetail.unitName,
+            isDividerVisible: true,
+            padding: EdgeInsets.symmetric(
+              horizontal: Sizes.width16,
+            ),
+          ),
+          FilledField(
+            label: Strings.noIzin,
+            value: permitAndCustomerDetail.permitDetail.number,
             isDividerVisible: true,
             padding: EdgeInsets.symmetric(
               horizontal: Sizes.width16,

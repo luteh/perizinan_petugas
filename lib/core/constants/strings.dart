@@ -39,6 +39,7 @@ class Strings {
   static const String nama = 'Nama';
   static const String project = 'Project';
   static const String namaUnit = 'Nama Unit';
+  static const String noIzin = 'No. Izin';
   static const String jenis = 'Jenis';
   static const String tipe = 'Tipe';
   static const String luasBangunan = 'Luas Bangunan';
