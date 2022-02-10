@@ -13,6 +13,7 @@ abstract class MonitoringWithoutSubmissionRepository {
       fetchMonitoringWithoutSubmissionDetail(int id);
 
   Future<Either<Failure, String>> submitMonitoringData({
+    required int? id,
     required String name,
     required String unitName,
     required String phoneNumber,

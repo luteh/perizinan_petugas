@@ -25,8 +25,13 @@ class MonitoringWithoutSubmissionRemoteDataSource with SerializeHelper {
   }
 
   Future<BaseResponse> submitMonitoringData(
-      SubmitMonitoringDataRequest request) async {
-    final _response = await _apiService.submitMonitoringData(request);
+    SubmitMonitoringDataRequest request, {
+    required int? id,
+  }) async {
+    final _response = await _apiService.submitMonitoringData(
+      request,
+      id: id,
+    );
     return BaseResponse.fromJson(
       _response.data,
       (json) => null,

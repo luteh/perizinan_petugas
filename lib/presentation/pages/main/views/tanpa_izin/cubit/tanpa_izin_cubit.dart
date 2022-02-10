@@ -48,9 +48,14 @@ class TanpaIzinCubit extends Cubit<TanpaIzinState> {
         state.copyWith(putMarkerResult: const ResultState.success(data: null)));
   }
 
-  _onTapInfoWindowMarker(int customerId) async {
+  _onTapInfoWindowMarker(
+      int customerId, double latitude, double longitude) async {
     await NavigationUtil.pushNamed(WithoutPermitDetailPage.routeName,
-        arguments: WithoutPermitDetailArgs(id: customerId));
+        arguments: WithoutPermitDetailArgs(
+          id: customerId,
+          latitude: latitude,
+          longitude: longitude,
+        ));
   }
 
   fetchMonitoringWithoutSubmissions() async {
@@ -73,7 +78,8 @@ class TanpaIzinCubit extends Cubit<TanpaIzinState> {
                   infoWindow: InfoWindow(
                     title: e.customerName,
                     onTap: () {
-                      _onTapInfoWindowMarker(e.customerId);
+                      _onTapInfoWindowMarker(
+                          e.customerId, e.lokasi.latitude, e.lokasi.longitude);
                     },
                   ),
                 ),

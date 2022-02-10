@@ -1,9 +1,14 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:perizinan_petugas/core/constants/strings.dart';
 import 'package:perizinan_petugas/core/style/sizes.dart';
 import 'package:perizinan_petugas/core/utils/get_util.dart';
 import 'package:perizinan_petugas/presentation/core/widgets/my_form_field.dart';
+import 'package:perizinan_petugas/presentation/pages/monitoring_data/cubit/monitoring_data_cubit.dart';
 import 'package:perizinan_petugas/presentation/pages/without_permit_detail/without_permit_detail_page.dart';
 
 class Body extends StatelessWidget {
@@ -17,13 +22,15 @@ class Body extends StatelessWidget {
     String noTelepon = '';
     String alamat = '';
     String deksripsiKegiatan = '';
+    final _detail =
+        context.read<MonitoringDataCubit>().state.args?.withoutPermitDetail;
 
-    if (GetUtil.previousRoute == WithoutPermitDetailPage.routeName) {
-      nama = 'Maria Genoveva Ashari';
-      unitPerumahan = 'BC-01';
-      noTelepon = '0811263368777';
-      alamat = 'Jalan Diponegoro No. 43, Kalasan, Sleman Yogyakarta';
-      deksripsiKegiatan = 'Mengadakan shooting dan pemotretan';
+    if (_detail != null) {
+      nama = _detail.name;
+      unitPerumahan = _detail.unitName;
+      noTelepon = _detail.phoneNumber;
+      alamat = _detail.address;
+      deksripsiKegiatan = _detail.description;
     }
 
     return Padding(

@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:dio/adapter.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:hive/hive.dart';
 import 'package:injectable/injectable.dart';
 import 'package:perizinan_petugas/core/utils/navigation_util.dart';
@@ -120,4 +121,7 @@ abstract class RegisterModule {
     await getIt.get<DoLogoutUseCase>().call(const DoLogoutUseCaseParams());
     NavigationUtil.pushNamedAndRemoveUntil(LoginPage.routeName);
   }
+
+  @lazySingleton
+  CacheManager cacheManager() => DefaultCacheManager();
 }

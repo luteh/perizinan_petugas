@@ -8,9 +8,9 @@ class MonitoringDataState with _$MonitoringDataState {
     required ResultState<String> submitMonitoringDataResult,
   }) = _MonitoringDataState;
 
-  factory MonitoringDataState.initial() => const MonitoringDataState(
+  factory MonitoringDataState.initial() => MonitoringDataState(
         args: null,
-        inputMonitoringDatas: [],
-        submitMonitoringDataResult: ResultState.initial(),
+        inputMonitoringDatas: List.empty(growable: true),
+        submitMonitoringDataResult: const ResultState.initial(),
       );
 }

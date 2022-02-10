@@ -27,32 +27,36 @@ class MonitoringWithoutSubmissionRepositoryImpl
   }
 
   @override
-  Future<Either<Failure, String>> submitMonitoringData(
-      {required String name,
-      required String unitName,
-      required String phoneNumber,
-      required String address,
-      required String description,
-      required double latitude,
-      required double longitude,
-      required List<InputMonitoringData> inputMonitoringDatas}) async {
-    final _response = await _remoteDataSource
-        .submitMonitoringData(SubmitMonitoringDataRequest(
-      customerName: name,
-      unitName: unitName,
-      phoneNumber: phoneNumber,
-      address: address,
-      // tanggal: DateUtil.formatCurrentDate(),
-      detailKegiatan: description,
-      longitude: longitude,
-      latitude: latitude,
-      images: inputMonitoringDatas
-          .map((e) => ImageRequest(
-                image: base64Encode(e.imageFile!.readAsBytesSync()),
-                description: description,
-              ))
-          .toList(),
-    ));
+  Future<Either<Failure, String>> submitMonitoringData({
+    required int? id,
+    required String name,
+    required String unitName,
+    required String phoneNumber,
+    required String address,
+    required String description,
+    required double latitude,
+    required double longitude,
+    required List<InputMonitoringData> inputMonitoringDatas,
+  }) async {
+    final _response = await _remoteDataSource.submitMonitoringData(
+      SubmitMonitoringDataRequest(
+        customerName: name,
+        unitName: unitName,
+        phoneNumber: phoneNumber,
+        address: address,
+        // tanggal: DateUtil.formatCurrentDate(),
+        detailKegiatan: description,
+        longitude: longitude,
+        latitude: latitude,
+        images: inputMonitoringDatas
+            .map((e) => ImageRequest(
+                  image: base64Encode(e.imageFile!.readAsBytesSync()),
+                  description: description,
+                ))
+            .toList(),
+      ),
+      id: id,
+    );
 
     return Right(_response.message ?? 'Berhasil submit data');
   }

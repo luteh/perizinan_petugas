@@ -78,6 +78,7 @@ class Footer extends StatelessWidget {
         title: Strings.fotoMonitoring,
         inputMonitoringDatas:
             context.read<MonitoringDataCubit>().state.inputMonitoringDatas,
+        // monitoringType: MonitoringType.editWithoutPermit,
       ),
     );
 

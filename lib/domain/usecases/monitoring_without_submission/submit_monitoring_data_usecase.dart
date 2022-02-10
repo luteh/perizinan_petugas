@@ -7,6 +7,7 @@ import '../../entities/monitoring/input_monitoring_data.dart';
 import '../../repositories/monitoring_without_submission_repository.dart';
 
 class SubmitMonitoringDataUseCaseParams {
+  final int? id;
   final String name;
   final String unitName;
   final String phoneNumber;
@@ -17,6 +18,7 @@ class SubmitMonitoringDataUseCaseParams {
   final List<InputMonitoringData> inputMonitoringDatas;
 
   SubmitMonitoringDataUseCaseParams({
+    required this.id,
     required this.name,
     required this.unitName,
     required this.phoneNumber,
@@ -39,6 +41,7 @@ class SubmitMonitoringDataUseCase
   Future<Either<Failure, String>> execute(
       SubmitMonitoringDataUseCaseParams params) {
     return repository.submitMonitoringData(
+      id: params.id,
       name: params.name,
       unitName: params.unitName,
       phoneNumber: params.phoneNumber,

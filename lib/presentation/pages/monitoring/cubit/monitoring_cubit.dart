@@ -24,7 +24,11 @@ class MonitoringCubit extends Cubit<MonitoringState> {
       : super(MonitoringState.initial());
 
   onStarted(MonitoringArgs? args) {
-    emit(state.copyWith(args: args));
+    emit(state.copyWith(
+      args: args,
+      inputMonitoringDatas:
+          args?.inputMonitoringDatas ?? state.inputMonitoringDatas,
+    ));
   }
 
   inputMonitoringItemImage({required int index, required File imageFile}) {
@@ -89,7 +93,7 @@ class MonitoringCubit extends Cubit<MonitoringState> {
           NavigationUtil.popUntil(result: state.inputMonitoringDatas);
           return;
         }
-        
+
         emit(state.copyWith(
             submitMonitoringResult: const ResultState.loading()));
 

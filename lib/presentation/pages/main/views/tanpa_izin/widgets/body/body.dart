@@ -88,7 +88,9 @@ class Body extends StatelessWidget with BaseWidgetClass {
     }
     final _result = await NavigationUtil.pushNamed(MonitoringDataPage.routeName,
         arguments: MonitoringDataArgs(
-            _markers.last.position.latitude, _markers.last.position.longitude));
+          latitude: _markers.last.position.latitude,
+          longitude: _markers.last.position.longitude,
+        ));
 
     if (_result) {
       context.read<TanpaIzinCubit>().fetchMonitoringWithoutSubmissions();

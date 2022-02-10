@@ -29,10 +29,18 @@ class MonitoringWithoutSubmissionApiService {
   }
 
   Future<Response> submitMonitoringData(
-      SubmitMonitoringDataRequest request) async {
+    SubmitMonitoringDataRequest request, {
+    required int? id,
+  }) async {
+    final _request = request.toJson();
+    if (id != null) {
+      _request.addAll({
+        'customerId': id,
+      });
+    }
     return await _dio.post(
       Endpoint.submitMonitoringData,
-      data: request.toJson(),
+      data: _request,
     );
   }
 }

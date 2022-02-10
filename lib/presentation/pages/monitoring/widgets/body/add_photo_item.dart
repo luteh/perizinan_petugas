@@ -84,6 +84,7 @@ class AddPhotoItem extends StatelessWidget with BaseWidgetClass {
             child: MyFormField(
               label: Strings.keterangan,
               hint: Strings.masukkanKeterangan,
+              initialValue: inputMonitoringData.keterangan,
               maxLines: 3,
               validator: FormBuilderValidators.compose([
                 FormBuilderUtil.emptyValidator(context),

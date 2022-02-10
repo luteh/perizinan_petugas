@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
@@ -14,15 +15,25 @@ part 'monitoring_data_state.dart';
 @injectable
 class MonitoringDataCubit extends Cubit<MonitoringDataState> {
   final SubmitMonitoringDataUseCase _submitMonitoringDataUseCase;
-  MonitoringDataCubit(this._submitMonitoringDataUseCase)
+  final CacheManager _cacheManager;
+  MonitoringDataCubit(this._submitMonitoringDataUseCase, this._cacheManager)
       : super(MonitoringDataState.initial());
 
-  onStarted(MonitoringDataArgs? args) {
+  onStarted(MonitoringDataArgs? args) async {
     emit(state.copyWith(args: args));
+
+    if (args?.withoutPermitDetail != null) {
+      args!.withoutPermitDetail!.images.forEach((e) async {
+        final _file = await _cacheManager.getSingleFile(e.image);
+        state.inputMonitoringDatas.add(
+            InputMonitoringData(imageFile: _file, keterangan: e.descriptions));
+      });
+    }
   }
 
   saveInputMonitoringDatas(List<InputMonitoringData>? inputMonitoringDatas) {
-    emit(state.copyWith(inputMonitoringDatas: inputMonitoringDatas ?? []));
+    if (inputMonitoringDatas == null) return;
+    emit(state.copyWith(inputMonitoringDatas: inputMonitoringDatas));
   }
 
   submitMonitoringData({
@@ -53,6 +64,7 @@ class MonitoringDataCubit extends Cubit<MonitoringDataState> {
       latitude: state.args?.latitude ?? 0,
       longitude: state.args?.longitude ?? 0,
       inputMonitoringDatas: state.inputMonitoringDatas,
+      id: state.args?.withoutPermitDetail?.id,
     ));
 
     _result.fold(

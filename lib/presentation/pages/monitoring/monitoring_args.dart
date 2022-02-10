@@ -1,6 +1,11 @@
 import '../../../domain/entities/monitoring/input_monitoring_data.dart';
 
-enum MonitoringType { withPermit, withoutPermit }
+enum MonitoringType {
+  withPermit,
+  withoutPermit,
+  editWithoutPermit,
+  editWithoutPermitImagesOnly,
+}
 
 class MonitoringArgs {
   final String? title;
