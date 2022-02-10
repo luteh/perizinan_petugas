@@ -14,31 +14,62 @@ class Footer extends StatelessWidget with BaseWidgetClass {
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<MonitoringCubit, MonitoringState>(
-      listenWhen: (previous, current) =>
-          previous.submitMonitoringResult != current.submitMonitoringResult,
-      listener: (context, state) {
-        state.submitMonitoringResult.when(
-          initial: () => null,
-          loading: () {
-            showLoadingDialog();
-          },
-          success: (data) {
-            dismissDialog();
-            NavigationUtil.popUntil();
-            showFlushbar(
-              context,
-              null,
-              data.message,
-              isError: false,
+    return MultiBlocListener(
+      listeners: [
+        BlocListener<MonitoringCubit, MonitoringState>(
+          listenWhen: (previous, current) =>
+              previous.submitMonitoringResult != current.submitMonitoringResult,
+          listener: (context, state) {
+            state.submitMonitoringResult.when(
+              initial: () => null,
+              loading: () {
+                showLoadingDialog();
+              },
+              success: (data) {
+                dismissDialog();
+                NavigationUtil.popUntil();
+                showFlushbar(
+                  context,
+                  null,
+                  data.message,
+                  isError: false,
+                );
+              },
+              error: (failure) {
+                dismissDialog();
+                showFlushbar(context, null, Failure.getErrorMessage(failure));
+              },
             );
           },
-          error: (failure) {
-            dismissDialog();
-            showFlushbar(context, null, Failure.getErrorMessage(failure));
+        ),
+        BlocListener<MonitoringCubit, MonitoringState>(
+          listenWhen: (previous, current) =>
+              previous.submitMonitoringWithoutPermitDetailResult !=
+              current.submitMonitoringWithoutPermitDetailResult,
+          listener: (context, state) {
+            state.submitMonitoringWithoutPermitDetailResult.when(
+              initial: () => null,
+              loading: () {
+                showLoadingDialog();
+              },
+              success: (data) {
+                dismissDialog();
+                NavigationUtil.popUntil(result: true);
+                showFlushbar(
+                  context,
+                  null,
+                  data,
+                  isError: false,
+                );
+              },
+              error: (failure) {
+                dismissDialog();
+                showFlushbar(context, null, Failure.getErrorMessage(failure));
+              },
+            );
           },
-        );
-      },
+        ),
+      ],
       child: PrimaryButton(
         margin: EdgeInsets.only(
           top: Sizes.height61,

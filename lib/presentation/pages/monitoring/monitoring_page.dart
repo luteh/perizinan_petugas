@@ -5,7 +5,7 @@ import 'package:perizinan_petugas/presentation/pages/monitoring/widgets/body/bod
 import 'package:perizinan_petugas/presentation/pages/monitoring/widgets/footer/footer.dart';
 
 /// Must send arguments as [MonitoringArgs].
-/// Maybe return result as [List<<InputMonitoringData>>]
+/// Maybe return result as [List<<InputMonitoringData>>] or [bool]
 class MonitoringPage extends StatelessWidget {
   static const routeName = '/monitoring';
 

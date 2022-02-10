@@ -51,7 +51,7 @@ class MonitoringWithoutSubmissionRepositoryImpl
         images: inputMonitoringDatas
             .map((e) => ImageRequest(
                   image: base64Encode(e.imageFile!.readAsBytesSync()),
-                  description: description,
+                  description: e.keterangan!,
                 ))
             .toList(),
       ),
